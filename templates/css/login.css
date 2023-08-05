@@ -352,23 +352,20 @@
 }
 
 .logoAnimationImg {
-    transform: translate(-475px, -250px);
     animation: logoAnimation 0.8s ease-in-out;
+    animation-fill-mode: forwards;
     position: absolute;
     top: 45%;
     left: 45%;
-
 }
 
 .buttonAnimationImg {
-
     animation: buttonAnimation 2s ease-in-out;
     transform: translate(0px, -150px);
     position: absolute;
     bottom: 0;
     width: 30%;
     z-index: -5;
-
 }
 
 @keyframes logoAnimation {
@@ -378,7 +375,9 @@
     }
 
     to {
-        transform: translate(-475px, -250px);
+        position: absolute;
+        left: 18px;
+        top: 18px;
     }
 }
 
@@ -419,10 +418,6 @@
         font-size: 18px;
     }
 
-    .logoAnimationImg {
-        transform: translate(-350px, -250px);
-    }
-
     @keyframes logoAnimation {
         from {
             transform: translate(0px);
@@ -430,7 +425,9 @@
         }
 
         to {
-            transform: translate(-350px, -250px);
+            position: absolute;
+            left: 18px;
+            top: 18px;
         }
     }
 
