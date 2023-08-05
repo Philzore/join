@@ -1,0 +1,87 @@
+.addTaskOverlay {
+    background-color: white;
+    border-radius: 20px;
+    height: 85%;
+    width: 60%;
+    padding: 30px;
+    overflow-y: auto;
+    transition: transform 800ms ease-in-out;
+    transform: translate(0%);
+    animation: slideIn 0.8s ease-in-out;
+}
+
+.addTaskOverlay::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
+}
+
+.addTaskOverlay::-webkit-scrollbar-track {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(150%);
+    }
+
+    to {
+        transform: translate(0%);
+    }
+}
+
+.headlineContainerOverlay {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.headlineContainerOverlay img {
+    height: 16px;
+    width: 16px;
+    transition: ease-in-out 125ms;
+}
+
+.headlineContainerOverlay img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: ease-in-out 125ms;
+}
+
+
+@media (max-width: 1290px) {
+    .borderlineOverlay {
+        display: none;
+    }
+
+    .contentLeftAndRightOverlay {
+        flex-direction: column;
+    }
+
+    input {
+        width: 100% !important;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    .twoButtonsContainerOverlay {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 570px) {
+    .addTaskOverlay {
+        height: 100%;
+        width: 100%;
+    }
+
+    .headlineContainerOverlay img {
+        margin-top: 20px
+    }
+}

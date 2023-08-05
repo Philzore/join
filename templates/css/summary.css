@@ -1,0 +1,365 @@
+.pointer{
+    cursor: pointer;
+}
+.d-flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.marginLeft25 {
+    margin-left: 25%;
+}
+
+.summarySection {
+    padding-top: 50px;
+    padding-left: 80px;
+    background: #F6F7F8;
+    height: 100%;
+}
+
+.summarySection p {
+    font-size: 18px;
+}
+
+.headlineDiv {
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.contentAndGreeting {
+    justify-content: flex-start;
+}
+
+.summaryHeadline {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    color: #000000;
+    border-right: 3px solid #29ABE2;
+    padding-right: 60px;
+    margin-right: 24px;
+    max-width: 182px !important;
+    margin-bottom: 30px !important;
+}
+
+.taskbox {
+    cursor: pointer;
+    margin-right: 32px;
+    height: 110px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.taskbox:hover {
+    background: #2A3647;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+}
+
+.tasknumber {
+    padding-bottom: 8px;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.tasktext {
+    font-weight: 400;
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
+
+.newsAndDate {
+    margin-right: 32px;
+    height: 110px;
+    width: 484px;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    text-align: center;
+    margin-top: 32px;
+    font-size: 14px;
+}
+
+.newsAndDate:hover {
+    background: #2A3647;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+}
+
+.news {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #D1D1D1;
+    ;
+}
+
+.news img {
+    width: 40px;
+    height: 40px;
+    margin-right: 24px;
+}
+
+.newsNumber {
+    font-size: 32px;
+}
+
+.date {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.personalTaskBox {
+    margin-right: 32px;
+    height: 110px;
+    width: 226px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    text-align: center;
+    margin-top: 32px;
+}
+
+.personalTaskBox:hover {
+
+    background: #2A3647;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+
+
+}
+
+.toDobg {
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 25%;
+    background-image: url('../../img/pencilblue.png');
+    background-color: #FFFFFF;
+}
+
+.toDobg:hover {
+    background-image: url('../../img/pencilwhite.png');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 25%;
+}
+
+.toDoNumber {
+    font-size: 36px;
+}
+
+.doneNumber {
+    font-size: 36px;
+}
+
+.donebg {
+    background-size: 40px;
+    background-image: url('../../img/checkboxblue.png');
+    background-repeat: no-repeat;
+    background-position: 25%;
+    background-color: #FFFFFF;
+}
+
+.donebg:hover {
+    background-size: 40px;
+    background-image: url('../../img/checkboxwhite.png');
+    background-repeat: no-repeat;
+    background-position: 25%;
+}
+
+.greeting p {
+    font-size: 32px;
+}
+
+.insertDate {
+    font-size: 22px;
+}
+
+.managementText {
+    display: none;
+}
+
+.current-user {
+    color: #29ABE2;
+}
+
+@media (max-width: 1000px) {
+    .greeting {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+
+    }
+
+    .headlineDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contentAndGreeting {
+        justify-content: center;
+
+    }
+
+    .summarySection {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 0;
+    }
+
+
+    .greeting {
+        animation: greeting-fade 3s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        
+    }
+    .greeting p{
+        font-size: 45px !important;
+    }
+    
+    @keyframes greeting-fade {
+        from {
+            background: #F6F7F8;
+            z-index: 3;
+            color: #000000;
+        }
+    
+        to {
+            background: none;
+            z-index: -1;
+            color: #F6F7F8;
+        }
+    }
+
+
+}
+
+@media (max-width: 750px) {
+    .contentAndGreeting {
+        justify-content: flex-start;
+    }
+
+    .summarySection {
+        display: flex;
+        flex-direction: column;
+        padding: 35px;
+        align-items: center;
+    }
+
+    .headlineDiv {
+        width: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .summaryHeadline {
+        border: none;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .managementText {
+        display: block;
+        font-size: 20px;
+    }
+
+    .nutshelltext {
+        margin: 0;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        font-size: 20px !important;
+        color: #2A3647;
+        box-shadow: -18px 23px 0px -20px #29ABE2;
+
+    }
+
+    .taskbox {
+        margin-right: 16px;
+        height: 75px;
+        width: 100px;
+        border-radius: 15px;
+    }
+
+    .summarySection p {
+        font-size: 16px;
+    }
+
+    .tasknumber {
+        padding-bottom: 0px;
+    }
+
+    .newsAndDate {
+        height: 95px;
+        width: 332px;
+        border-radius: 15px;
+        margin-top: 25px;
+    }
+
+    .personalTaskBox {
+        margin-right: 16px;
+        width: 158px;
+        border-radius: 15px;
+        height: 95px;
+        margin-top: 25px;
+    }
+}
+@media (max-width: 500px){
+    .summarySection{
+        padding: 15px;
+    }
+}
+@media (max-height: 700px) {
+    .summaryHeadline {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+    .newsAndDate {
+        margin-top: 10px;
+        margin-right: 0px;
+    }
+    .personalTaskBox {
+        margin-top: 10px;
+    }
+    .headlineDiv {
+        width: 350px;}
+}
