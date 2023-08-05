@@ -9,8 +9,6 @@ let newPrio;
 let chosenStat = 'todo';
 let currentBooleanValue = 'false';
 
-
-
 function giveTaskId() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
@@ -28,8 +26,6 @@ function updateBoardTasks() {
     showProgressbar();
 }
 
-
-
 function renderBoardHTML() {
     let content = document.getElementById('contentSection');
     
@@ -41,17 +37,12 @@ function renderBoardHTML() {
     renderStatusFieldsHTML();
 }
 
-
-
 function renderBoardHeaderHTML() {
     let content = document.getElementById('boardHeadlineContainer');
 
     content.innerHTML = '';
-
     content.innerHTML += renderBoardHeaderTemplateHTML();
 }
-
-
 
 function renderStatusFieldsHTML() {
     let content = document.getElementById('boardContentContainer');
@@ -66,8 +57,6 @@ function renderStatusFieldsHTML() {
     }
     updateBoardTasks();
 }
-
-
 
 function renderTodoTasksHTML(arrayName) {
     let content = document.getElementById('statContainer0');
@@ -86,8 +75,6 @@ function renderTodoTasksHTML(arrayName) {
     }
 }
 
-
-
 function renderInProgressHTML(arrayName) {
     let content = document.getElementById('statContainer1');
     let inProgress = arrayName.filter(task => task['stat'] == 'inProgress');
@@ -104,8 +91,6 @@ function renderInProgressHTML(arrayName) {
         renderAssignedToHTML(task);
     }
 }
-
-
 
 function renderAwaitingFeedbackHTML(arrayName) {
     let content = document.getElementById('statContainer2');
@@ -130,8 +115,6 @@ function renderAwaitingFeedbackHTML(arrayName) {
     }
 }
 
-
-
 function renderDoneHTML(arrayName) {
     let content = document.getElementById('statContainer3');
     let done = arrayName.filter(task => task['stat'] == 'done');
@@ -149,8 +132,6 @@ function renderDoneHTML(arrayName) {
     }
 }
 
-
-
 function renderAssignedToHTML(task) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
     let assignmentCount = task['assignedTo'].length -3;
@@ -167,8 +148,6 @@ function renderAssignedToHTML(task) {
     }
 }
 
-
-
 function renderTaskAssignmentListHTML(task, count) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
 
@@ -181,8 +160,6 @@ function renderTaskAssignmentListHTML(task, count) {
     }
 }
 
-
-
 function showProgressbar() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const task = newTaskArray[i];
@@ -193,15 +170,11 @@ function showProgressbar() {
     }
 }
 
-
-
 ///////////////////////Task-Pop-Up/////////////////////////////////
 function openExistingTaskPopUp(Id) {
     renderClickedTaskPopUpHTML(Id);
     document.getElementById('overlaySection').classList.remove('d-none');
 }
-
-
 
 function closeTaskPopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
@@ -218,8 +191,6 @@ function renderClickedTaskPopUpHTML(Id) {
     renderTaskPopUpAssignmentsHTML(clickedTask);
 }
 
-
-
 function renderTaskPopUpTableHTML(clickedTask) {
     let content = document.getElementById('taskPopUpTable');
 
@@ -227,8 +198,6 @@ function renderTaskPopUpTableHTML(clickedTask) {
 
     content.innerHTML += renderTaskPopUpTableTemplateHTML(clickedTask);
 }
-
-
 
 function renderTaskPopUpAssignmentsHTML(clickedTask) {
     let content = document.getElementById('taskPopUpAssignmentsList');
@@ -244,13 +213,9 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
     } 
 }
 
-
-
 function openModifyTaskPopUp(Id) {
     modifyCurrentTaskHTML(Id);
 }
-
-
 
 function modifyCurrentTaskHTML(Id) {
     let content = document.getElementById('overlaySection');
@@ -266,8 +231,6 @@ function modifyCurrentTaskHTML(Id) {
     renderModifySubtaskList(Id);
 }
 
-
-
 function renderModifyAssignmentsHTML(Id) {
     let currentTask = newTaskArray[Id];
     let content = document.getElementById(`modifyPopUpAssignmentContainer${currentTask['id']}`);
@@ -282,7 +245,6 @@ function renderModifyAssignmentsHTML(Id) {
         content.innerHTML += modifyAssignmentsTemplateHTML(bgColor, initials);
     }
 }
-
 
 function modifyPrio(currentPriority) {
     let currentPrio = capitalizeFirstLetter(currentPriority);
@@ -302,8 +264,6 @@ function modifyPrio(currentPriority) {
     document.getElementById(`modify${otherPrio2}Icon`).src = `./img/${otherPrios[1]}Icon.png`;
 }
 
-
-
 function renderModifySubtaskList(Id) {
     let content = document.getElementById('modifysubtasksList');
     let task = newTaskArray[Id];
@@ -321,15 +281,11 @@ function renderModifySubtaskList(Id) {
     }
 }
 
-
-
 function changeImg() {
     let imageTag = document.getElementById('deleteTask-Img');
 
     imageTag.src = './img/delete.png';
 }
-
-
 
 function renderContactsModifyAddTask(Id) {
     activateEvent();
@@ -351,14 +307,10 @@ function renderContactsModifyAddTask(Id) {
     }
 }
 
-
-
 function activateEvent() {
     let modifyAssignBtn = document.getElementById('modifyAssignedTo');
     modifyAssignBtn.addEventListener("change", modifyAssignedTo);
 }
-
-
 
 function modifyAssignedTo() {
     let assignee = document.getElementById("modifyAssignedTo");
@@ -376,12 +328,10 @@ function modifyAssignedTo() {
     renderModifyAssignmentsHTML(Id);
 }
 
-
 function pushToAssignments(Id, name) {
     task['assignedTo'].push(name);
     renderModifySubtaskList(Id);
 }
-
 
 function configDoneSubtask(i, Id) {
     let task = newTaskArray[Id];
@@ -400,8 +350,6 @@ function configDoneSubtask(i, Id) {
     console.log(task['isChecked'][i]);
 }
 
-
-
 function calculateProgress(subTaskAmount, doneAmount) {
     if (doneAmount > subTaskAmount) {
         doneAmount = subTaskAmount;
@@ -410,8 +358,6 @@ function calculateProgress(subTaskAmount, doneAmount) {
 
     return progressInPercent;
 }
-
-
 
 function confirmChangesOnTask(Id) {
     let currentTask = newTaskArray[Id];
@@ -429,8 +375,6 @@ function confirmChangesOnTask(Id) {
     updateBoardTasks();
 }
 
-
-
 function deleteTask(Id) {
 
     newTaskArray.splice(Id, 1);
@@ -440,22 +384,16 @@ function deleteTask(Id) {
     updateBoardTasks();
 }
 
-
-
 ///////////////////////Drag & Drop/////////////////////////////////
 function startDragging(id) {
     currentDraggedTask = id;
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.add('rotateDeg');
 }
 
-
-
 function allowDrop(ev) {
     ev.preventDefault();
 
 }
-
-
 
 function drop(stat) {
     newTaskArray[currentDraggedTask]['stat']  = stat;
@@ -464,19 +402,13 @@ function drop(stat) {
     updateBoardTasks();
 }
 
-
-
 function highlight(stat) {
     //document.getElementById(stat).classList.add('dragAreaHighlight');
 }
 
-
-
 function stopHighlight(stat) {
     document.getElementById(stat).classList.remove('dragAreaHighlight');
 }
-
-////////////Search for Task////////////////////////////
 
 function searchTask() {
     let searchInput = document.getElementById('searchInput').value;
@@ -495,13 +427,9 @@ function searchTask() {
         renderFilteredTasks('filteredTasks');
 }
 
-
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
 
 function renderFilteredTasks() {
     renderTodoTasksHTML(filteredTasks);
@@ -511,17 +439,3 @@ function renderFilteredTasks() {
 
     filteredTasks = [];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

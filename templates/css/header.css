@@ -12,6 +12,12 @@
     z-index: 5;
 }
 
+.headerTitle {
+    position: absolute;
+    left: 250px;
+    margin: 0 !important;
+}
+
 .header p {
     left: 348px;
     position: absolute;
@@ -94,4 +100,10 @@
 
 .headerContentRightLogoutHelp{
     display: none;
+}
+
+@media (max-width: 750px) {
+    .headerTitle {
+        display: none;
+    }
 }

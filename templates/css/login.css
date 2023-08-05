@@ -118,19 +118,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 8%;
-    left: 10vw;
-    width: 80vw;
+    bottom: 20%;
+    left: 50%;
+    right: 0;
+    max-width: 600px;
+    /* width: 80vw; */
     text-align: center;
-    height: 20vh;
+    /* height: 20vh; */
     z-index: 99;
     font-weight: bold;
     font-size: 32px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 20px;
 }
 
 .msgBoxContent {
-    width: 600px;
+    /* width: 600px; */
     padding: 20px;
+    
+   
 }
 
 .arrowblue {
@@ -283,11 +290,11 @@
     cursor: pointer;
 }
 
-.bluebutton: {
+/* .bluebutton: {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
-}
+} */
 
 .guestbtn {
     cursor: pointer;

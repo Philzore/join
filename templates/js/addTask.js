@@ -7,7 +7,6 @@ let assignedToInitials = [];
 let dateArray = [];
 let isChecked = [];
 
-
 async function initAddTask() {
     document.getElementById('contentSection').innerHTML = generateAddTaskContent();
     await loadTasks();
@@ -15,11 +14,9 @@ async function initAddTask() {
     activatePrioButtons();
 }
 
-
 async function loadTasks() {
     newTaskArray = JSON.parse(await getItem('createdTask'));
 }
-
 
 function renderHeadline() {
     document.getElementById('headlineContainer').innerHTML = /*html*/ `
@@ -29,13 +26,11 @@ function renderHeadline() {
     renderContactsAddTask('assignedTo');
 }
 
-
 function renderContentLeftAndRight() {
     document.getElementById('contentLeftAndRightContainer').innerHTML = generateContentLeftAndRightContainer();
     renderTwoButtonsContainer();
     setMinDate('date');
 }
-
 
 function renderContactsAddTask(Id) {
     for (let i = 0; i < allContacts.length; i++) {
@@ -48,28 +43,23 @@ function renderContactsAddTask(Id) {
     }
 }
 
-
 function setColor(color) {
     contactsColors.push(color);
 }
 
-
 function renderTwoButtonsContainer() {
     document.getElementById('twoButtonsContainer').innerHTML = generateTwoButtonsContainer();
 }
-
 
 function setMinDate(id) {
     let today = new Date().toISOString().split('T')[0];
     document.getElementById(id).setAttribute('min', today);
 }
 
-
 function pushDate() {
     let dueDate = document.getElementById('date').value;
     dateArray.splice(0, 1, dueDate);
 }
-
 
 function activatePrioButtons() {
     low();
@@ -94,7 +84,6 @@ function activatePrioButtons() {
     });
 }
 
-
 function urgent() {
     let prioValue = document.getElementById('urgent').value;
     prio = prioValue;
@@ -108,7 +97,6 @@ function urgent() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
-
 
 function medium() {
     let prioValue = document.getElementById('medium').value;
@@ -124,7 +112,6 @@ function medium() {
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
 
-
 function low() {
     let prioValue = document.getElementById('low').value;
     prio = prioValue;
@@ -138,7 +125,6 @@ function low() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
-
 
 function assignedTo() {
     let assignee = document.getElementById("assignedTo");
@@ -155,7 +141,6 @@ function assignedTo() {
     showAssignedToList(i);
 }
 
-
 function showAssignedToList(i) {
     const allData = allContacts[i];
     const { initials, color } = getJoinData(allData);
@@ -165,7 +150,6 @@ function showAssignedToList(i) {
         </div>
     `; 
 }
-
 
 function newSubtask() {
     let newSubtask = document.getElementById('subtasks').value;
@@ -190,7 +174,6 @@ function newSubtask() {
     document.getElementById('subtasks').value = '';
 }
 
-
 function clearFields() {
     assignedToNames = [];
     allSubtasks = [];
@@ -198,14 +181,11 @@ function clearFields() {
     document.getElementById('subtasksList').innerHTML = '';
 }
 
-
 function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('category').value;
     let  date = dateArray;
-
-
 
     let newTask = {
         'id': '',
@@ -230,12 +210,10 @@ function createTask() {
     taskAddedToBoard();
 }
 
-
 async function saveTasks() {
     await setItem('createdTask', JSON.stringify(newTaskArray));
     renderBoard();
 }
-
 
 function taskAddedToBoard() {
     document.getElementById('overlaySection').classList.remove('d-none');
@@ -244,7 +222,6 @@ function taskAddedToBoard() {
     `;
     setTimeout(function() {closePopUp()}, 2000);
 }
-
 
 function closePopUp() {
     document.getElementById('overlaySection').classList.add('d-none');

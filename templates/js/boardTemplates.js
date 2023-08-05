@@ -4,8 +4,6 @@ function modifyAssignmentsTemplateHTML(bgColor, initials) {
 `
 }
 
-
-
 function renderModifyTaskTemplateHTML(currentTask) {
     return /*html*/`
     <div class="taskModifyPopUp" onclick="doNotClose(event)">
@@ -47,7 +45,6 @@ function renderModifyTaskTemplateHTML(currentTask) {
             </div>
         </div>
 
-
         <div class="assignedToAndSelect">
             <span>Assigned to</span>
             <select class="modifyInput" id="modifyAssignedTo" onclick="renderContactsModifyAddTask(${currentTask['id']})" required> 
@@ -62,7 +59,6 @@ function renderModifyTaskTemplateHTML(currentTask) {
             <img src="./img/checkIcon.png" alt="">
         </div>
 
-
         <div class="inputAndButton">
             <input id="modifysubtasks" placeholder="Add new subtask">
             <button type="button" onclick="newSubtask()">
@@ -75,17 +71,8 @@ function renderModifyTaskTemplateHTML(currentTask) {
         </div>
 
     </div>
-
-
    `
 }
-
-
-
-
-
-
-
 
 function renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor) {
     return /*html*/`
@@ -95,8 +82,6 @@ function renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgC
     </div>
 `
 }
-
-
 
 function renderTaskPopUpTableTemplateHTML(clickedTask) {
     return /*html*/`
@@ -114,14 +99,9 @@ function renderTaskPopUpTableTemplateHTML(clickedTask) {
 
     </div>
 
-
-
-
     <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()">X</div>
 `
 }
-
-
 
 function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
     return /*html*/`
@@ -149,8 +129,6 @@ function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
     </div>
 `
 }
-
-
 
 function generatePinnedTaskHTML(task, progressInPercent) {
     return /*html*/`
@@ -189,23 +167,17 @@ function generatePinnedTaskHTML(task, progressInPercent) {
 `;
 }
 
-
-
 function renderTaskAssignmentsTemplateHTML(task, bgColor, initials) {
     return /*html*/`
     <div class="contactContainer" id="" style="background-color:${bgColor}">${initials}</div>
     `; 
 }
 
-
-
 function renderTaskAssignmentCountHTML(assignmentCount) {
     return /*html*/`
     <div class="contactContainer" style="background-color: rgb(0, 0, 0)">+${assignmentCount}</div>
     `;
 }
-
-
 
 function renderStatusfieldsTemplateHTML(i, stat, statClass) {
     return /*html*/`
@@ -224,8 +196,6 @@ function renderStatusfieldsTemplateHTML(i, stat, statClass) {
 `
 }
 
-
-
 function renderBoardHeaderTemplateHTML() {
     return /*html*/`
     <div id= "BoardManagementText" class="boardManagementText">Kanban Project Management Tool</div>
@@ -237,7 +207,6 @@ function renderBoardHeaderTemplateHTML() {
             <div class="plusLine2 bg-white"></div>
         </div>
     </div>
-
 
     <div class="boardHeadlineRightContainer">
         <div class="searchContainer">
@@ -257,8 +226,6 @@ function renderBoardHeaderTemplateHTML() {
 `
 }
 
-
-
 function renderBoardTemplateHTML() {
     return /*html*/`
     <div class="boardBody" id="boardBody">
@@ -269,9 +236,6 @@ function renderBoardTemplateHTML() {
     `
 }
 
-
-
-
 function renderCheckedBoxTemplateHTML(i, Id, subtask) {
     return /*html*/`
     <div class="subtask modifySubtask">
@@ -280,8 +244,6 @@ function renderCheckedBoxTemplateHTML(i, Id, subtask) {
     </div>
     `
 }
-
-
 
 function renderUncheckedBoxTemplateHTML(i, Id, subtask) {
     return /*html*/`

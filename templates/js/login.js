@@ -14,7 +14,7 @@ function leadToSignUp() {
   window.location.href = "signUp.html";
 }
 function guestLogIn() {
-  window.location.replace("https://join-604.developerakademie.net/join1/board.html");
+  window.location.replace("https://join-604.developerakademie.net/join/index.html");
 }
 
 async function login() {
@@ -30,9 +30,9 @@ async function login() {
   console.log(user);
   if (user) {
     console.log("user gefunden");
-    window.location.replace("https://dominik-wiese.developerakademie.net/join/index.html");
+    window.location.replace("https://join-604.developerakademie.net/join/index.html");
   } else {
-    document.getElementById("msgBox").innerHTML = `Email oder Passwort nicht korrekt!`;
+    document.getElementById("msgBox").innerHTML = `Incorrect mail or password!`;
     document.getElementById("msgBoxDiv").classList.remove("d-none");
   }
 }

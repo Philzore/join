@@ -40,9 +40,9 @@ function generateLegalNoticeScreenHTML() {
         Mustermannstraße 5<br>
         Musterhausen<br>
     </p>
-    <p>Max Mustermann<br>
-        Mustermannstraße 5<br>
-        Musterhausen<br>
+    <p>Philipp Mössl<br>
+        Hauptstraße 69<br>
+        02727 Ebersbach-Neugersdorf<br>
     </p>
     <p>Max Mustermann<br>
         Mustermannstraße 5<br>

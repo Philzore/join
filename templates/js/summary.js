@@ -1,5 +1,9 @@
 let earliest = [];
 
+/**
+ * initialize summary location
+ * 
+ */
 async function initSummary() {
   await loadUserLogin();
   let currentUser = getCurrentUser();
@@ -12,7 +16,10 @@ async function initSummary() {
   searchUrgentTasks()
 }
 
-
+/**
+ * 
+ * @returns name for showing welcome text
+ */
 function getCurrentUser() {
   let name;
   let email = localStorage.getItem('currentEmail');
@@ -27,7 +34,10 @@ function getCurrentUser() {
   return name;
 }
 
-
+/**
+ * show how many urgent tasks are open
+ * 
+ */
 function searchUrgentTasks() {
   let prio = 'urgent';
   let urgentTasks = newTaskArray.filter(function (a) {
@@ -39,7 +49,10 @@ function searchUrgentTasks() {
   `;
 }
 
-
+/**
+ * generate date
+ * 
+ */
 function searchDate() {
   const minDate =
     newTaskArray.map(element => {
@@ -48,18 +61,14 @@ function searchDate() {
   earliest = minDate.reduce(function (pre, cur) {
     return Date.parse(pre) > Date.parse(cur) ? cur : pre;
   });
-  console.log(earliest);
-  generateDate(earliest);
+ 
+  document.getElementById('insertDate').innerHTML = earliest ;
 }
 
-
-function generateDate(earliest) {
-  document.getElementById('insertDate').innerHTML = /*html*/`
-   ${earliest}
-    `
-}
-
-
+/**
+ * load statistics how many tasks with which status
+ * 
+ */
 function loadTaskStat() {
   let stat = '';
   for (let i = 0; i < newTaskArray.length; i++) {
@@ -75,9 +84,6 @@ function loadTaskStat() {
   }
 }
 
-
-// GENERATE HTML CODE
-
 function getSummaryHeadlineDiv() {
   return /*html*/`
         
@@ -85,7 +91,6 @@ function getSummaryHeadlineDiv() {
           <p id="nutshelltext" class="nutshelltext">Everything in a nutshell!</p>
   `
 }
-
 
 function getSummaryinnerContent() {
   return /*html*/`
@@ -135,7 +140,6 @@ function getSummaryinnerContent() {
   `
 }
 
-
 function getSummarySection() {
     return /*html*/`
       <div id="summarySection" class="summarySection">
@@ -148,7 +152,6 @@ function getSummarySection() {
       </div>
   `;
   }
-
 
 function getSummaryGreeting(currentUser) {
     return /*html*/`

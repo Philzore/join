@@ -4,12 +4,19 @@ async function initLogin(){
   await getMsg();
 }
 
-
+/**
+ * load the users
+ * 
+ */
 async function loadUserLogin() {
   let users = JSON.parse(await getItem("userLogin"));
   userLogin = users;
 }
 
+/**
+ * push name,email and password in an array and send it to the backend
+ * 
+ */
 async function signUp() {
   signUpbtn.disabled = true;
   userLogin.push({
@@ -20,13 +27,21 @@ async function signUp() {
 
   await setItem("userLogin", JSON.stringify(userLogin));
   resetForm();
-  window.location.href = "login.html?msg=Du hast dich erfolgreich registriert";
+  window.location.href = "login.html?msg=registration succesful"; //Du hast dich erfolgreich registriert
 }
 
+/**
+ * go to login.html
+ * 
+ */
 function goBackToLogin() {
  window.location.href = "login.html";
-} 
+}
 
+/**
+ * reset form
+ * 
+ */
 function resetForm() {
   signUpName.value = "";
   signUpEmail.value = "";

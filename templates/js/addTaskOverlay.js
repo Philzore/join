@@ -12,7 +12,6 @@ function openAddTaskOverlay(stat) {
     renderHeadlineOverlay();
 }
 
-
 function renderHeadlineOverlay() {
     document.getElementById('headlineContainerOverlay').innerHTML = /*html*/ `
         <h1>Add Task</h1>
@@ -23,18 +22,15 @@ function renderHeadlineOverlay() {
     activatePrioButtonsOverlay();
 }
 
-
 function closeOverlay() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
-
 
 function renderContentLeftAndRightOverlay() {
     document.getElementById('contentLeftAndRightContainerOverlay').innerHTML = generateContentLeftAndRightContainerOverlay();
     renderTwoButtonsContainerOverlay();
     setMinDate('dateOverlay');
 }
-
 
 function renderContactsAddTaskOverlay() {
     for (let i = 0; i < allContacts.length; i++) {
@@ -47,17 +43,14 @@ function renderContactsAddTaskOverlay() {
     }
 }
 
-
 function renderTwoButtonsContainerOverlay() {
     document.getElementById('twoButtonsContainerOverlay').innerHTML = generateTwoButtonsContainerOverlay();
 }
-
 
 function pushDateOverlay() {
     let dueDate = document.getElementById('dateOverlay').value;
     dateArray.splice(0, 1, dueDate);
 }
-
 
 function activatePrioButtonsOverlay() {
     low();
@@ -82,7 +75,6 @@ function activatePrioButtonsOverlay() {
     });
 }
 
-
 function urgent() {
     let prioValue = document.getElementById('urgent').value;
     prio = prioValue;
@@ -96,7 +88,6 @@ function urgent() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
-
 
 function medium() {
     let prioValue = document.getElementById('medium').value;
@@ -112,7 +103,6 @@ function medium() {
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
 
-
 function low() {
     let prioValue = document.getElementById('low').value;
     prio = prioValue;
@@ -126,7 +116,6 @@ function low() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
-
 
 function assignedToOverlay() {
     let assignee = document.getElementById("assignedToOverlay");
@@ -143,7 +132,6 @@ function assignedToOverlay() {
     showAssignedToList(i);
 }
 
-
 function showAssignedToList(i) {
     const allData = allContacts[i];
     const { initials, color } = getJoinData(allData);
@@ -153,10 +141,6 @@ function showAssignedToList(i) {
         </div>
     `;
 }
-
-
-
-
 
 //Add Task Overlay Templates
 function generateContentLeftAndRightContainerOverlay() {
@@ -195,6 +179,7 @@ function generateContentLeftAndRightContainerOverlay() {
                 <div class="assignedToList" id="assignedToList">
 
                 </div>
+
             </div>
 
             <div class="borderline borderlineOverlay"></div>
@@ -243,7 +228,6 @@ function generateContentLeftAndRightContainerOverlay() {
         </div>
     `;
 }
-
 
 function generateTwoButtonsContainerOverlay() {
     return /*html*/ `
