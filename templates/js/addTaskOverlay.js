@@ -160,6 +160,7 @@ function generateContentLeftAndRightContainerOverlay() {
                     <span>Category</span>
                     <select id="category" required>
                         <option value="" disabled selected>Select task category</option>
+                        <option value="new">Create new category</option>
                         <option value="design">Design</option>
                         <option value="sales">Sales</option>
                         <option value="backoffice">Backoffice</option>
