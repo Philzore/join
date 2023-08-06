@@ -14,7 +14,8 @@ function openAddTaskOverlay(stat) {
 function renderHeadlineOverlay() {
     document.getElementById('headlineContainerOverlay').innerHTML = /*html*/ `
         <h1>Add Task</h1>
-        <img src="./img/cancelIcon.png" onclick="closeOverlay()">
+        <img class="closeBtnCross" src="./img/cancelIcon.png" onclick="closeOverlay()">
+        <img  class="closeBtnArrow" src="./img/arrow-left-line.svg" onclick="closeOverlay()">
     `;
     renderContentLeftAndRightOverlay();
     renderContactsAddTask('assignedToOverlay');
@@ -38,7 +39,7 @@ function renderContactsAddTaskOverlay() {
         const { color } = getJoinData(allData);
         document.getElementById('assignedToOverlay').innerHTML += /*html*/ `
             <option value="${color}">${name}</option>
-        `;  
+        `;
     }
 }
 
@@ -64,12 +65,12 @@ function activatePrioButtonsOverlay() {
 
     let resetBtn = document.getElementById('reset');
     resetBtn.addEventListener("click", low);
-       
+
     let assignBtn = document.getElementById('assignedToOverlay');
     assignBtn.addEventListener("change", assignedToOverlay);
 
-    document.getElementById('addTaskForm').addEventListener('submit', function(event) {
-        event.preventDefault(); 
+    document.getElementById('addTaskForm').addEventListener('submit', function (event) {
+        event.preventDefault();
         createTask();
     });
 }
