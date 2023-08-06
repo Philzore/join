@@ -36,4 +36,3 @@ async function login() {
     document.getElementById("msgBoxDiv").classList.remove("d-none");
   }
 }
-

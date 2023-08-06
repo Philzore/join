@@ -201,7 +201,6 @@ function createTask() {
         'doneSubTasks': 0,
         'color': contactsColors
     };
-
     newTaskArray.push(newTask);
     saveTasks();
     allSubtasks = [];

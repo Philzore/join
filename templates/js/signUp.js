@@ -48,6 +48,3 @@ function resetForm() {
   signUpPassword.value = "";
   signUpbtn.disabled = false;
 }
-
-
-

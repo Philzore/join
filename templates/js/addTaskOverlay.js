@@ -8,7 +8,6 @@ function openAddTaskOverlay(stat) {
             <div class="twoButtonsContainerOverlay" id="twoButtonsContainerOverlay"></div>
         </form>
     `;
-
     renderHeadlineOverlay();
 }
 
