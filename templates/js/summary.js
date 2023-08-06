@@ -10,10 +10,12 @@ async function initSummary() {
   document.getElementById('contentSection').innerHTML = getSummarySection();
   document.getElementById('headlineDiv').innerHTML += getSummaryHeadlineDiv();
   document.getElementById('contentAndGreeting').innerHTML += getSummaryinnerContent();
-  document.getElementById('contentAndGreeting').innerHTML += getSummaryGreeting(currentUser);
+  //document.getElementById('contentAndGreeting').innerHTML += getSummaryGreeting(currentUser);
+  renderGreeting(currentUser);
   loadTaskStat();
   searchDate();
-  searchUrgentTasks()
+  searchUrgentTasks();
+ 
 }
 
 /**
@@ -63,6 +65,29 @@ function searchDate() {
   });
  
   document.getElementById('insertDate').innerHTML = earliest ;
+}
+
+/**
+ * get current hours and generate a greeting text for current day time
+ * 
+ * @param {string} currentUser user for greeting text
+ */
+function renderGreeting(currentUser) {
+  let date = new Date() ;
+  let currentHours = date.getHours();
+  let greeting = '';
+  
+  if (currentHours >= 0 && currentHours <= 12){
+    greeting = 'Good Morning';
+  } else if (currentHours >= 12 && currentHours <= 18){
+    greeting = 'Good Afternoon';
+  } else {
+    greeting = 'Good Evening';
+  }
+  document.getElementById('contentAndGreeting').innerHTML += `
+  <div class="d-flex center greeting">
+    <p id="welcome-text">${greeting}<br><b class="current-user">${currentUser}</b></p>
+  </div>` ;
 }
 
 /**
@@ -153,10 +178,10 @@ function getSummarySection() {
   `;
   }
 
-function getSummaryGreeting(currentUser) {
-    return /*html*/`
-              <div id="greeting" class="d-flex center greeting">
-              <p>Good Morning <br><b class="current-user">${currentUser}</b></p>
-            </div>
-    `
- }
+// function getSummaryGreeting(currentUser) {
+//     return /*html*/`
+//               <div id="greeting" class="d-flex center greeting">
+//               <p id="welcome-text">Good Morning <br><b class="current-user">${currentUser}</b></p>
+//             </div>
+//     `
+//  }
