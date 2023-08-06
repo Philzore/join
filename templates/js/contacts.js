@@ -184,8 +184,8 @@ function showCreatedContact(name) {
  * @returns {Promise<void>}
  */
 async function createEditedContact(i) {
-    let { editedName, editedEmail, editedPhone } = getEditedVariables();
-    await saveEditedContact(editedName, editedEmail, editedPhone, i);
+    let { editedName, editedEmail, editedPhone, editedInitials} = getEditedVariables();
+    await saveEditedContact(editedName, editedEmail, editedPhone, editedInitials, i);
     showEditedContact(i);
 }
 
@@ -197,7 +197,8 @@ function getEditedVariables() {
     let editedName = document.getElementById('editContactName').value;
     let editedEmail = document.getElementById('editContactEmail').value;
     let editedPhone = document.getElementById('editContactPhone').value;
-    return { editedName, editedEmail, editedPhone };
+    let editedInitials = getInitials(editedName);
+    return { editedName, editedEmail, editedPhone, editedInitials };
 }
 
 /**
@@ -208,10 +209,11 @@ function getEditedVariables() {
  * @param {number} i - The index of the contact in the contacts list.
  * @returns {Promise<void>}
  */
-async function saveEditedContact(editedName, editedEmail, editedPhone, i) {
+async function saveEditedContact(editedName, editedEmail, editedPhone, editedInitials, i) {
     allContacts[i]['name'] = editedName;
     allContacts[i]['email'] = editedEmail;
     allContacts[i]['phone'] = editedPhone;
+    allContacts[i]['initials'] = editedInitials;
     await setItem('contacts', JSON.stringify(allContacts));
 }
 
