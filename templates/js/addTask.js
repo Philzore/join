@@ -7,6 +7,8 @@ let assignedToInitials = [];
 let dateArray = [];
 let isChecked = [];
 
+
+
 async function initAddTask() {
     document.getElementById('contentSection').innerHTML = generateAddTaskContent();
     await loadTasks();
@@ -224,4 +226,15 @@ function taskAddedToBoard() {
 
 function closePopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
+}
+
+function addNewCategory() {
+    let value = document.getElementById('category').value;
+    if (value == 'new') {
+        console.log(value);
+        document.getElementById('new-category').classList.remove('d-none');
+    } else {
+        document.getElementById('new-category').classList.add('d-none');
+    }
+
 }

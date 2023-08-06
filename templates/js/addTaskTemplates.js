@@ -24,14 +24,16 @@ function generateContentLeftAndRightContainer() {
 
                 <div class="categoryAndSelect">
                     <span>Category</span>
-                    <select id="category" required>
+                    <select id="category" onchange="addNewCategory()" required>
                         <option value="" disabled selected>Select task category</option>
+                        <option value="new">Create new category</option>
                         <option value="design">Design</option>
                         <option value="sales">Sales</option>
                         <option value="backoffice">Backoffice</option>
                         <option value="media">Media</option>
                         <option value="marketing">Marketing</option>
                     </select>
+                    <input id="new-category" class="d-none" type="text" placeholder="Add new category"></input>
                 </div>
 
                 <div class="assignedToAndSelect">
@@ -108,3 +110,5 @@ function generateTwoButtonsContainer() {
         </div>
     `;
 }
+
+
