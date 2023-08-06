@@ -74,12 +74,12 @@
         margin-top: 20px;
     }
 }
-@media(min-width: 1001px) {
+@media(min-width: 571px) {
     .closeBtnArrow {
         display: none;
     }
 }
-@media (max-width: 1000px) {
+@media (max-width: 570px) {
     .addTaskOverlay {
         height: 90vh;
         width: 90vw;
@@ -87,7 +87,7 @@
     .closeBtnCross {
         display: none;
     }
-    .closeBtnArrow {
+    .headlineContainerOverlay img {
         width: 50px;
         height: 50px;
     }

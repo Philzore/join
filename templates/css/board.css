@@ -602,6 +602,9 @@
     border-collapse: collapse;
 }
 
+.closeBtnCross:hover{
+    transform: scale(1.4);
+}
 
 .taskPopUpButton {
     display: flex;
@@ -648,7 +651,6 @@
 }
 
 .rightBtnImg {
-    filter: brightness(0) invert(1);
     width: 30px;
     height: 30px;
     border-top-right-radius: 10px;
@@ -704,14 +706,14 @@
     }
 }
 
-@media(min-width: 1001px) {
+@media(min-width: 571px) {
     .closeBtnArrow {
         display: none;
     }
 
 }
 
-@media(max-width: 1000px) {
+@media(max-width: 570px) {
 
     .taskOverviewPopUp,
     .taskModifyPopUp {
