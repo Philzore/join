@@ -32,6 +32,10 @@
     cursor: pointer;
 }
 
+.sidebarBtn:hover {
+    background-color: #091931;
+}
+
 .sidebarBtn img {
     height: 22px;
     width: 30px;
