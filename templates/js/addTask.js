@@ -228,13 +228,18 @@ function closePopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
 
-function addNewCategory() {
+function showAddBox() {
     let value = document.getElementById('category').value;
     if (value == 'new') {
-        console.log(value);
-        document.getElementById('new-category').classList.remove('d-none');
+        document.getElementById('new-category-box').classList.remove('d-none');
     } else {
-        document.getElementById('new-category').classList.add('d-none');
+        document.getElementById('new-category-box').classList.add('d-none');
     }
+}
 
+function addNewCategory() {
+    let categoryInput = document.getElementById('new-category-input').value;
+    let selection = document.getElementById('category');
+
+    selection.innerHTML += `<option value="${categoryInput}">${categoryInput}</option>` ;
 }

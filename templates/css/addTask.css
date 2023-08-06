@@ -352,6 +352,23 @@ button {
     transition: ease-in-out 125ms;
 }
 
+.add-category-btn {
+    color: #FFFFFF;
+    background: #2A3647;
+    border: none;
+    padding: 13px 15px;
+    border-radius: 10px;
+    transition: ease-in-out 125ms;
+}
+
+.add-category-btn:hover {
+    cursor: pointer;
+    background-color: rgb(83, 168, 223);
+    transform: scale(1.02);
+    box-shadow: 0px 3px 6px rgb(190, 190, 190);
+    transition: ease-in-out 125ms;
+}
+
 .taskAddedPopUp {
     height: 50px;
     width: 200px;

@@ -24,7 +24,7 @@ function generateContentLeftAndRightContainer() {
 
                 <div class="categoryAndSelect">
                     <span>Category</span>
-                    <select id="category" onchange="addNewCategory()" required>
+                    <select id="category" onchange="showAddBox()" required>
                         <option value="" disabled selected>Select task category</option>
                         <option value="new">Create new category</option>
                         <option value="design">Design</option>
@@ -33,7 +33,10 @@ function generateContentLeftAndRightContainer() {
                         <option value="media">Media</option>
                         <option value="marketing">Marketing</option>
                     </select>
-                    <input id="new-category" class="d-none" type="text" placeholder="Add new category"></input>
+                    <div id="new-category-box" class="d-none">
+                        <input id="new-category-input" class="" type="text" placeholder="Add new category"</input>
+                        <button type="button" class="add-category-btn" onclick="addNewCategory()">Add</button>
+                    </div>
                 </div>
 
                 <div class="assignedToAndSelect">
