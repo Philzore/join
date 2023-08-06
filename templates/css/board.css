@@ -627,6 +627,8 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     cursor: pointer;
+    height: 50px;
+    width: 50px;
 }
 
 
@@ -635,7 +637,8 @@
     border-bottom-right-radius: 10px;
     background-color: #2A3647;
     cursor: pointer;
-
+    height: 50px;
+    width: 50px;
 }
 
 
@@ -720,7 +723,7 @@
 
 @media(max-width: 730px) {
     .popUpButtonsContainer{
-        bottom: 10px;
+        bottom: 35px;
         right: 15PX;
     }
     .taskPopUpAssignmentsList {

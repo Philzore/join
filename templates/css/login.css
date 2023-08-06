@@ -114,30 +114,23 @@
 }
 
 .msgBox {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 20%;
-    left: 50%;
-    right: 0;
-    max-width: 600px;
-    /* width: 80vw; */
+    height: 100vh;
     text-align: center;
-    /* height: 20vh; */
     z-index: 99;
     font-weight: bold;
     font-size: 32px;
-    background-color: #2A3647;
-    color: white;
-    border-radius: 20px;
+    animation: fadeIn 225ms ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .msgBoxContent {
-    /* width: 600px; */
     padding: 20px;
-    
-   
+    background-color: #2A3647;
+    color: white;
+    border-radius: 20px;
 }
 
 .arrowblue {
@@ -366,6 +359,15 @@
     bottom: 0;
     width: 30%;
     z-index: -5;
+}
+
+@keyframes fadeIn {
+    from {
+        scale: 0;
+    }
+    to {
+        scale: 1;
+    }
 }
 
 @keyframes logoAnimation {

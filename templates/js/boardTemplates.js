@@ -124,7 +124,7 @@ function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
         <div class="popUpButtonsContainer">
             <div onmouseover="changeImg()" class="taskPopUpButton leftBtn btn-border" onclick="deleteTask('${Id}')"><img id="deleteTask-Img" src="./img/delete.png" alt=""></div>
 
-            <div class="taskPopUpButton rightBtn btn-bg" onclick="openModifyTaskPopUp('${Id}')"><img src="./img/pen.png" alt=""></div>
+            <div class="taskPopUpButton rightBtn btn-bg" onclick="openModifyTaskPopUp('${Id}')"><img src="./img/edit.png" alt=""></div>
         </div>
     </div>
 `
