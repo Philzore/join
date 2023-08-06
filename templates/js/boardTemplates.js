@@ -8,7 +8,7 @@ function renderModifyTaskTemplateHTML(currentTask) {
     return /*html*/`
     <div class="taskModifyPopUp" onclick="doNotClose(event)">
     
-        <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()">X</div>
+        <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()"><img src="./img/close.svg"></div>
 
         <div class="titleAndInput m-0">
             <span>Title</span>
@@ -55,7 +55,6 @@ function renderModifyTaskTemplateHTML(currentTask) {
         </div>
 
         <div class="addTaskBtn confirmBtn btn-bg" onclick="confirmChangesOnTask('${currentTask['id']}')">
-            Ok 
             <img src="./img/checkIcon.png" alt="">
         </div>
 
@@ -99,7 +98,7 @@ function renderTaskPopUpTableTemplateHTML(clickedTask) {
 
     </div>
 
-    <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()">X</div>
+    <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()"><img src="./img/close.svg"></div>
 `
 }
 
@@ -122,9 +121,9 @@ function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
         </div>
 
         <div class="popUpButtonsContainer">
-            <div onmouseover="changeImg()" class="taskPopUpButton leftBtn btn-border" onclick="deleteTask('${Id}')"><img id="deleteTask-Img" src="./img/delete.png" alt=""></div>
+            <div onmouseover="changeImg()" class="taskPopUpButton leftBtn btn-border" onclick="deleteTask('${Id}')"><img class="leftBtnImg" id="deleteTask-Img" src="./img/delete.png" alt=""></div>
 
-            <div class="taskPopUpButton rightBtn btn-bg" onclick="openModifyTaskPopUp('${Id}')"><img src="./img/pen.png" alt=""></div>
+            <div class="taskPopUpButton rightBtn btn-bg" onclick="openModifyTaskPopUp('${Id}')"><img class="rightBtnImg" src="./img/edit.svg" alt=""></div>
         </div>
     </div>
 `
