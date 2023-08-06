@@ -8,7 +8,8 @@ function renderModifyTaskTemplateHTML(currentTask) {
     return /*html*/`
     <div class="taskModifyPopUp" onclick="doNotClose(event)">
     
-        <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()"><img src="./img/close.svg"></div>
+        <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()"><img  class="closeBtnCross" src="./img/close.svg">
+        <img  class="closeBtnArrow" src="./img/arrow-left-line.svg"></div>
 
         <div class="titleAndInput m-0">
             <span>Title</span>
@@ -98,7 +99,8 @@ function renderTaskPopUpTableTemplateHTML(clickedTask) {
 
     </div>
 
-    <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()"><img src="./img/close.svg"></div>
+    <div class="closeTaskPopUpButton" onclick="closeTaskPopUp()"><img  class="closeBtnCross" src="./img/close.svg">
+    <img  class="closeBtnArrow" src="./img/arrow-left-line.svg"></div>
 `
 }
 
