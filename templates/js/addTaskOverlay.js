@@ -33,6 +33,7 @@ function renderContentLeftAndRightOverlay() {
 }
 
 function renderContactsAddTaskOverlay() {
+ 
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
         const { name } = getJoinData(allData);
@@ -133,6 +134,7 @@ function assignedToOverlay() {
 }
 
 function showAssignedToList(i) {
+    debugger;
     const allData = allContacts[i];
     const { initials, color } = getJoinData(allData);
     document.getElementById('assignedToList').innerHTML += /*html*/ `

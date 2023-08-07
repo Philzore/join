@@ -35,13 +35,14 @@ function renderContentLeftAndRight() {
 }
 
 function renderContactsAddTask(Id) {
+  
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
         const { name, color } = getJoinData(allData);
 
         document.getElementById(Id).innerHTML += /*html*/ `
-            <option id="${color}" value="${name}">${name}</option>
-        `;  
+        <div id="${color}"><input type="checkbox">${name}</div>
+        `;
     }
 }
 
@@ -76,12 +77,12 @@ function activatePrioButtons() {
 
     let resetBtn = document.getElementById('reset');
     resetBtn.addEventListener("click", low);
-       
+
     let assignBtn = document.getElementById('assignedTo');
     assignBtn.addEventListener("change", assignedTo);
 
-    document.getElementById('addTaskForm').addEventListener('submit', function(event) {
-        event.preventDefault(); 
+    document.getElementById('addTaskForm').addEventListener('submit', function (event) {
+        event.preventDefault();
         createTask();
     });
 }
@@ -150,12 +151,12 @@ function showAssignedToList(i) {
         <div class="assigneeContainer" style="background-color: ${color}">
             ${initials}
         </div>
-    `; 
+    `;
 }
 
 function newSubtask() {
     let newSubtask = document.getElementById('subtasks').value;
-    
+
     if (newSubtask == '') {
         document.getElementById('subtasks').focus();
     } else {
@@ -187,7 +188,7 @@ function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('category').value;
-    let  date = dateArray;
+    let date = dateArray;
 
     let newTask = {
         'id': '',
@@ -221,7 +222,7 @@ function taskAddedToBoard() {
     document.getElementById('overlaySection').innerHTML = /*html*/ `
         <img src="./img/taskAddedToBoard.png" class="taskAddedPopUp" id="taskAddedPopUp">
     `;
-    setTimeout(function() {closePopUp()}, 2000);
+    setTimeout(function () { closePopUp() }, 2000);
 }
 
 function closePopUp() {
@@ -241,5 +242,5 @@ function addNewCategory() {
     let categoryInput = document.getElementById('new-category-input').value;
     let selection = document.getElementById('category');
 
-    selection.innerHTML += `<option value="${categoryInput}">${categoryInput}</option>` ;
+    selection.innerHTML += `<option value="${categoryInput}">${categoryInput}</option>`;
 }
