@@ -35,15 +35,40 @@ function renderContentLeftAndRight() {
 }
 
 function renderContactsAddTask(Id) {
-  
+
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
         const { name, color } = getJoinData(allData);
 
         document.getElementById(Id).innerHTML += /*html*/ `
-        <div id="${color}"><input type="checkbox">${name}</div>
+        <div class="assignedFrame" style="background:${color};" id="${i}"><input class="assignedCheckbox" type="checkbox">${name}</div>
         `;
     }
+}
+
+function showAllAssigned() {
+
+    if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
+        setTimeout(closeAllAssigned, 100)
+    }else{ 
+     setTimeout(openAllAssigned, 100)     
+    }
+}
+
+function closeAllAssigned(){
+    document.getElementById('assignedTo').classList.add('d-none');
+    document.getElementById('selectContact').innerHTML = `Select contacts to assign`;
+   /*  let imagen = document.getElementById('selectContactImg');
+    imagen.src = '';
+    imagen.src = "../../img/dropdownArrow.png"; */
+}
+
+function openAllAssigned(){
+    document.getElementById('assignedTo').classList.remove('d-none');
+    document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`; 
+ /*    let imagen = document.getElementById('selectContactImg');
+    imagen.src = '';
+    imagen.src = "../../img/dropdownArrow.png"; */
 }
 
 function setColor(color) {
@@ -79,7 +104,7 @@ function activatePrioButtons() {
     resetBtn.addEventListener("click", low);
 
     let assignBtn = document.getElementById('assignedTo');
-    assignBtn.addEventListener("change", assignedTo);
+    assignBtn.addEventListener("click", assignedTo);
 
     document.getElementById('addTaskForm').addEventListener('submit', function (event) {
         event.preventDefault();

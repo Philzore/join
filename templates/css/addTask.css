@@ -155,6 +155,56 @@ button {
     cursor: pointer;
 }
 
+.assignedTo {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.selectContact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding: 7px 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.assignedFrame {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding: 13px 21px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.assignedCheckbox {
+    height: 30px !important;
+    width: 37px !important;
+    margin-right: 30px;
+}
+
 .assignedToList {
     display: flex;
     flex-wrap: wrap;
@@ -382,9 +432,17 @@ button {
 }
 
 @keyframes slideUp {
-    0% {bottom: -50px}
-    50% {bottom: 50px}
-    100% {bottom: -50px}
+    0% {
+        bottom: -50px
+    }
+
+    50% {
+        bottom: 50px
+    }
+
+    100% {
+        bottom: -50px
+    }
 }
 
 
@@ -416,6 +474,10 @@ button {
 
     input {
         width: 100% !important;
+    }
+
+    .selectContact {
+        width: 100%;
     }
 
     textarea {
