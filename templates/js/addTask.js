@@ -51,7 +51,6 @@ function renderContactsAddTask(Id) {
 }
 
 function showAllAssigned() {
-
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssigned, 100)
 <<<<<<< HEAD
