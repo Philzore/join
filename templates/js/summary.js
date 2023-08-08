@@ -79,7 +79,7 @@ function renderGreeting(currentUser) {
   
   if (currentHours >= 0 && currentHours <= 12){
     greeting = 'Good Morning';
-  } else if (currentHours >= 12 && currentHours <= 18){
+  } else if (currentHours >= 12 && currentHours <= 17){
     greeting = 'Good Afternoon';
   } else {
     greeting = 'Good Evening';

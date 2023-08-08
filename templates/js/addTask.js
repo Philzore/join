@@ -54,10 +54,7 @@ function showAllAssigned() {
 
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssigned, 100)
-<<<<<<< HEAD
-=======
         
->>>>>>> 5e30618c9e447379b26ff3c86bd4018b49462e9b
     } else {
         setTimeout(openAllAssigned, 100)
     }
@@ -77,8 +74,6 @@ function openAllAssigned() {
     /*    let imagen = document.getElementById('selectContactImg');
        imagen.src = '';
        imagen.src = "../../img/dropdownArrow.png"; */
-<<<<<<< HEAD
-=======
 }
 
 
@@ -109,7 +104,6 @@ function renderAssignedInitial() {
             document.getElementById(`renderVisibelAssigned${i}`).classList.add('d-none');
         }
     }
->>>>>>> 5e30618c9e447379b26ff3c86bd4018b49462e9b
 }
 
 function setColor(color) {
