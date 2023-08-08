@@ -59,17 +59,13 @@ function showAllAssignedOverlay() {
 function closeAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.add('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Select contacts to assign`;
-    /*  let imagen = document.getElementById('selectContactImg');
-     imagen.src = '';
-     imagen.src = "../../img/dropdownArrow.png"; */
+  
 }
 
 function openAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.remove('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
-    /*    let imagen = document.getElementById('selectContactImg');
-       imagen.src = '';
-       imagen.src = "../../img/dropdownArrow.png"; */
+  
 }
 
 

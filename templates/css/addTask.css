@@ -161,19 +161,27 @@ button {
 
 }
 
-.selectContact {
+.selectContactFrame{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    margin-top: 5px;
-    box-sizing: border-box;
+    align-items: baseline;
+    width: 422px;
     padding: 7px 10px;
     width: 422px;
-    min-height: 51px;
+    min-height: 39px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.selectContact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 5px;
+    box-sizing: border-box;
     font-weight: 400;
     font-size: 21px;
     cursor: pointer;
@@ -205,7 +213,13 @@ button {
     width: 37px !important;
     margin-right: 30px;
 }
-
+.selectContactImg{
+    width: 14px;
+    
+}
+.selectContactImgFlip{
+    transform: rotate(180deg);
+}
 .assignedToList {
     display: flex;
     flex-wrap: wrap;
@@ -482,8 +496,8 @@ button {
         width: 100% !important;
     }
 
-    .selectContact {
-        width: 100%;
+    .selectContactFrame {
+        width: 97%;
     }
 
     textarea {
