@@ -28,6 +28,7 @@ function closeOverlay() {
 
 function renderContentLeftAndRightOverlay() {
     document.getElementById('contentLeftAndRightContainerOverlay').innerHTML = generateContentLeftAndRightContainerOverlay();
+    renderNewCategorys();
     renderTwoButtonsContainerOverlay();
     setMinDate('dateOverlay');
 }
@@ -161,7 +162,7 @@ function generateContentLeftAndRightContainerOverlay() {
 
                 <div class="categoryAndSelect">
                     <span>Category</span>
-                    <select id="category" required>
+                    <select id="category" onchange="showAddBox()" required>
                         <option value="" disabled selected>Select task category</option>
                         <option value="new">Create new category</option>
                         <option value="design">Design</option>
@@ -170,6 +171,10 @@ function generateContentLeftAndRightContainerOverlay() {
                         <option value="media">Media</option>
                         <option value="marketing">Marketing</option>
                     </select>
+                    <div id="new-category-box" class="d-none new-category-box">
+                        <input id="new-category-input" class="" type="text" placeholder="Add new category">
+                        <button type="button" class="add-category-btn" onclick="addNewCategory()">Add</button>
+                    </div>
                 </div>
 
                 <div class="assignedToAndSelect">

@@ -33,8 +33,8 @@ function generateContentLeftAndRightContainer() {
                         <option value="media">Media</option>
                         <option value="marketing">Marketing</option>
                     </select>
-                    <div id="new-category-box" class="d-none">
-                        <input id="new-category-input" class="" type="text" placeholder="Add new category">
+                    <div id="new-category-box" class="d-none new-category-box">
+                        <input id="new-category-input" class="" type="text" placeholder="Add new category" >
                         <button type="button" class="add-category-btn" onclick="addNewCategory()">Add</button>
                     </div>
                 </div>

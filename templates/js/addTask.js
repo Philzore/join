@@ -6,6 +6,7 @@ let contactsColors = [];
 let assignedToInitials = [];
 let dateArray = [];
 let isChecked = [];
+let newCategorys = [];
 
 
 
@@ -30,6 +31,7 @@ function renderHeadline() {
 
 function renderContentLeftAndRight() {
     document.getElementById('contentLeftAndRightContainer').innerHTML = generateContentLeftAndRightContainer();
+    renderNewCategorys();
     renderTwoButtonsContainer();
     setMinDate('date');
 }
@@ -50,25 +52,25 @@ function showAllAssigned() {
 
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssigned, 100)
-    }else{ 
-     setTimeout(openAllAssigned, 100)     
+    } else {
+        setTimeout(openAllAssigned, 100)
     }
 }
 
-function closeAllAssigned(){
+function closeAllAssigned() {
     document.getElementById('assignedTo').classList.add('d-none');
     document.getElementById('selectContact').innerHTML = `Select contacts to assign`;
-   /*  let imagen = document.getElementById('selectContactImg');
-    imagen.src = '';
-    imagen.src = "../../img/dropdownArrow.png"; */
+    /*  let imagen = document.getElementById('selectContactImg');
+     imagen.src = '';
+     imagen.src = "../../img/dropdownArrow.png"; */
 }
 
-function openAllAssigned(){
+function openAllAssigned() {
     document.getElementById('assignedTo').classList.remove('d-none');
-    document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`; 
- /*    let imagen = document.getElementById('selectContactImg');
-    imagen.src = '';
-    imagen.src = "../../img/dropdownArrow.png"; */
+    document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`;
+    /*    let imagen = document.getElementById('selectContactImg');
+       imagen.src = '';
+       imagen.src = "../../img/dropdownArrow.png"; */
 }
 
 function setColor(color) {
@@ -265,7 +267,48 @@ function showAddBox() {
 
 function addNewCategory() {
     let categoryInput = document.getElementById('new-category-input').value;
-    let selection = document.getElementById('category');
+    let search = categoryInput.toLowerCase();
+    let included = false ;
+    
+    if (categoryInput.length > 2) {
+        if (!newCategorys) {
+            setNewCategory(categoryInput) ;
+        } else {
+            for (let i = 0; i < newCategorys.length; i++) {
+                const category = newCategorys[i].toLowerCase();
+                if (category.includes(search)) {
+                    included = true ;
+                }
+            }
+            if (!included) {
+                setNewCategory(categoryInput) ;
+            } else {
+                alert('Category already exist') ;
+            }
+        }
+    } else {
+        alert('Pleasse enter a plausible new category');
+    }
+    document.getElementById('new-category-input').value = '';
+}
 
+function setNewCategory(categoryInput) {
+    let selection = document.getElementById('category');
     selection.innerHTML += `<option value="${categoryInput}">${categoryInput}</option>`;
+    newCategorys.push(categoryInput);
+    localStorage.setItem('newCategorys', JSON.stringify(newCategorys));
+}
+
+function renderNewCategorys() {
+    let selection = document.getElementById('category');
+    let parsedCategorys = JSON.parse(localStorage.getItem('newCategorys'));
+
+
+    if (parsedCategorys) {
+        newCategorys = parsedCategorys;
+        for (let i = 0; i < newCategorys.length; i++) {
+            const category = newCategorys[i];
+            selection.innerHTML += `<option value="${category}">${category}</option>`;
+        }
+    }
 }

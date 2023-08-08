@@ -431,6 +431,11 @@ button {
     animation-timing-function: ease;
 }
 
+.new-category-box {
+    margin-top: 5px;
+    display: flex;
+}
+
 @keyframes slideUp {
     0% {
         bottom: -50px
