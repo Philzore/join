@@ -27,6 +27,7 @@ function renderHeadline() {
     `;
     renderContentLeftAndRight();
     renderContactsAddTask('assignedTo');
+    renderAssignedInitial()
 }
 
 function renderContentLeftAndRight() {
@@ -43,15 +44,20 @@ function renderContactsAddTask(Id) {
         const { name, color } = getJoinData(allData);
 
         document.getElementById(Id).innerHTML += /*html*/ `
-        <div class="assignedFrame" style="background:${color};" id="${i}"><input class="assignedCheckbox" type="checkbox">${name}</div>
+        <div class="assignedFrame" ><input id="assignedCheckbox${i}" onclick="renderAssignedInitial()" class="assignedCheckbox" type="checkbox">${name}</div>
         `;
     }
+
 }
 
 function showAllAssigned() {
 
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssigned, 100)
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 5e30618c9e447379b26ff3c86bd4018b49462e9b
     } else {
         setTimeout(openAllAssigned, 100)
     }
@@ -71,6 +77,39 @@ function openAllAssigned() {
     /*    let imagen = document.getElementById('selectContactImg');
        imagen.src = '';
        imagen.src = "../../img/dropdownArrow.png"; */
+<<<<<<< HEAD
+=======
+}
+
+
+function addAssignedToTask() {
+
+    for (let i = 0; i < allContacts.length; i++) {
+        const contact = allContacts[i]['name'];
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+        let checkbox = document.getElementById(`assignedCheckbox${i}`);
+        if (checkbox.checked == true) {
+            assignedToNames.push({ contact, initial, color });
+        }
+    }
+}
+
+function renderAssignedInitial() {
+    for (let i = 0; i < allContacts.length; i++) {
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+
+        document.getElementById('assignedToList').innerHTML += /* html */ `
+        <div  id="renderVisibelAssigned${i}"  style="background-color: ${color}" class=" assigneeContainer d-none">${initial}</div>`;
+        let checkbox = document.getElementById(`assignedCheckbox${i}`);
+        if (checkbox.checked == true) {
+            document.getElementById(`renderVisibelAssigned${i}`).classList.remove('d-none');
+        }else{
+            document.getElementById(`renderVisibelAssigned${i}`).classList.add('d-none');
+        }
+    }
+>>>>>>> 5e30618c9e447379b26ff3c86bd4018b49462e9b
 }
 
 function setColor(color) {
@@ -104,9 +143,6 @@ function activatePrioButtons() {
 
     let resetBtn = document.getElementById('reset');
     resetBtn.addEventListener("click", low);
-
-    let assignBtn = document.getElementById('assignedTo');
-    assignBtn.addEventListener("click", assignedTo);
 
     document.getElementById('addTaskForm').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -156,31 +192,6 @@ function low() {
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
 
-function assignedTo() {
-    let assignee = document.getElementById("assignedTo");
-    let selectedAssignee = assignee.options[assignee.selectedIndex].value;
-    let color = assignee.options[assignee.selectedIndex].id;
-    let selectedAssignee2 = assignee.options[assignee.selectedIndex];
-    selectedAssignee2.disabled = true;
-    let i = (assignee.selectedIndex) - 1;
-
-    if (assignedToNames.indexOf(selectedAssignee) === -1) {
-        assignedToNames.push(selectedAssignee);
-        contactsColors.push(color);
-    }
-    showAssignedToList(i);
-}
-
-function showAssignedToList(i) {
-    const allData = allContacts[i];
-    const { initials, color } = getJoinData(allData);
-    document.getElementById('assignedToList').innerHTML += /*html*/ `
-        <div class="assigneeContainer" style="background-color: ${color}">
-            ${initials}
-        </div>
-    `;
-}
-
 function newSubtask() {
     let newSubtask = document.getElementById('subtasks').value;
 
@@ -216,13 +227,14 @@ function createTask() {
     let description = document.getElementById('description').value;
     let category = document.getElementById('category').value;
     let date = dateArray;
+    addAssignedToTask();
 
     let newTask = {
         'id': '',
         'title': title,
         'description': description,
         'category': category,
-        'assignedTo': assignedToNames,
+        'assignedToFor': assignedToNames,
         'date': date,
         'prio': prio,
         'stat': chosenStat,

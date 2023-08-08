@@ -47,12 +47,7 @@ function generateContentLeftAndRightContainer() {
                         
                     </div>
                 </div> 
-
-            
-
-
                 <div class="assignedToList" id="assignedToList">
-
                 </div>
             </div>
 
