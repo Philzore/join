@@ -36,9 +36,9 @@ function generateLegalNoticeScreenHTML() {
     <img onclick="returnToLastActivePage()" class="contactsDetailHeadPic2" src="./img/returnArrowDark.svg" alt="returnToListBtn">
     </div>
     <h3>Angaben gemäß § 5 TMG</h3>
-    <p>Max Mustermann<br>
-        Mustermannstraße 5<br>
-        Musterhausen<br>
+    <p>Dominik Wiese<br>
+        Kuckuckshorn 2c<br>
+        21107 Hamburg<br>
     </p>
     <p>Philipp Mössl<br>
         Hauptstraße 69<br>
@@ -49,8 +49,11 @@ function generateLegalNoticeScreenHTML() {
         Musterhausen<br>
     </p>
     <h2>Kontakt</h2>
-    <p>Telefon: <br />
-        E-Mail: </h3>
+        Dominik Wiese<br>
+        Kuckuckshorn 2c<br>
+        21107 Hamburg<br>
+    <p>Telefon: 015901923897<br />
+        E-Mail: dominikwiese81@gmail.com</h3>
     <h2>Quellen</h2>
     <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></h3>
     <br>
@@ -77,11 +80,13 @@ function generateLegalNoticeScreenHTML() {
 <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
 <h3>Hinweis zur verantwortlichen Stelle</h3> 
 <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p> 
-<p><br />
+<p>Dominik Wiese<br />
+   Kuckuckshorn 2c<br>
+   21107 Hamburg
 </p>
 
-<p>Telefon: <br />
-E-Mail: </p>
+<p>Telefon: 015901923897<br />
+E-Mail: dominikwiese81@gmail.com</p>
 <h3>Verantwortliche Stelle</h3>
 <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen usw.) entscheidet.</p>
 <h3>Speicherdauer</h3>
