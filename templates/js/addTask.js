@@ -62,6 +62,8 @@ function showAllAssigned() {
 function closeAllAssigned() {
     document.getElementById('assignedTo').classList.add('d-none');
     document.getElementById('selectContact').innerHTML = `Select contacts to assign`;
+   
+    document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
     /*  let imagen = document.getElementById('selectContactImg');
      imagen.src = '';
      imagen.src = "../../img/dropdownArrow.png"; */
@@ -70,6 +72,7 @@ function closeAllAssigned() {
 function openAllAssigned() {
     document.getElementById('assignedTo').classList.remove('d-none');
     document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`;
+    document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
     /*    let imagen = document.getElementById('selectContactImg');
        imagen.src = '';
        imagen.src = "../../img/dropdownArrow.png"; */

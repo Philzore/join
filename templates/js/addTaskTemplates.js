@@ -41,7 +41,7 @@ function generateContentLeftAndRightContainer() {
 
                 <div class="assignedToAndSelect">
                     <span>Assigned to</span>
-                    <div  id="selectContact"  class="selectContact" type="button" onclick="showAllAssigned()">Select contacts to assign 
+                    <div type="button" onclick="showAllAssigned()" class="selectContactFrame"><div  id="selectContact"  class="selectContact" >Select contacts to assign</div>
                     <img id="selectContactImg" src="./img/dropdownArrow.png"  class="selectContactImg"></div>
                     <div class="assignedTo d-none" id="assignedTo" required> 
                         
