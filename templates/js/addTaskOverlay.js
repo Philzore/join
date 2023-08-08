@@ -18,7 +18,7 @@ function renderHeadlineOverlay() {
         <img  class="closeBtnArrow" src="./img/arrow-left-line.svg" onclick="closeOverlay()">
     `;
     renderContentLeftAndRightOverlay();
-    renderContactsAddTask('assignedToOverlay');
+    renderContactsAddTaskOverlay();
     activatePrioButtonsOverlay();
 }
 
@@ -34,16 +34,74 @@ function renderContentLeftAndRightOverlay() {
 }
 
 function renderContactsAddTaskOverlay() {
- 
+
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
-        const { name } = getJoinData(allData);
-        const { color } = getJoinData(allData);
+        const { name, color } = getJoinData(allData);
+
         document.getElementById('assignedToOverlay').innerHTML += /*html*/ `
-            <option value="${color}">${name}</option>
+        <div class="assignedFrame" >
+        <input id="assignedOverlayCheckbox${i}" onclick="renderAssignedInitialOverlay()" class="assignedCheckbox" type="checkbox">${name}</div>
         `;
     }
+
 }
+
+function showAllAssignedOverlay() {
+    if (document.getElementById('selectContactoOverlay').innerText == `Close Select contacts to assign`) {
+        setTimeout(closeAllAssignedOverlay, 100)
+
+    } else {
+        setTimeout(openAllAssignedOverlay, 100)
+    }
+}
+
+function closeAllAssignedOverlay() {
+    document.getElementById('assignedToOverlay').classList.add('d-none');
+    document.getElementById('selectContactoOverlay').innerHTML = `Select contacts to assign`;
+    /*  let imagen = document.getElementById('selectContactImg');
+     imagen.src = '';
+     imagen.src = "../../img/dropdownArrow.png"; */
+}
+
+function openAllAssignedOverlay() {
+    document.getElementById('assignedToOverlay').classList.remove('d-none');
+    document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
+    /*    let imagen = document.getElementById('selectContactImg');
+       imagen.src = '';
+       imagen.src = "../../img/dropdownArrow.png"; */
+}
+
+
+function addAssignedToTaskOverlay() {
+
+    for (let i = 0; i < allContacts.length; i++) {
+        const contact = allContacts[i]['name'];
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+        let checkbox = document.getElementById(`assignedOverlayCheckbox${i}`);
+        if (checkbox.checked == true) {
+            assignedToNames.push({ contact, initial, color });
+        }
+    }
+}
+function renderAssignedInitialOverlay() {
+
+    for (let i = 0; i < allContacts.length; i++) {
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+
+        document.getElementById('assignedToListOverlay').innerHTML += /* html */ `
+        <div  id="renderVisibelAssignedOverlay${i}"  style="background-color: ${color}" class=" assigneeContainer d-none">${initial}</div>`;
+        let checkbox = document.getElementById(`assignedOverlayCheckbox${i}`);
+        if (checkbox.checked == true) {
+            document.getElementById(`renderVisibelAssignedOverlay${i}`).classList.remove('d-none');
+        }else{
+            document.getElementById(`renderVisibelAssignedOverlay${i}`).classList.add('d-none');
+        }
+    }
+}
+
 
 function renderTwoButtonsContainerOverlay() {
     document.getElementById('twoButtonsContainerOverlay').innerHTML = generateTwoButtonsContainerOverlay();
@@ -68,8 +126,8 @@ function activatePrioButtonsOverlay() {
     let resetBtn = document.getElementById('reset');
     resetBtn.addEventListener("click", low);
 
-    let assignBtn = document.getElementById('assignedToOverlay');
-    assignBtn.addEventListener("change", assignedToOverlay);
+    /*  let assignBtn = document.getElementById('assignedToOverlay');
+     assignBtn.addEventListener("change", assignedToOverlay); */
 
     document.getElementById('addTaskForm').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -119,7 +177,7 @@ function low() {
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
 
-function assignedToOverlay() {
+/* function assignedToOverlay() {
     let assignee = document.getElementById("assignedToOverlay");
     let selectedAssignee = assignee.options[assignee.selectedIndex].value;
     let color = assignee.options[assignee.selectedIndex].id;
@@ -138,12 +196,12 @@ function showAssignedToList(i) {
     debugger;
     const allData = allContacts[i];
     const { initials, color } = getJoinData(allData);
-    document.getElementById('assignedToList').innerHTML += /*html*/ `
+    document.getElementById('assignedToList').innerHTML += /*html* `
         <div class="assigneeContainer" style="background-color: ${color}">
             ${initials}
         </div>
     `;
-}
+} */
 
 //Add Task Overlay Templates
 function generateContentLeftAndRightContainerOverlay() {
@@ -178,15 +236,15 @@ function generateContentLeftAndRightContainerOverlay() {
                 </div>
 
                 <div class="assignedToAndSelect">
-                    <span>Assigned to</span>
-                    <select id="assignedToOverlay" required> 
-                        <option value="" disabled selected>Select contacts to assign</option>
-                    </select>
+                <span>Assigned to</span>
+                <div  id="selectContactoOverlay"  class="selectContact" type="button" onclick="showAllAssignedOverlay()">Select contacts to assign 
+                <img id="selectContactImg" src="./img/dropdownArrow.png"  class="selectContactImg"></div>
+                <div class="assignedTo d-none" id="assignedToOverlay">      
                 </div>
-
-                <div class="assignedToList" id="assignedToList">
-
-                </div>
+            </div> 
+            <div class="assignedToList" id="assignedToListOverlay">
+            </div>
+        </div>
 
             </div>
 
