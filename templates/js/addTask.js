@@ -53,7 +53,7 @@ function renderContactsAddTask(Id) {
 function showAllAssigned() {
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssigned, 100)
-        
+
     } else {
         setTimeout(openAllAssigned, 100)
     }
@@ -62,7 +62,7 @@ function showAllAssigned() {
 function closeAllAssigned() {
     document.getElementById('assignedTo').classList.add('d-none');
     document.getElementById('selectContact').innerHTML = `Select contacts to assign`;
-   
+
     document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
     /*  let imagen = document.getElementById('selectContactImg');
      imagen.src = '';
@@ -102,7 +102,7 @@ function renderAssignedInitial() {
         let checkbox = document.getElementById(`assignedCheckbox${i}`);
         if (checkbox.checked == true) {
             document.getElementById(`renderVisibelAssigned${i}`).classList.remove('d-none');
-        }else{
+        } else {
             document.getElementById(`renderVisibelAssigned${i}`).classList.add('d-none');
         }
     }
@@ -224,27 +224,30 @@ function createTask() {
     let category = document.getElementById('category').value;
     let date = dateArray;
     addAssignedToTask();
+    if (!assignedToNames == 0) {
 
-    let newTask = {
-        'id': '',
-        'title': title,
-        'description': description,
-        'category': category,
-        'assignedToFor': assignedToNames,
-        'date': date,
-        'prio': prio,
-        'stat': chosenStat,
-        'subtasks': allSubtasks,
-        'isChecked': isChecked,
-        'doneSubTasks': 0,
-        'color': contactsColors
-    };
-    newTaskArray.push(newTask);
-    saveTasks();
-    allSubtasks = [];
-    assignedToNames = [];
-    dateArray = [];
-    taskAddedToBoard();
+
+        let newTask = {
+            'id': '',
+            'title': title,
+            'description': description,
+            'category': category,
+            'assignedToFor': assignedToNames,
+            'date': date,
+            'prio': prio,
+            'stat': chosenStat,
+            'subtasks': allSubtasks,
+            'isChecked': isChecked,
+            'doneSubTasks': 0,
+            'color': contactsColors
+        };
+        newTaskArray.push(newTask);
+        saveTasks();
+        allSubtasks = [];
+        assignedToNames = [];
+        dateArray = [];
+        taskAddedToBoard();
+    }
 }
 
 async function saveTasks() {
@@ -276,22 +279,22 @@ function showAddBox() {
 function addNewCategory() {
     let categoryInput = document.getElementById('new-category-input').value;
     let search = categoryInput.toLowerCase();
-    let included = false ;
-    
+    let included = false;
+
     if (categoryInput.length > 2) {
         if (!newCategorys) {
-            setNewCategory(categoryInput) ;
+            setNewCategory(categoryInput);
         } else {
             for (let i = 0; i < newCategorys.length; i++) {
                 const category = newCategorys[i].toLowerCase();
                 if (category.includes(search)) {
-                    included = true ;
+                    included = true;
                 }
             }
             if (!included) {
-                setNewCategory(categoryInput) ;
+                setNewCategory(categoryInput);
             } else {
-                alert('Category already exist') ;
+                alert('Category already exist');
             }
         }
     } else {
