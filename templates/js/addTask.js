@@ -47,7 +47,9 @@ function renderContactsAddTask(Id) {
         <div class="assignedFrame" ><input id="assignedCheckbox${i}" onclick="renderAssignedInitial()" class="assignedCheckbox" type="checkbox">${name}</div>
         `;
     }
+
 }
+
 function showAllAssigned() {
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssigned, 100)
@@ -78,13 +80,13 @@ function openAllAssigned() {
 
 
 function addAssignedToTask() {
+
     for (let i = 0; i < allContacts.length; i++) {
         const contact = allContacts[i]['name'];
         const initial = allContacts[i]['initials'];
         const color = allContacts[i]['color'];
-        let checkboxOverlay = document.getElementById(`assignedOverlayCheckbox${i}`);
         let checkbox = document.getElementById(`assignedCheckbox${i}`);
-        if (checkboxOverlay.checked || checkbox.checked) {
+        if (checkbox.checked == true) {
             assignedToNames.push(contact);
             contactsColors.push(color);
         }
@@ -223,6 +225,7 @@ function createTask() {
     let description = document.getElementById('description').value;
     let category = document.getElementById('category').value;
     let date = dateArray;
+    addAssignedToTaskOverlay();
     addAssignedToTask();
     if (assignedToNames.length > 0) {
         let newTask = {

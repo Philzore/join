@@ -59,13 +59,24 @@ function showAllAssignedOverlay() {
 function closeAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.add('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Select contacts to assign`;
-  
 }
 
 function openAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.remove('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
-  
+}
+function addAssignedToTaskOverlay() {
+
+    for (let i = 0; i < allContacts.length; i++) {
+        const contact = allContacts[i]['name'];
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+        let checkbox = document.getElementById(`assignedOverlayCheckbox${i}`);
+        if (checkbox.checked) {
+            assignedToNames.push(contact);
+            contactsColors.push(color);
+        }
+    }
 }
 function renderAssignedInitialOverlay() {
 

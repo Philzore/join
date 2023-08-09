@@ -53,7 +53,7 @@ function renderModifyTaskTemplateHTML(currentTask) {
             </div>
             <img id="modifyAssignedToImg" src="./img/dropdownArrow.png" class="selectContactImg">
             </div>
-            <div class="assignedTo d-none" id="modifyAssignedTo">
+            <div class="assignedTo" id="modifyAssignedTo">
             </div>
         
 

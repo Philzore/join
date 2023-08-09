@@ -215,6 +215,7 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
 
 function openModifyTaskPopUp(Id) {
     modifyCurrentTaskHTML(Id);
+    renderContactsModifyAddTask(Id)
 }
 
 function modifyCurrentTaskHTML(Id) {
@@ -287,15 +288,14 @@ function changeImg() {
     imageTag.src = './img/delete.png';
 }
 
-function renderContactsModifyAddTask(Id) {
-/*     activateEvent(); */
-    let content = document.getElementById('modifyAssignedTo');
+function renderContactsModifyAddTask() {
+    activateEvent();
 
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
         const { name, color } = getJoinData(allData);
 
-        content.innerHTML += /*html*/ `
+        document.getElementById(`modifyAssignedTo`).innerHTML += /*html*/ `
         <div class="assignedFrame" >
         <input id="modifyAssignedCheckbox${i}" onclick="renderAssignedInitial()" class="assignedCheckbox" type="checkbox">${name}
         </div>
@@ -303,10 +303,10 @@ function renderContactsModifyAddTask(Id) {
     }
 }
 
-/* function activateEvent() {
+function activateEvent() {
     let modifyAssignBtn = document.getElementById('modifyAssignedTo');
     modifyAssignBtn.addEventListener("change", modifyAssignedTo);
-} */
+}
 
 function modifyAssignedTo() {
 /*     let assignee = document.getElementById("modifyAssignedTo");
@@ -327,7 +327,7 @@ function modifyAssignedTo() {
         const initial = allContacts[i]['initials'];
         const color = allContacts[i]['color'];
         let modifycheckbox = document.getElementById(`modifyAssignedCheckbox${i}`);
-        if (checkboxOverlay.checked || checkbox.checked || modifycheckbox.checked) {
+        if ( modifycheckbox.checked) {
             newTaskArray[Id]['assignedTo'].push(contact);
             newTaskArray[Id]['color'].push(color);
         }
