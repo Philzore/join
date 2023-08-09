@@ -67,20 +67,6 @@ function openAllAssignedOverlay() {
     document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
   
 }
-
-
-function addAssignedToTaskOverlay() {
-
-    for (let i = 0; i < allContacts.length; i++) {
-        const contact = allContacts[i]['name'];
-        const initial = allContacts[i]['initials'];
-        const color = allContacts[i]['color'];
-        let checkbox = document.getElementById(`assignedOverlayCheckbox${i}`);
-        if (checkbox.checked == true) {
-            assignedToNames.push({ contact, initial, color });
-        }
-    }
-}
 function renderAssignedInitialOverlay() {
 
     for (let i = 0; i < allContacts.length; i++) {

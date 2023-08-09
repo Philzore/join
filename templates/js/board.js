@@ -288,32 +288,28 @@ function changeImg() {
 }
 
 function renderContactsModifyAddTask(Id) {
-    activateEvent();
+/*     activateEvent(); */
     let content = document.getElementById('modifyAssignedTo');
-
-    content.innerHTML = '';
-
-    content.innerHTML = /*html*/`
-        <option value="" disabled selected>Select contacts to assign</option>
-    `;
 
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
-        const { name } = getJoinData(allData);
-        const { color } = getJoinData(allData);
+        const { name, color } = getJoinData(allData);
+
         content.innerHTML += /*html*/ `
-            <option id="${color}" value="${Id}">${name}</option>
-        `;  
+        <div class="assignedFrame" >
+        <input id="modifyAssignedCheckbox${i}" onclick="renderAssignedInitial()" class="assignedCheckbox" type="checkbox">${name}
+        </div>
+        `;
     }
 }
 
-function activateEvent() {
+/* function activateEvent() {
     let modifyAssignBtn = document.getElementById('modifyAssignedTo');
     modifyAssignBtn.addEventListener("change", modifyAssignedTo);
-}
+} */
 
 function modifyAssignedTo() {
-    let assignee = document.getElementById("modifyAssignedTo");
+/*     let assignee = document.getElementById("modifyAssignedTo");
     let Id = assignee.options[assignee.selectedIndex].value;
     let color = assignee.options[assignee.selectedIndex].id;
     let name = assignee.options[assignee.selectedIndex].innerHTML;
@@ -324,6 +320,17 @@ function modifyAssignedTo() {
     if (newTaskArray[Id]['assignedTo'].indexOf(name) === -1) {
         newTaskArray[Id]['assignedTo'].push(name);
         newTaskArray[Id]['color'].push(color);
+    } */
+
+    for (let i = 0; i < allContacts.length; i++) {
+        const contact = allContacts[i]['name'];
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+        let modifycheckbox = document.getElementById(`modifyAssignedCheckbox${i}`);
+        if (checkboxOverlay.checked || checkbox.checked || modifycheckbox.checked) {
+            newTaskArray[Id]['assignedTo'].push(contact);
+            newTaskArray[Id]['color'].push(color);
+        }
     }
     renderModifyAssignmentsHTML(Id);
 }
