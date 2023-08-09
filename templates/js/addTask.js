@@ -15,6 +15,7 @@ async function initAddTask() {
     await loadTasks();
     renderHeadline();
     activatePrioButtons();
+    allSubtasks = [] ;
 }
 
 async function loadTasks() {
@@ -27,7 +28,7 @@ function renderHeadline() {
     `;
     renderContentLeftAndRight();
     renderContactsAddTask('assignedTo');
-    renderAssignedInitial()
+    renderAssignedInitial();
 }
 
 function renderContentLeftAndRight() {
@@ -191,7 +192,7 @@ function low() {
 
 function newSubtask() {
     let newSubtask = document.getElementById('subtasks').value;
-
+    debugger;
     if (newSubtask == '') {
         document.getElementById('subtasks').focus();
     } else {

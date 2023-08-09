@@ -134,6 +134,7 @@ function renderDoneHTML(arrayName) {
 
 function renderAssignedToHTML(task) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
+    //debugger;
     let assignmentCount = task['assignedTo'].length -3;
 
     content.innerHTML = '';
