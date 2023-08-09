@@ -41,7 +41,7 @@ function renderContactsAddTaskOverlay() {
 
         document.getElementById('assignedToOverlay').innerHTML += /*html*/ `
         <div class="assignedFrame" >
-        <input id="assignedOverlayCheckbox${i}" onclick="renderAssignedInitialOverlay()" class="assignedCheckbox" type="checkbox">${name}</div>
+        <input id="assignedCheckbox${i}" onclick="renderAssignedInitialOverlay()" class="assignedCheckbox" type="checkbox">${name}</div>
         `;
     }
 
@@ -65,19 +65,7 @@ function openAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.remove('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
 }
-function addAssignedToTaskOverlay() {
 
-    for (let i = 0; i < allContacts.length; i++) {
-        const contact = allContacts[i]['name'];
-        const initial = allContacts[i]['initials'];
-        const color = allContacts[i]['color'];
-        let checkbox = document.getElementById(`assignedOverlayCheckbox${i}`);
-        if (checkbox.checked) {
-            assignedToNames.push(contact);
-            contactsColors.push(color);
-        }
-    }
-}
 function renderAssignedInitialOverlay() {
 
     for (let i = 0; i < allContacts.length; i++) {
@@ -86,7 +74,7 @@ function renderAssignedInitialOverlay() {
 
         document.getElementById('assignedToListOverlay').innerHTML += /* html */ `
         <div  id="renderVisibelAssignedOverlay${i}"  style="background-color: ${color}" class=" assigneeContainer d-none">${initial}</div>`;
-        let checkbox = document.getElementById(`assignedOverlayCheckbox${i}`);
+        let checkbox = document.getElementById(`assignedCheckbox${i}`);
         if (checkbox.checked == true) {
             document.getElementById(`renderVisibelAssignedOverlay${i}`).classList.remove('d-none');
         }else{
@@ -94,17 +82,13 @@ function renderAssignedInitialOverlay() {
         }
     }
 }
-
-
 function renderTwoButtonsContainerOverlay() {
     document.getElementById('twoButtonsContainerOverlay').innerHTML = generateTwoButtonsContainerOverlay();
 }
-
 function pushDateOverlay() {
     let dueDate = document.getElementById('dateOverlay').value;
     dateArray.splice(0, 1, dueDate);
 }
-
 function activatePrioButtonsOverlay() {
     low();
     let urgentBtn = document.getElementById('urgent');
@@ -127,7 +111,6 @@ function activatePrioButtonsOverlay() {
         createTask();
     });
 }
-
 function urgent() {
     let prioValue = document.getElementById('urgent').value;
     prio = prioValue;
@@ -141,7 +124,6 @@ function urgent() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
-
 function medium() {
     let prioValue = document.getElementById('medium').value;
     prio = prioValue;
@@ -155,7 +137,6 @@ function medium() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
-
 function low() {
     let prioValue = document.getElementById('low').value;
     prio = prioValue;
@@ -169,7 +150,6 @@ function low() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
-
 /* function assignedToOverlay() {
     let assignee = document.getElementById("assignedToOverlay");
     let selectedAssignee = assignee.options[assignee.selectedIndex].value;
@@ -199,93 +179,92 @@ function showAssignedToList(i) {
 //Add Task Overlay Templates
 function generateContentLeftAndRightContainerOverlay() {
     return /*html*/ `
-        <div class="contentLeftAndRight contentLeftAndRightOverlay">
-            <div class="contentLeft">
-                <div class="titleAndInput">
-                    <span>Title</span>
-                    <input id="title" type="text" required placeholder="Enter a title">
-                </div>
+    <div class="contentLeftAndRight contentLeftAndRightOverlay">
+    <div class="contentLeft">
+        <div class="titleAndInput">
+            <span>Title</span>
+            <input id="title" type="text" required placeholder="Enter a title">
+        </div>
 
-                <div class="descriptionAndTextarea">
-                    <span>Description</span>
-                    <textarea id="description" type="text" required placeholder="Enter a Description"></textarea>
-                </div>
+        <div class="descriptionAndTextarea">
+            <span>Description</span>
+            <textarea id="description" type="text" required placeholder="Enter a Description"></textarea>
+        </div>
 
-                <div class="categoryAndSelect">
-                    <span>Category</span>
-                    <select id="category" onchange="showAddBox()" required>
-                        <option value="" disabled selected>Select task category</option>
-                        <option value="new">Create new category</option>
-                        <option value="design">Design</option>
-                        <option value="sales">Sales</option>
-                        <option value="backoffice">Backoffice</option>
-                        <option value="media">Media</option>
-                        <option value="marketing">Marketing</option>
-                    </select>
-                    <div id="new-category-box" class="d-none new-category-box">
-                        <input id="new-category-input" class="" type="text" placeholder="Add new category">
-                        <button type="button" class="add-category-btn" onclick="addNewCategory()">Add</button>
-                    </div>
-                </div>
-
-                <div class="assignedToAndSelect">
-                <span>Assigned to</span>
-                <div  id="selectContactoOverlay"  class="selectContact" type="button" onclick="showAllAssignedOverlay()">Select contacts to assign 
-                <img id="selectContactImg" src="./img/dropdownArrow.png"  class="selectContactImg"></div>
-                <div class="assignedTo d-none" id="assignedToOverlay">      
-                </div>
-            </div> 
-            <div class="assignedToList" id="assignedToListOverlay">
+        <div class="categoryAndSelect">
+            <span>Category</span>
+            <select id="category" onchange="showAddBox()" required>
+                <option value="" disabled selected>Select task category</option>
+                <option value="new">Create new category</option>
+                <option value="design">Design</option>
+                <option value="sales">Sales</option>
+                <option value="backoffice">Backoffice</option>
+                <option value="media">Media</option>
+                <option value="marketing">Marketing</option>
+            </select>
+            <div id="new-category-box" class="d-none new-category-box">
+                <input id="new-category-input" class="" type="text" placeholder="Add new category">
+                <button type="button" class="add-category-btn" onclick="addNewCategory()">Add</button>
             </div>
         </div>
 
+        <div class="assignedToAndSelect">
+            <span>Assigned to</span>
+            <div id="selectContactoOverlay" class="selectContact" type="button" onclick="showAllAssignedOverlay()">
+                Select contacts to assign
+                <img id="selectContactImg" src="./img/dropdownArrow.png" class="selectContactImg">
             </div>
-
-            <div class="borderline borderlineOverlay"></div>
-
-            <div class="contentRight">
-                <div class="dueDateAndInput">
-                    <span>Due Date</span>
-                    <input type="date" id="dateOverlay" required placeholder="dd/mm/yyyy" onchange="pushDateOverlay()">
-                </div>
-
-                <div class="prio">
-                    <span>Prio</span>
-                    <div class="prioButtons">
-                        <button type="button" id="urgent" value="urgent">
-                            Urgent
-                            <img id="urgentIcon" src="./img/urgentIcon.png">
-                        </button>
-
-                        <button type="button" id="medium" value="medium">
-                            Medium
-                            <img id="mediumIcon" src="./img/mediumIcon.png">
-                        </button>
-
-                        <button type="button" id="low" value="low">
-                            Low
-                            <img id="lowIcon" src="./img/lowIcon.png">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="subtasksAndInput">
-                    <span>Subtasks</span>
-
-                    <div class="inputAndButton">
-                        <input id="subtasks" placeholder="Add new subtask">
-                        <button type="button" onclick="newSubtask()">
-                            <img src="./img/subtaskIcon.png">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="subtasksList" id="subtasksList">
-
-                </div>
+            <div class="assignedTo d-none" id="assignedToOverlay">
             </div>
         </div>
-    `;
+        <div class="assignedToList" id="assignedToListOverlay">
+        </div>
+    </div>
+    <div class="borderline borderlineOverlay"></div>
+
+    <div class="contentRight">
+        <div class="dueDateAndInput">
+            <span>Due Date</span>
+            <input type="date" id="dateOverlay" required placeholder="dd/mm/yyyy" onchange="pushDateOverlay()">
+        </div>
+
+        <div class="prio">
+            <span>Prio</span>
+            <div class="prioButtons">
+                <button type="button" id="urgent" value="urgent">
+                    Urgent
+                    <img id="urgentIcon" src="./img/urgentIcon.png">
+                </button>
+
+                <button type="button" id="medium" value="medium">
+                    Medium
+                    <img id="mediumIcon" src="./img/mediumIcon.png">
+                </button>
+
+                <button type="button" id="low" value="low">
+                    Low
+                    <img id="lowIcon" src="./img/lowIcon.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="subtasksAndInput">
+            <span>Subtasks</span>
+
+            <div class="inputAndButton">
+                <input id="subtasks" placeholder="Add new subtask">
+                <button type="button" onclick="newSubtask()">
+                    <img src="./img/subtaskIcon.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="subtasksList" id="subtasksList">
+
+        </div>
+    </div>
+</div>
+`;
 }
 
 function generateTwoButtonsContainerOverlay() {

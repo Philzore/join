@@ -97,13 +97,12 @@ function generateContentLeftAndRightContainer() {
         </div>
     `;
 }
-
 function generateTwoButtonsContainer() {
     return /*html*/ `
         <div class="twoButtons">
             <button id="reset" type="reset" class="clearButton" onclick="clearFields()">
                 Clear
-                <img src="./img/cancelIcon.png">
+                <img class="clearButtonImg" src="./img/cancelIcon.png">
             </button>
 
             <button type="submit" class="createTaskButton" id="createTask">

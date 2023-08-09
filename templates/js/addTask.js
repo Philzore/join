@@ -226,7 +226,6 @@ function createTask() {
     let description = document.getElementById('description').value;
     let category = document.getElementById('category').value;
     let date = dateArray;
-    addAssignedToTaskOverlay();
     addAssignedToTask();
     if (assignedToNames.length > 0) {
         let newTask = {
