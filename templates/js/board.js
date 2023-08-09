@@ -12,7 +12,7 @@ let currentBooleanValue = 'false';
 function giveTaskId() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
-        
+
         currentTask['id'] = i;
     }
 }
@@ -28,7 +28,7 @@ function updateBoardTasks() {
 
 function renderBoardHTML() {
     let content = document.getElementById('contentSection');
-    
+
     content.innerHTML = '';
     content.innerHTML += renderBoardTemplateHTML();
     document.getElementById('body').classList.add('hideScrollBarY');
@@ -108,7 +108,7 @@ function renderAwaitingFeedbackHTML(arrayName) {
             let subtasksAmount = task['subtasks'].length;
             let doneSubtasks = task['doneSubTasks'];
             let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
-    
+
             content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
             renderAssignedToHTML(task);
         }
@@ -135,7 +135,7 @@ function renderDoneHTML(arrayName) {
 function renderAssignedToHTML(task) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
     //debugger;
-    let assignmentCount = task['assignedTo'].length -3;
+    let assignmentCount = task['assignedTo'].length - 3;
 
     content.innerHTML = '';
     if (task['assignedTo'].length <= 3) {
@@ -144,7 +144,7 @@ function renderAssignedToHTML(task) {
         renderTaskAssignmentListHTML(task, '3');
     }
 
-    if(task['assignedTo'].length > 3) {
+    if (task['assignedTo'].length > 3) {
         content.innerHTML += renderTaskAssignmentCountHTML(assignmentCount);
     }
 }
@@ -156,7 +156,7 @@ function renderTaskAssignmentListHTML(task, count) {
         const assignment = task['assignedTo'][i];
         let initials = getInitials(assignment);
         let bgColor = task['color'][i];
-   
+
         content.innerHTML += renderTaskAssignmentsTemplateHTML(task, bgColor, initials);
     }
 }
@@ -165,7 +165,7 @@ function showProgressbar() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const task = newTaskArray[i];
 
-        if(task['subtasks'].length > 0) {
+        if (task['subtasks'].length > 0) {
             document.getElementById(`progressContainer${task['id']}`).classList.remove('v-hide');
         }
     }
@@ -209,9 +209,9 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
         const assignment = clickedTask['assignedTo'][i];
         let initials = getInitials(assignment);
         let bgColor = clickedTask['color'][i];
-        
+
         content.innerHTML += renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor);
-    } 
+    }
 }
 
 function openModifyTaskPopUp(Id) {
@@ -223,7 +223,7 @@ function modifyCurrentTaskHTML(Id) {
     let content = document.getElementById('overlaySection');
     let currentTask = newTaskArray[Id];
     let prio = currentTask['prio'];
-    
+
     content.innerHTML = '';
     content.innerHTML = renderModifyTaskTemplateHTML(currentTask);
 
@@ -243,7 +243,7 @@ function renderModifyAssignmentsHTML(Id) {
         const assignment = currentTask['assignedTo'][i];
         let initials = getInitials(assignment);
         let bgColor = currentTask['color'][i];
-        
+
         content.innerHTML += modifyAssignmentsTemplateHTML(bgColor, initials);
     }
 }
@@ -274,10 +274,10 @@ function renderModifySubtaskList(Id) {
         const subtask = task['subtasks'][i];
         let isChecked = task['isChecked'][i];
 
-        if(isChecked == true) {
+        if (isChecked == true) {
             content.innerHTML += renderCheckedBoxTemplateHTML(i, Id, subtask);
-        } 
-        if(isChecked == false) {
+        }
+        if (isChecked == false) {
             content.innerHTML += renderUncheckedBoxTemplateHTML(i, Id, subtask);
         }
     }
@@ -290,7 +290,7 @@ function changeImg() {
 }
 
 function renderContactsModifyAddTask() {
-    activateEvent();
+   /*  activateEvent(); */
 
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
@@ -298,37 +298,44 @@ function renderContactsModifyAddTask() {
 
         document.getElementById(`modifyAssignedTo`).innerHTML += /*html*/ `
         <div class="assignedFrame" >
-        <input id="modifyAssignedCheckbox${i}" onclick="renderAssignedInitial()" class="assignedCheckbox" type="checkbox">${name}
+        <input id="assignedCheckbox${i}" onclick="" class="assignedCheckbox" type="checkbox">${name}
         </div>
         `;
     }
 }
 
-function activateEvent() {
-    let modifyAssignBtn = document.getElementById('modifyAssignedTo');
-    modifyAssignBtn.addEventListener("change", modifyAssignedTo);
+/* function activateEvent() {
+    for (let i = 0; i < allContacts.length; i++) {
+        let modifycheckbox = document.getElementById(`assignedCheckbox${i}`);
+        if (modifycheckbox.checked) {
+            let modifyAssignBtn = document.getElementById(`assignedCheckbox${i}`);
+            modifyAssignBtn.addEventListener("change", modifyAssignedTo);
+        }
+    }
 }
-
-function modifyAssignedTo() {
-/*     let assignee = document.getElementById("modifyAssignedTo");
-    let Id = assignee.options[assignee.selectedIndex].value;
-    let color = assignee.options[assignee.selectedIndex].id;
-    let name = assignee.options[assignee.selectedIndex].innerHTML;
-    let selectedAssignee2 = assignee.options[assignee.selectedIndex];
-    selectedAssignee2.disabled = true;
-    let i = (assignee.selectedIndex) - 1;
-
-    if (newTaskArray[Id]['assignedTo'].indexOf(name) === -1) {
-        newTaskArray[Id]['assignedTo'].push(name);
-        newTaskArray[Id]['color'].push(color);
-    } */
+ */
+function modifyAssignedTo(Id) {
+    /*     let assignee = document.getElementById("modifyAssignedTo");
+        let Id = assignee.options[assignee.selectedIndex].value;
+        let color = assignee.options[assignee.selectedIndex].id;
+        let name = assignee.options[assignee.selectedIndex].innerHTML;
+        let selectedAssignee2 = assignee.options[assignee.selectedIndex];
+        selectedAssignee2.disabled = true;
+        let i = (assignee.selectedIndex) - 1;
+  
+        if (newTaskArray[Id]['assignedTo'].indexOf(name) === -1) {
+            newTaskArray[Id]['assignedTo'].push(name);
+            newTaskArray[Id]['color'].push(color);
+        } */
 
     for (let i = 0; i < allContacts.length; i++) {
         const contact = allContacts[i]['name'];
         const initial = allContacts[i]['initials'];
         const color = allContacts[i]['color'];
-        let modifycheckbox = document.getElementById(`modifyAssignedCheckbox${i}`);
-        if ( modifycheckbox.checked) {
+        let modifycheckbox = document.getElementById(`assignedCheckbox${i}`);
+        if (modifycheckbox.checked) {
+            newTaskArray[Id]['assignedTo'] = []
+            newTaskArray[Id]['color'] = []
             newTaskArray[Id]['assignedTo'].push(contact);
             newTaskArray[Id]['color'].push(color);
         }
@@ -345,11 +352,11 @@ function configDoneSubtask(i, Id) {
     let task = newTaskArray[Id];
     let currentStatus = document.getElementById(`subtaskCheckBox${i}`).checked;
 
-    if(currentStatus == true) {
+    if (currentStatus == true) {
         task['doneSubTasks']++;
         console.log(task['doneSubTasks']);
-    } 
-    
+    }
+
     if (currentStatus == false) {
         task['doneSubTasks']--;
         console.log(task['doneSubTasks']);
@@ -368,6 +375,8 @@ function calculateProgress(subTaskAmount, doneAmount) {
 }
 
 function confirmChangesOnTask(Id) {
+    debugger
+    if(newTaskArray[Id]['assignedTo'].length > 0){
     let currentTask = newTaskArray[Id];
     let newTitle = document.getElementById('modifyTitle').value;
     let newDescription = document.getElementById('modifyDescription').value;
@@ -378,9 +387,11 @@ function confirmChangesOnTask(Id) {
     currentTask['date'] = newDate;
     currentTask['prio'] = newPrio;
 
+    modifyAssignedTo(Id);
     closeTaskPopUp();
     saveTasks();
     updateBoardTasks();
+    }else{ alert('pls chose a Assigned')}
 }
 
 function deleteTask(Id) {
@@ -404,7 +415,7 @@ function allowDrop(ev) {
 }
 
 function drop(stat) {
-    newTaskArray[currentDraggedTask]['stat']  = stat;
+    newTaskArray[currentDraggedTask]['stat'] = stat;
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.remove('rotateDeg');
     saveTasks();
     updateBoardTasks();
@@ -424,15 +435,15 @@ function searchTask() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
         let search = searchInput.toLowerCase();
-        let search2 =  capitalizeFirstLetter(search);
+        let search2 = capitalizeFirstLetter(search);
 
         if (currentTask['title'].includes(search) || currentTask['description'].includes(search)) {
             filteredTasks.push(currentTask);
-            } else if(currentTask['title'].includes(search2) || currentTask['description'].includes(search2)) {
-                filteredTasks.push(currentTask);
-            }
+        } else if (currentTask['title'].includes(search2) || currentTask['description'].includes(search2)) {
+            filteredTasks.push(currentTask);
         }
-        renderFilteredTasks('filteredTasks');
+    }
+    renderFilteredTasks('filteredTasks');
 }
 
 function capitalizeFirstLetter(string) {
