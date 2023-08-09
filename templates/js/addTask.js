@@ -83,9 +83,11 @@ function addAssignedToTask() {
         const contact = allContacts[i]['name'];
         const initial = allContacts[i]['initials'];
         const color = allContacts[i]['color'];
-        let checkboxOverlay = document.getElementById(`assignedOverlayCheckbox${i}`);
+        //let checkboxOverlay = document.getElementById(`assignedOverlayCheckbox${i}`);
         let checkbox = document.getElementById(`assignedCheckbox${i}`);
-        if (checkboxOverlay.checked || checkbox.checked) {
+
+    
+        if (/*checkboxOverlay.checked ||*/ checkbox.checked) {
             assignedToNames.push(contact);
             contactsColors.push(color);
         }
