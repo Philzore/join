@@ -117,9 +117,8 @@ function generateContactsOverlayAddHTML() {
                         <input id="addContactEmail" class="contactOverlayEmailIcon" required type="email" placeholder="Email" title="Please enter a valid email address e.g.: 'johndoe@dev.com' ">
                         <input id="addContactPhone" class="contactOverlayPhoneIcon" required type="number" placeholder="Phone" title="Please enter a valid phone number e.g.: '+491724485536' "> 
                         <div class="overlayAddContactRightButtonSection">
-                            <button type="reset" class="contactsDetailBottomBtnAlt cancelBtn2">
-                                <p>Cancel</p>
-                                <img src="./img/cancelCheckmarkContacts.svg" alt="newContactIconBig">
+                            <button type="reset" onclick="closeContactOverlay()" class="contactsDetailBottomBtnAlt cancelBtn2">
+                                <p>Cancel X</p>
                             </button > 
                             <button type="submit" class="contactsDetailBottomBtn">
                                 <p>Create Contact</p>
