@@ -209,7 +209,7 @@ function generateContentLeftAndRightContainerOverlay() {
         </div>
 
         <div class="assignedToAndSelect">
-            <span>Assigned to</span>
+            <span>Assigned to <div  type="button" onclick="closewarnNoChoseAssigned()" class="ChoseAssigned d-none" id="ChoseAssigned" >Chose a Assigned !!!</div></span>
             <div id="selectContactoOverlay" class="selectContact" type="button" onclick="showAllAssignedOverlay()">
                 Select contacts to assign
                 <img id="selectContactImg" src="./img/dropdownArrow.png" class="selectContactImg">

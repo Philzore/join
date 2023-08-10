@@ -289,8 +289,8 @@ function changeImg() {
     imageTag.src = './img/delete.png';
 }
 
-function renderContactsModifyAddTask() {
-   /*  activateEvent(); */
+function renderContactsModifyAddTask(Id) {
+   
 
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
@@ -301,32 +301,23 @@ function renderContactsModifyAddTask() {
         <input id="assignedCheckbox${i}" onclick="" class="assignedCheckbox" type="checkbox">${name}
         </div>
         `;
+        
+    }
+     activateEvent(Id);
+}
+function activateEvent(Id){
+    let currentTask = newTaskArray[Id]['assignedTo'];
+    for (let i = 0; i < currentTask.length; i++) {
+        const element = currentTask[i];
+        console.log(element)
+        document.getElementById(`assignedCheckbox${i}`).checked = true;
     }
 }
 
-/* function activateEvent() {
-    for (let i = 0; i < allContacts.length; i++) {
-        let modifycheckbox = document.getElementById(`assignedCheckbox${i}`);
-        if (modifycheckbox.checked) {
-            let modifyAssignBtn = document.getElementById(`assignedCheckbox${i}`);
-            modifyAssignBtn.addEventListener("change", modifyAssignedTo);
-        }
-    }
-}
- */
+
 function modifyAssignedTo(Id) {
-    /*     let assignee = document.getElementById("modifyAssignedTo");
-        let Id = assignee.options[assignee.selectedIndex].value;
-        let color = assignee.options[assignee.selectedIndex].id;
-        let name = assignee.options[assignee.selectedIndex].innerHTML;
-        let selectedAssignee2 = assignee.options[assignee.selectedIndex];
-        selectedAssignee2.disabled = true;
-        let i = (assignee.selectedIndex) - 1;
-  
-        if (newTaskArray[Id]['assignedTo'].indexOf(name) === -1) {
-            newTaskArray[Id]['assignedTo'].push(name);
-            newTaskArray[Id]['color'].push(color);
-        } */
+        newTaskArray[Id]['assignedTo'] = []
+        newTaskArray[Id]['color'] = []
 
     for (let i = 0; i < allContacts.length; i++) {
         const contact = allContacts[i]['name'];
@@ -334,8 +325,6 @@ function modifyAssignedTo(Id) {
         const color = allContacts[i]['color'];
         let modifycheckbox = document.getElementById(`assignedCheckbox${i}`);
         if (modifycheckbox.checked) {
-            newTaskArray[Id]['assignedTo'] = []
-            newTaskArray[Id]['color'] = []
             newTaskArray[Id]['assignedTo'].push(contact);
             newTaskArray[Id]['color'].push(color);
         }
@@ -375,7 +364,8 @@ function calculateProgress(subTaskAmount, doneAmount) {
 }
 
 function confirmChangesOnTask(Id) {
-    debugger
+    modifyAssignedTo(Id);
+   
     if(newTaskArray[Id]['assignedTo'].length > 0){
     let currentTask = newTaskArray[Id];
     let newTitle = document.getElementById('modifyTitle').value;
@@ -387,11 +377,11 @@ function confirmChangesOnTask(Id) {
     currentTask['date'] = newDate;
     currentTask['prio'] = newPrio;
 
-    modifyAssignedTo(Id);
+
     closeTaskPopUp();
     saveTasks();
     updateBoardTasks();
-    }else{ alert('pls chose a Assigned')}
+    }else{ warnNoChoseAssigned();}
 }
 
 function deleteTask(Id) {
@@ -411,7 +401,6 @@ function startDragging(id) {
 
 function allowDrop(ev) {
     ev.preventDefault();
-
 }
 
 function drop(stat) {

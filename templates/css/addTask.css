@@ -159,31 +159,33 @@ button {
 
 }
 
-.selectContactFrame{
+.selectContactFrame {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     padding: 7px 10px;
     width: 400px;
     min-height: 39px;
-    background: #FFFFFF;
+    background: #ffffff;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     cursor: pointer;
 }
-.assignedToAndSelectFont{
+
+.assignedToAndSelectFont {
     display: flex;
     align-items: center;
-    gap: 300px;
+    gap: 100px;
 }
-.ChoseAssigned{
+
+.ChoseAssigned {
     font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 176px;
     min-height: 24px;
-    background: #ffffff;
+    background: #F9E0E0;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     -moz-user-select: none;
@@ -191,6 +193,8 @@ button {
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    color: #C2535A;
+    cursor: pointer;
 }
 
 .selectContact {
@@ -231,13 +235,16 @@ button {
     width: 37px !important;
     margin-right: 30px;
 }
-.selectContactImg{
+
+.selectContactImg {
     width: 14px;
-    
+
 }
-.selectContactImgFlip{
+
+.selectContactImgFlip {
     transform: rotate(180deg);
 }
+
 .assignedToList {
     display: flex;
     flex-wrap: wrap;

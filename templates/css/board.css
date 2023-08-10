@@ -732,7 +732,7 @@
     }
 
     .addTaskBtn {
-        display: none;
+        position: unset;
     }
 
     .mobileAddTask {

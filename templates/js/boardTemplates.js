@@ -47,33 +47,25 @@ function renderModifyTaskTemplateHTML(currentTask) {
         </div>
 
         <div class="assignedToAndSelect">
-            <span>Assigned to</span>
-            <div type="button" onclick="renderContactsModifyAddTask(${currentTask['id']})" class="modifyInput">
-            <div id="updateAssignedTo" class="selectContact">Select contacts to assign
-            </div>
-            <img id="modifyAssignedToImg" src="./img/dropdownArrow.png" class="selectContactImg">
+            <span>Assigned to<div type="button" onclick="closewarnNoChoseAssigned()"  class="ChoseAssigned d-none" id="ChoseAssigned" >Chose a Assigned !!!</div></span>
+            <div class="modifyInput">
             </div>
             <div class="assignedTo" id="modifyAssignedTo">
             </div>
-        
-
             <div id="modifyPopUpAssignmentContainer${currentTask['id']}" class="d-flex mt"></div>
         </div>
-
-        <div class="addTaskBtn confirmBtn btn-bg" onclick="confirmChangesOnTask('${currentTask['id']}')">
-            <img src="./img/checkIcon.png" alt="">
-        </div>
-
         <div class="inputAndButton">
             <input id="modifysubtasks" placeholder="Add new subtask">
             <button type="button" onclick="newSubtask()">
                 <img src="./img/subtaskIcon.png">
             </button>
         </div>
-
         <div class="subtasksList modifySubtaskList" id="modifysubtasksList">
 
         </div>
+        <div class="addTaskBtn confirmBtn btn-bg" onclick="confirmChangesOnTask('${currentTask['id']}')">
+        <img src="./img/checkIcon.png" alt="">
+    </div>
 
     </div>
    `
@@ -176,7 +168,7 @@ function generatePinnedTaskHTML(task, progressInPercent) {
 function renderTaskAssignmentsTemplateHTML(task, bgColor, initials) {
     return /*html*/`
     <div class="contactContainer" id="" style="background-color:${bgColor}">${initials}</div>
-    `; 
+    `;
 }
 
 function renderTaskAssignmentCountHTML(assignmentCount) {
