@@ -372,8 +372,8 @@ function renderContactsModifyAddTask(Id) {
         const { name, color } = getJoinData(allData);
 
         document.getElementById(`modifyAssignedTo`).innerHTML += /*html*/ `
-        <div class="assignedFrame" >
-        <input id="assignedCheckbox${i}" onclick="" class="assignedCheckbox" type="checkbox">${name}
+        <div id="assignedName${i}" class="assignedFrame" >
+        <input id="assignedCheckbox${i}" class="assignedCheckbox" type="checkbox">${name}
         </div>
         `;
         
