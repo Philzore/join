@@ -1,9 +1,17 @@
+/**
+ * modify Assignments Template for HTML
+ * 
+ */
+
 function modifyAssignmentsTemplateHTML(bgColor, initials) {
     return /*html*/`
     <div class="taskPopUpSingleAssignmentInitals contactContainer" style="background:${bgColor}">${initials}</div>
 `
 }
-
+/**
+ * render modify Task Template for HTML
+ * 
+ */
 function renderModifyTaskTemplateHTML(currentTask) {
     return /*html*/`
     <div class="taskModifyPopUp" onclick="doNotClose(event)">
@@ -70,6 +78,10 @@ function renderModifyTaskTemplateHTML(currentTask) {
     </div>
    `
 }
+/**
+ * render modify Assignments and Initails Template for HTML
+ * 
+ */
 
 function renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor) {
     return /*html*/`
@@ -79,7 +91,10 @@ function renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgC
     </div>
 `
 }
-
+/**
+ *render Task PopUp Table Template HTML
+ * 
+ */
 function renderTaskPopUpTableTemplateHTML(clickedTask) {
     return /*html*/`
     <div class="taskPopUpRow">
@@ -100,7 +115,10 @@ function renderTaskPopUpTableTemplateHTML(clickedTask) {
     <img  class="closeBtnArrow" src="./img/arrow-left-line.svg"></div>
 `
 }
-
+/**
+ * render Clicked TaskOverview PopUp Template for HTML
+ * 
+ */
 function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
     return /*html*/`
     <div class="taskOverviewPopUp" onclick="doNotClose(event)">
@@ -127,7 +145,10 @@ function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
     </div>
 `
 }
-
+/**
+ * generate Pinned Task HTML
+ * 
+ */
 function generatePinnedTaskHTML(task, progressInPercent) {
     return /*html*/`
     <div onclick="openExistingTaskPopUp(${task['id']})">
@@ -140,9 +161,6 @@ function generatePinnedTaskHTML(task, progressInPercent) {
         <p class="pinnedTaskDiscription">${task['description']}</p>
 
         <div id="progressContainer${task['id']}" class="progressContainer v-hide">
- 
-
-
             <div class="progressBar">
                 <div class="blueProgress" style="width:${progressInPercent}%"></div>
             </div>
@@ -164,19 +182,28 @@ function generatePinnedTaskHTML(task, progressInPercent) {
     </div>
 `;
 }
-
+/**
+ * render Task Assignments Template to HTML
+ * 
+ */
 function renderTaskAssignmentsTemplateHTML(task, bgColor, initials) {
     return /*html*/`
     <div class="contactContainer" id="" style="background-color:${bgColor}">${initials}</div>
     `;
 }
-
+/**
+ * render Task Assignment Count to HTML
+ * 
+ */
 function renderTaskAssignmentCountHTML(assignmentCount) {
     return /*html*/`
     <div class="contactContainer" style="background-color: rgb(0, 0, 0)">+${assignmentCount}</div>
     `;
 }
-
+/**
+ * render Status fields Template to HTML
+ * 
+ */
 function renderStatusfieldsTemplateHTML(i, stat, statClass) {
     return /*html*/`
     <div class="statContainer">
@@ -193,7 +220,10 @@ function renderStatusfieldsTemplateHTML(i, stat, statClass) {
     </div>
 `
 }
-
+/**
+ * render Board Header Template to HTML
+ * 
+ */
 function renderBoardHeaderTemplateHTML() {
     return /*html*/`
     <div id= "BoardManagementText" class="boardManagementText">Kanban Project Management Tool</div>
@@ -223,7 +253,10 @@ function renderBoardHeaderTemplateHTML() {
     </div>
 `
 }
-
+/**
+ * render Board Template to HTMLL
+ * 
+ */
 function renderBoardTemplateHTML() {
     return /*html*/`
     <div class="boardBody" id="boardBody">
@@ -233,7 +266,10 @@ function renderBoardTemplateHTML() {
     </div>
     `
 }
-
+/**
+ * render CheckedBox Template to HTML
+ * 
+ */
 function renderCheckedBoxTemplateHTML(i, Id, subtask) {
     return /*html*/`
     <div class="subtask modifySubtask">
@@ -242,7 +278,10 @@ function renderCheckedBoxTemplateHTML(i, Id, subtask) {
     </div>
     `
 }
-
+/**
+ * render Unchecked Box Template to HTML
+ * 
+ */
 function renderUncheckedBoxTemplateHTML(i, Id, subtask) {
     return /*html*/`
     <div class="subtask modifySubtask">

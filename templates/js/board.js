@@ -9,6 +9,11 @@ let newPrio;
 let chosenStat = 'todo';
 let currentBooleanValue = 'false';
 
+/**
+ * 
+ * Adding a id System for each Task importend to editer the Task and Drag and Drio function.
+ */
+
 function giveTaskId() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
@@ -17,7 +22,11 @@ function giveTaskId() {
     }
 }
 
-///////////////RenderFunktionen////////////////////////
+/**
+ * 
+ * Render Function For Board
+ */
+
 function updateBoardTasks() {
     renderTodoTasksHTML(newTaskArray);
     renderInProgressHTML(newTaskArray);
@@ -25,7 +34,10 @@ function updateBoardTasks() {
     renderDoneHTML(newTaskArray);
     showProgressbar();
 }
-
+/**
+ * 
+ * Render HTML For Board
+ */
 function renderBoardHTML() {
     let content = document.getElementById('contentSection');
 
@@ -36,14 +48,20 @@ function renderBoardHTML() {
     renderBoardHeaderHTML();
     renderStatusFieldsHTML();
 }
-
+/**
+ * 
+ * Render the header HTML For Board
+ */
 function renderBoardHeaderHTML() {
     let content = document.getElementById('boardHeadlineContainer');
 
     content.innerHTML = '';
     content.innerHTML += renderBoardHeaderTemplateHTML();
 }
-
+/**
+ * 
+ * Render StatusFields HTML For Board
+ */
 function renderStatusFieldsHTML() {
     let content = document.getElementById('boardContentContainer');
 
@@ -57,7 +75,10 @@ function renderStatusFieldsHTML() {
     }
     updateBoardTasks();
 }
-
+/**
+ * Render where the Task a show up For The Board
+ * @param {String} arrayName - This is the parameter for the Todo Area
+ */
 function renderTodoTasksHTML(arrayName) {
     let content = document.getElementById('statContainer0');
     let todos = arrayName.filter(task => task['stat'] == 'todo');
@@ -74,7 +95,10 @@ function renderTodoTasksHTML(arrayName) {
         renderAssignedToHTML(task);
     }
 }
-
+/**
+ * Render where the Task a show up For The Board
+ * @param {String} arrayName - This is the parameter for the InProgress Area
+ */
 function renderInProgressHTML(arrayName) {
     let content = document.getElementById('statContainer1');
     let inProgress = arrayName.filter(task => task['stat'] == 'inProgress');
@@ -91,7 +115,10 @@ function renderInProgressHTML(arrayName) {
         renderAssignedToHTML(task);
     }
 }
-
+/**
+ * Render where the Task a show up For The Board
+ * @param {String} arrayName - This is the parameter for the AwaitingFeedback Area
+ */
 function renderAwaitingFeedbackHTML(arrayName) {
     let content = document.getElementById('statContainer2');
     let awaitingFeedback = arrayName.filter(task => task['stat'] == 'awaitingFeedback');
@@ -114,7 +141,10 @@ function renderAwaitingFeedbackHTML(arrayName) {
         }
     }
 }
-
+/**
+ * Render where the Task a show up For The Board
+ * @param {String} arrayName - This is the parameter for the Done Area
+ */
 function renderDoneHTML(arrayName) {
     let content = document.getElementById('statContainer3');
     let done = arrayName.filter(task => task['stat'] == 'done');
@@ -131,7 +161,10 @@ function renderDoneHTML(arrayName) {
         renderAssignedToHTML(task);
     }
 }
-
+/**
+ * 
+ * @param {String} task - This function allow to use the unique Tasknote after adding in a area.
+ */
 function renderAssignedToHTML(task) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
     //debugger;
@@ -148,6 +181,11 @@ function renderAssignedToHTML(task) {
         content.innerHTML += renderTaskAssignmentCountHTML(assignmentCount);
     }
 }
+/**
+ * 
+ * @param {String} task - This function allow to use the unique Tasknote after adding in a area.
+ * @param {String} count  This function allow to use the Tasknote.length. 
+ */
 
 function renderTaskAssignmentListHTML(task, count) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
@@ -160,6 +198,10 @@ function renderTaskAssignmentListHTML(task, count) {
         content.innerHTML += renderTaskAssignmentsTemplateHTML(task, bgColor, initials);
     }
 }
+/**
+ * render the Progressbar on the Tasksnotes
+ * 
+ */
 
 function showProgressbar() {
     for (let i = 0; i < newTaskArray.length; i++) {
@@ -170,17 +212,26 @@ function showProgressbar() {
         }
     }
 }
-
-///////////////////////Task-Pop-Up/////////////////////////////////
+/**
+ * Open the Popup to adding new Task 
+ * 
+ */
 function openExistingTaskPopUp(Id) {
     renderClickedTaskPopUpHTML(Id);
     document.getElementById('overlaySection').classList.remove('d-none');
 }
-
+/**
+ * close the Popup to adding new Task 
+ * 
+ */
 function closeTaskPopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
-
+/**
+ * Render The Pop up Task 
+ * @param {number} Id Id is the unique Id of each Tasknote
+ * 
+ */
 function renderClickedTaskPopUpHTML(Id) {
     let content = document.getElementById('overlaySection');
     let clickedTask = newTaskArray[Id];
@@ -191,7 +242,10 @@ function renderClickedTaskPopUpHTML(Id) {
     renderTaskPopUpTableHTML(clickedTask);
     renderTaskPopUpAssignmentsHTML(clickedTask);
 }
-
+/**
+ *  Render more of The Pop up Task 
+ * 
+ */
 function renderTaskPopUpTableHTML(clickedTask) {
     let content = document.getElementById('taskPopUpTable');
 
@@ -199,7 +253,10 @@ function renderTaskPopUpTableHTML(clickedTask) {
 
     content.innerHTML += renderTaskPopUpTableTemplateHTML(clickedTask);
 }
-
+/**
+ * Render the Initails and color 
+ * 
+ */
 function renderTaskPopUpAssignmentsHTML(clickedTask) {
     let content = document.getElementById('taskPopUpAssignmentsList');
 
@@ -213,12 +270,18 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
         content.innerHTML += renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor);
     }
 }
-
+/**
+ * Open the Popup to modifyer the Task
+ * 
+ */
 function openModifyTaskPopUp(Id) {
     modifyCurrentTaskHTML(Id);
     renderContactsModifyAddTask(Id)
 }
-
+/**
+ * Use the Current Task the Popup to modifyer the Task
+ * 
+ */
 function modifyCurrentTaskHTML(Id) {
     let content = document.getElementById('overlaySection');
     let currentTask = newTaskArray[Id];
@@ -232,7 +295,10 @@ function modifyCurrentTaskHTML(Id) {
     modifyPrio(prio);
     renderModifySubtaskList(Id);
 }
-
+/**
+ * Render the Popup to modifyer the Task
+ * 
+ */
 function renderModifyAssignmentsHTML(Id) {
     let currentTask = newTaskArray[Id];
     let content = document.getElementById(`modifyPopUpAssignmentContainer${currentTask['id']}`);
@@ -247,7 +313,10 @@ function renderModifyAssignmentsHTML(Id) {
         content.innerHTML += modifyAssignmentsTemplateHTML(bgColor, initials);
     }
 }
-
+/**
+ * Modifyer the prio 
+ * 
+ */
 function modifyPrio(currentPriority) {
     let currentPrio = capitalizeFirstLetter(currentPriority);
     let prioValue = document.getElementById(`modify${currentPrio}`).value;
@@ -265,7 +334,10 @@ function modifyPrio(currentPriority) {
     document.getElementById(`modify${otherPrio2}`).classList.remove(`${otherPrios[1]}`);
     document.getElementById(`modify${otherPrio2}Icon`).src = `./img/${otherPrios[1]}Icon.png`;
 }
-
+/**
+ * Render the subtask for Modifyer and changes  
+ * 
+ */
 function renderModifySubtaskList(Id) {
     let content = document.getElementById('modifysubtasksList');
     let task = newTaskArray[Id];
@@ -288,7 +360,10 @@ function changeImg() {
 
     imageTag.src = './img/delete.png';
 }
-
+/**
+ * Render the Contact and checkboxes for Modifyer and changes  
+ * 
+ */
 function renderContactsModifyAddTask(Id) {
    
 
@@ -304,7 +379,10 @@ function renderContactsModifyAddTask(Id) {
         
     }
      activateEvent(Id);
-}
+}/**
+ * show which Checkbox is checked after loading the Pop up First time
+ * 
+ */
 function activateEvent(Id){
     let currentTask = newTaskArray[Id]['assignedTo'];
     for (let i = 0; i < currentTask.length; i++) {
@@ -314,7 +392,10 @@ function activateEvent(Id){
     }
 }
 
-
+/**
+ * Modifyer the Assigned
+ * 
+ */
 function modifyAssignedTo(Id) {
         newTaskArray[Id]['assignedTo'] = []
         newTaskArray[Id]['color'] = []
@@ -331,12 +412,10 @@ function modifyAssignedTo(Id) {
     }
     renderModifyAssignmentsHTML(Id);
 }
-
-function pushToAssignments(Id, name) {
-    task['assignedTo'].push(name);
-    renderModifySubtaskList(Id);
-}
-
+/**
+ * modifyer the Subtask
+ * 
+ */
 function configDoneSubtask(i, Id) {
     let task = newTaskArray[Id];
     let currentStatus = document.getElementById(`subtaskCheckBox${i}`).checked;
@@ -353,7 +432,10 @@ function configDoneSubtask(i, Id) {
     task['isChecked'][i] = currentStatus;
     console.log(task['isChecked'][i]);
 }
-
+/**
+ * modifyer the Subtask Amount
+ * 
+ */
 function calculateProgress(subTaskAmount, doneAmount) {
     if (doneAmount > subTaskAmount) {
         doneAmount = subTaskAmount;
@@ -362,7 +444,10 @@ function calculateProgress(subTaskAmount, doneAmount) {
 
     return progressInPercent;
 }
-
+/**
+ * confim the Modifyers 
+ * 
+ */
 function confirmChangesOnTask(Id) {
     modifyAssignedTo(Id);
    
@@ -383,7 +468,10 @@ function confirmChangesOnTask(Id) {
     updateBoardTasks();
     }else{ warnNoChoseAssigned();}
 }
-
+/**
+ * Deletet the Current chose Task
+ * 
+ */
 function deleteTask(Id) {
 
     newTaskArray.splice(Id, 1);
@@ -392,17 +480,26 @@ function deleteTask(Id) {
     saveTasks();
     updateBoardTasks();
 }
+/**
+ * Drag and Drop
+ * 
+ */
 
-///////////////////////Drag & Drop/////////////////////////////////
 function startDragging(id) {
     currentDraggedTask = id;
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.add('rotateDeg');
 }
-
+/**
+ * allowDrop
+ * 
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
-
+/**
+ * drop
+ * 
+ */
 function drop(stat) {
     newTaskArray[currentDraggedTask]['stat'] = stat;
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.remove('rotateDeg');
@@ -416,8 +513,11 @@ function highlight(stat) {
 
 function stopHighlight(stat) {
     document.getElementById(stat).classList.remove('dragAreaHighlight');
-}
-
+} 
+/**
+ * searchTask
+ * 
+ */
 function searchTask() {
     let searchInput = document.getElementById('searchInput').value;
 
@@ -434,11 +534,17 @@ function searchTask() {
     }
     renderFilteredTasks('filteredTasks');
 }
-
+/**
+ * UpperCase each search question. Importend for search 
+ * 
+ */
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
+/**
+ * Filter the Task 
+ * 
+ */
 function renderFilteredTasks() {
     renderTodoTasksHTML(filteredTasks);
     renderInProgressHTML(filteredTasks);

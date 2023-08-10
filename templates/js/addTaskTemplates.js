@@ -1,3 +1,8 @@
+/**
+ * 
+ * Generate AddTask Content
+ */
+
 function generateAddTaskContent() {
     return /*html*/ `
         <form class="addTaskMainContainer" id="addTaskForm">
@@ -8,6 +13,10 @@ function generateAddTaskContent() {
     `;
 }
 
+/**
+ * 
+ * Render The Main Body of AddTask
+ */
 function generateContentLeftAndRightContainer() {
     return /*html*/ `
         <div class="contentLeftAndRight">
@@ -97,6 +106,10 @@ function generateContentLeftAndRightContainer() {
         </div>
     `;
 }
+/**
+ * 
+ *  Render the Controll Buttons of AddTask
+ */
 function generateTwoButtonsContainer() {
     return /*html*/ `
         <div class="twoButtons">
