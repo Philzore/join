@@ -191,7 +191,7 @@
 }
 
 .nameimg {
-    background-image: url('../../img/nameimg.png') !important;
+    background-image: url('../../img/name_icon.svg') !important;
     background-position: 220px 8px !important;
     background-size: 10px !important;
     background-repeat: no-repeat !important;
@@ -430,6 +430,16 @@
 
 }
 
+@media (max-width: 930px) {
+    .forgotPwHeadline {
+        margin: 15px;
+    }
+
+    .textForgotPw {
+        width: 90%;
+    }
+}
+
 @media (max-width: 750px) {
     .msgBoxContent{
         width: 220px;
@@ -552,7 +562,6 @@
     .textForgotPw {
         width: 90%;
         height: 20%;
-        text-wrap: wrap;
         font-size: 19px;
     }
 
@@ -560,10 +569,6 @@
         margin-top: 0px;
         width: 450px;
         font-size: 19px;
-    }
-
-    .forgotPwHeadline {
-        margin: 15px;
     }
 
     .gap40 {
