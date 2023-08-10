@@ -10,7 +10,7 @@ let newCategorys = [];
 
 
 /**
- * 
+ * This Function render Task
  */
 async function initAddTask() {
     document.getElementById('contentSection').innerHTML = generateAddTaskContent();
@@ -20,13 +20,13 @@ async function initAddTask() {
     allSubtasks = [];
 }
 /**
- * 
+ * This Function loading Information from the Server
  */
 async function loadTasks() {
     newTaskArray = JSON.parse(await getItem('createdTask'));
 }
 /**
- * 
+ * This Function render AddTask side
  */
 function renderHeadline() {
     document.getElementById('headlineContainer').innerHTML = /*html*/ `
@@ -37,7 +37,7 @@ function renderHeadline() {
     renderAssignedInitial();
 }
 /**
- * 
+ * This Function render leftside of AddTask
  */
 function renderContentLeftAndRight() {
     document.getElementById('contentLeftAndRightContainer').innerHTML = generateContentLeftAndRightContainer();
@@ -46,7 +46,7 @@ function renderContentLeftAndRight() {
     setMinDate('date');
 }
 /**
- * 
+ * This Function render the list of Contact for the Checkboxes
  */
 function renderContactsAddTask(Id) {
 
@@ -61,7 +61,7 @@ function renderContactsAddTask(Id) {
 
 }
 /**
- * 
+ *  Allow how fast open and close the hidden field of the Checkboxes
  */
 function showAllAssigned() {
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
@@ -72,7 +72,7 @@ function showAllAssigned() {
     }
 }
 /**
- * 
+ *  It close the hidden field of Checkboxes and switch the Imagen Arrow.
  */
 function closeAllAssigned() {
     document.getElementById('assignedTo').classList.add('d-none');
@@ -82,16 +82,16 @@ function closeAllAssigned() {
 
 }
 /**
- * 
+ * It open the hidden field of Checkboxes and switch the Imagen Arrow.
  */
 function openAllAssigned() {
     document.getElementById('assignedTo').classList.remove('d-none');
     document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`;
     document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
-  
+
 }
 /**
- * 
+ *  The Function reading the Checkbox and if the Checkbox is checked push it to the Array AssignedToNames and ContactsColors.
  */
 
 function addAssignedToTask() {
@@ -108,7 +108,7 @@ function addAssignedToTask() {
     }
 }
 /**
- * 
+ * This Function show in a visiual design which Checkbox is checked.
  */
 function renderAssignedInitial() {
     for (let i = 0; i < allContacts.length; i++) {
@@ -125,23 +125,17 @@ function renderAssignedInitial() {
         }
     }
 }
-/**
- * 
- * @param {*} color 
- */
+
 function setColor(color) {
     contactsColors.push(color);
 }
-/**
- * 
- * @param {*} color 
- */
+
 function renderTwoButtonsContainer() {
     document.getElementById('twoButtonsContainer').innerHTML = generateTwoButtonsContainer();
 }
 /**
  * 
- * @param {*} color 
+ * @param {string} id - The ID allows the use of today's date
  */
 function setMinDate(id) {
     let today = new Date().toISOString().split('T')[0];
@@ -149,14 +143,14 @@ function setMinDate(id) {
 }
 /**
  * 
- * @param {*} color 
+ * 
  */
 function pushDate() {
     let dueDate = document.getElementById('date').value;
     dateArray.splice(0, 1, dueDate);
 }
 /**
- * 
+ * Add the Button's of addTask a click function.
  * 
  */
 function activatePrioButtons() {
@@ -180,7 +174,8 @@ function activatePrioButtons() {
 }
 /**
  * 
- * @param {*} color 
+ * activate to Urgent Button
+ * 
  */
 function urgent() {
     let prioValue = document.getElementById('urgent').value;
@@ -197,7 +192,8 @@ function urgent() {
 }
 /**
  * 
- * @param {*} color 
+ * activate to Medium Button
+ * 
  */
 function medium() {
     let prioValue = document.getElementById('medium').value;
@@ -214,7 +210,8 @@ function medium() {
 }
 /**
  * 
- * @param {*} color 
+ * activate to Low Button
+ * 
  */
 function low() {
     let prioValue = document.getElementById('low').value;
@@ -231,11 +228,10 @@ function low() {
 }
 /**
  * 
- * @param {*} color 
+ * Create a new SubTask
  */
 function newSubtask() {
     let newSubtask = document.getElementById('subtasks').value;
-    debugger;
     if (newSubtask == '') {
         document.getElementById('subtasks').focus();
     } else {
@@ -257,17 +253,22 @@ function newSubtask() {
 }
 /**
  * 
- * @param {*} color 
+ * Reset the AddTasks Field
  */
 function clearFields() {
-    assignedToNames = [];
-    allSubtasks = [];
-    document.getElementById('assignedToList').innerHTML = '';
-    document.getElementById('subtasksList').innerHTML = '';
-}
+    for (let i = 0; i < allContacts.length; i++) {
+        document.getElementById(`renderVisibelAssigned${i}`).classList.remove('d-none');
+        document.getElementById(`assignedCheckbox${i}`).checked = false;
+    }
+        assignedToNames = [];
+        allSubtasks = [];
+        document.getElementById('assignedToList').innerHTML = '';
+        document.getElementById('subtasksList').innerHTML = '';
+    }
+
 /**
  * 
- * @param {*} color 
+ * Create a new Task
  */
 function createTask() {
     let title = document.getElementById('title').value;
@@ -302,30 +303,24 @@ function createTask() {
 }
 /**
  * 
- * @param {*} color 
+ * If no Assigned is Chose this function stop to push a new Task
  */
 function warnNoChoseAssigned() {
     document.getElementById('ChoseAssigned').classList.remove('d-none');
     setTimeout(closewarnNoChoseAssigned, 4000)
 }
-/**
- * 
- * @param {*} color 
- */
-function closewarnNoChoseAssigned(){
+
+function closewarnNoChoseAssigned() {
     document.getElementById('ChoseAssigned').classList.add('d-none');
 }
-/**
- * 
- * @param {*} color 
- */
+
 async function saveTasks() {
     await setItem('createdTask', JSON.stringify(newTaskArray));
     renderBoard();
 }
 /**
  * 
- * @param {*} color 
+ * Open the OverlaySection for the Board to adding new Tasks
  */
 function taskAddedToBoard() {
     document.getElementById('overlaySection').classList.remove('d-none');
@@ -334,14 +329,14 @@ function taskAddedToBoard() {
     `;
     setTimeout(function () { closePopUp() }, 2000);
 }
-/**
- * 
- * @param {*} color 
- */
+
 function closePopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
-
+/**
+ * 
+ *  Open the field which allow to adding new Category
+ */
 function showAddBox() {
     let value = document.getElementById('category').value;
     if (value == 'new') {
@@ -352,7 +347,7 @@ function showAddBox() {
 }
 /**
  * 
- * @param {*} color 
+ *  adding new Category
  */
 function addNewCategory() {
     let categoryInput = document.getElementById('new-category-input').value;
@@ -382,7 +377,7 @@ function addNewCategory() {
 }
 /**
  * 
- * @param {*} color 
+ * Save the new Category
  */
 function setNewCategory(categoryInput) {
     let selection = document.getElementById('category');
@@ -392,7 +387,7 @@ function setNewCategory(categoryInput) {
 }
 /**
  * 
- * @param {*} color 
+ * render THe new Category
  */
 function renderNewCategorys() {
     let selection = document.getElementById('category');

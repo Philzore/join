@@ -44,9 +44,9 @@ function generateLegalNoticeScreenHTML() {
         Hauptstraße 69<br>
         02727 Ebersbach-Neugersdorf<br>
     </p>
-    <p>Max Mustermann<br>
-        Mustermannstraße 5<br>
-        Musterhausen<br>
+    <p>Enrico Land<br>
+        Mauermannstraße 5<br>
+        76755 Wörth am Main<br>
     </p>
     <h2>Kontakt</h2>
         Dominik Wiese<br>
