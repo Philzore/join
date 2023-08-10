@@ -19,12 +19,14 @@ async function initAddTask() {
     activatePrioButtons();
     allSubtasks = [];
 }
+
 /**
  * This Function loading Information from the Server
  */
 async function loadTasks() {
     newTaskArray = JSON.parse(await getItem('createdTask'));
 }
+
 /**
  * This Function render AddTask side
  */
@@ -36,6 +38,7 @@ function renderHeadline() {
     renderContactsAddTask('assignedTo');
     renderAssignedInitial();
 }
+
 /**
  * This Function render leftside of AddTask
  */
@@ -45,6 +48,7 @@ function renderContentLeftAndRight() {
     renderTwoButtonsContainer();
     setMinDate('date');
 }
+
 /**
  * This Function render the list of Contact for the Checkboxes
  */
@@ -60,6 +64,7 @@ function renderContactsAddTask(Id) {
     }
 
 }
+
 /**
  *  Allow how fast open and close the hidden field of the Checkboxes
  */
@@ -71,6 +76,7 @@ function showAllAssigned() {
         setTimeout(openAllAssigned, 100)
     }
 }
+
 /**
  *  It close the hidden field of Checkboxes and switch the Imagen Arrow.
  */
@@ -81,6 +87,7 @@ function closeAllAssigned() {
     document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
 
 }
+
 /**
  * It open the hidden field of Checkboxes and switch the Imagen Arrow.
  */
@@ -90,6 +97,7 @@ function openAllAssigned() {
     document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
 
 }
+
 /**
  *  The Function reading the Checkbox and if the Checkbox is checked push it to the Array AssignedToNames and ContactsColors.
  */
@@ -107,6 +115,7 @@ function addAssignedToTask() {
         }
     }
 }
+
 /**
  * This Function show in a visiual design which Checkbox is checked.
  */
@@ -133,6 +142,7 @@ function setColor(color) {
 function renderTwoButtonsContainer() {
     document.getElementById('twoButtonsContainer').innerHTML = generateTwoButtonsContainer();
 }
+
 /**
  * 
  * @param {string} id - The ID allows the use of today's date
@@ -141,6 +151,7 @@ function setMinDate(id) {
     let today = new Date().toISOString().split('T')[0];
     document.getElementById(id).setAttribute('min', today);
 }
+
 /**
  * 
  * 
@@ -149,6 +160,7 @@ function pushDate() {
     let dueDate = document.getElementById('date').value;
     dateArray.splice(0, 1, dueDate);
 }
+
 /**
  * Add the Button's of addTask a click function.
  * 
@@ -172,6 +184,7 @@ function activatePrioButtons() {
         createTask();
     });
 }
+
 /**
  * 
  * activate to Urgent Button
@@ -190,6 +203,7 @@ function urgent() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
+
 /**
  * 
  * activate to Medium Button
@@ -208,6 +222,7 @@ function medium() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
+
 /**
  * 
  * activate to Low Button
@@ -226,6 +241,7 @@ function low() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
+
 /**
  * 
  * Create a new SubTask
@@ -251,6 +267,7 @@ function newSubtask() {
 
     document.getElementById('subtasks').value = '';
 }
+
 /**
  * 
  * Reset the AddTasks Field
@@ -301,6 +318,7 @@ function createTask() {
         warnNoChoseAssigned();
     }
 }
+
 /**
  * 
  * If no Assigned is Chose this function stop to push a new Task
@@ -318,6 +336,7 @@ async function saveTasks() {
     await setItem('createdTask', JSON.stringify(newTaskArray));
     renderBoard();
 }
+
 /**
  * 
  * Open the OverlaySection for the Board to adding new Tasks
@@ -333,6 +352,7 @@ function taskAddedToBoard() {
 function closePopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
+
 /**
  * 
  *  Open the field which allow to adding new Category
@@ -345,6 +365,7 @@ function showAddBox() {
         document.getElementById('new-category-box').classList.add('d-none');
     }
 }
+
 /**
  * 
  *  adding new Category
@@ -375,6 +396,7 @@ function addNewCategory() {
     }
     document.getElementById('new-category-input').value = '';
 }
+
 /**
  * 
  * Save the new Category
@@ -385,6 +407,7 @@ function setNewCategory(categoryInput) {
     newCategorys.push(categoryInput);
     localStorage.setItem('newCategorys', JSON.stringify(newCategorys));
 }
+
 /**
  * 
  * render THe new Category
