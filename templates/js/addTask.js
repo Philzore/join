@@ -15,7 +15,7 @@ async function initAddTask() {
     await loadTasks();
     renderHeadline();
     activatePrioButtons();
-    allSubtasks = [] ;
+    allSubtasks = [];
 }
 
 async function loadTasks() {
@@ -248,9 +248,14 @@ function createTask() {
         assignedToNames = [];
         dateArray = [];
         taskAddedToBoard();
-    }else{
-        alert('hi')
+    } else {
+        closeChoseAssigned();
     }
+}
+
+function closeChoseAssigned() {
+    document.getElementById('ChoseAssigned').classList.remove('d-none');
+    
 }
 
 async function saveTasks() {

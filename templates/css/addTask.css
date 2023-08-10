@@ -163,7 +163,6 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    
     padding: 7px 10px;
     width: 400px;
     min-height: 39px;
@@ -171,6 +170,27 @@ button {
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     cursor: pointer;
+}
+.assignedToAndSelectFont{
+    display: flex;
+    align-items: center;
+    gap: 300px;
+}
+.ChoseAssigned{
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 176px;
+    min-height: 24px;
+    background: #ffffff;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .selectContact {
