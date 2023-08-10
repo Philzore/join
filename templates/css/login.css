@@ -5,16 +5,13 @@
     bottom: 0;
     right: 0;
     z-index: 1;
-    animation: none !important;
 }
 
-/* .logo img {
-    height: 70px;
-    transform: translate(-135px, -270px);
+.logo img {
     position: absolute;
-    top: 45%;
-    left: 45%;
-} */
+    top: 18px;
+    left: 18px;
+}   
 
 .d-flex {
     display: flex;
@@ -464,6 +461,13 @@
         height: 70px;
         transform: translate(-135px, -270px);
     }
+
+    .logo img {
+        height: 70px;
+        top: 45%;
+        left: 45%;
+        transform: translate(-135px, -270px);
+    }   
 
     @keyframes logoAnimation {
         from {
