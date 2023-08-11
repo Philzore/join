@@ -42,7 +42,7 @@ function generateLegalNoticeScreenHTML() {
     return /*html*/ `
     <div class="helpScreenSection">
     <div class="helpScreenSectionHeadline">
-    <h1>Impressum</h1>
+    <h1 class="legalHeadline">Impressum</h1>
     <img onclick="returnToLastActivePage()" class="contactsDetailHeadPic2" src="./img/returnArrowDark.svg" alt="returnToListBtn">
     </div>
     <h3>Angaben gemäß § 5 TMG</h3>
