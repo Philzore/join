@@ -1,3 +1,9 @@
+if (window.location.href == 'http://127.0.0.1:5500/templates/html/login.html') {
+  let mailInput = document.getElementById('loginEmail');
+  
+  mailInput.addEventListener('input', renderPassword);
+}
+console.log(window.location.href);
 /**
  * check url parameter and if there is one , show popup 
  * 
@@ -50,6 +56,7 @@ async function login() {
   localStorage.setItem('currentEmail', email.value);
 
   if (user) {
+    rememberMe(email, password);
     window.location.replace("https://join-604.developerakademie.net/join/index.html");
   } else {
     document.getElementById("msgBox").innerHTML = `Incorrect mail or password!`;
@@ -59,5 +66,40 @@ async function login() {
       document.getElementById('loginContent').classList.remove('d-none');
       document.getElementById("msgBoxDiv").classList.add('d-none');
     }, 1500);
+  }
+}
+
+/**
+ * save mail and password in local storage to automatic fill for remember
+ * 
+ * @param {string} email - email for remeber function
+ * @param {string} password -  password for remember function to save in local storage
+ */
+function rememberMe(email, password) {
+  //check checkbox
+  let remember = document.getElementById('scales').checked;
+  //if yes save username and password to local storage
+  if (remember) {
+    localStorage.setItem('rememberEmail', email.value);
+    localStorage.setItem('rememberPassword', password.value);
+  } else {
+    localStorage.removeItem('rememberEmail');
+    localStorage.removeItem('rememberPassword');
+  }
+}
+
+/**
+* get mail and password from local storage for automatic fill 
+* 
+*/
+function renderPassword() {
+  let mailInput = document.getElementById('loginEmail');
+  let passwordInput = document.getElementById('loginPassword');
+  //get email & password from localstorage
+  
+  let localStorageEmail = localStorage.getItem('rememberEmail');
+  let localStoragePassword = localStorage.getItem('rememberPassword');
+  if (mailInput.value == localStorageEmail) {
+    passwordInput.value = localStoragePassword;
   }
 }

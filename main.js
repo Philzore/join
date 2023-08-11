@@ -1,6 +1,10 @@
 let allContacts = [];
 let lastActivePage = 'sidebarSummary';
 
+/**
+ * init variables
+ * 
+ */
 async function init() {
     await loadContacts();
     await loadTasks();
@@ -8,6 +12,10 @@ async function init() {
     initSummary();
 }
 
+/**
+ * render summary page
+ * 
+ */
 function renderSummary() {
     initSummary();
     let sidebarSummary = document.getElementById('sidebarSummary');
@@ -15,6 +23,10 @@ function renderSummary() {
     lastActivePage = 'sidebarSummary';
 }
 
+/**
+ * render board page
+ * 
+ */
 function renderBoard() {
     giveTaskId();
     renderBoardHTML();
@@ -23,6 +35,10 @@ function renderBoard() {
     lastActivePage = 'sidebarBoard';
 }
 
+/**
+ * render addTask page
+ * 
+ */
 function renderAddTask() {
     initAddTask();
     let sidebarAddTask = document.getElementById('sidebarAddTask');
@@ -30,6 +46,10 @@ function renderAddTask() {
     lastActivePage = 'sidebarAddTask';
 }
 
+/**
+ * render contacts page
+ * 
+ */
 function renderContacts() {
     initContacts();
     let sidebarContacts = document.getElementById('sidebarContacts');
@@ -37,6 +57,10 @@ function renderContacts() {
     lastActivePage = 'sidebarContacts';
 }
 
+/**
+ * render legal notice page
+ * 
+ */
 function showLegalNoticeScreen() {
     contentSection.innerHTML = generateLegalNoticeScreenHTML();
     let sidebarLegal = document.getElementById('sidebarLegal');
@@ -44,6 +68,10 @@ function showLegalNoticeScreen() {
     highlightSidebarBtn(sidebarLegal);
 }
 
+/**
+ * render show help page
+ * 
+ */
 function showHelpScreen() {
     contentSection.innerHTML = generateHelpScreenHTML();
     let helpLogoBtn = document.getElementById('helpLogoBtn');
@@ -51,6 +79,10 @@ function showHelpScreen() {
     highlightSidebarBtn(helpLogoBtn);
 }
 
+/**
+ * get datas
+ * 
+ */
 function getJoinData(allData) {
     let name = allData['name'];
     let email = allData['email'];
@@ -61,15 +93,28 @@ function getJoinData(allData) {
     return { name, email, phone, color, initials, group };
 }
 
+/**
+ * to close overlays screens
+ * 
+ * @param {event} event 
+ */
 function doNotClose(event) {
     event.stopPropagation();
 }
 
+/**
+ * log out function
+ * 
+ */
 function logOut() {
     window.location.replace("./templates/html/login.html");
     localStorage.removeItem("currentEmail");
 }
 
+/**
+ * show log out screen
+ * 
+ */
 function showLogOut() {
     if (document.getElementById('headerContentRightLogout').style.display == 'none') {
         document.getElementById('headerContentRightLogout').style.display = 'block';
@@ -78,6 +123,10 @@ function showLogOut() {
     }
 }
 
+/**
+ * highlight sidebar buttons when active
+ * 
+ */
 function highlightSidebarBtn(element) {
     const buttons = document.getElementsByClassName('sidebarBtn');
     for (let i = 0; i < buttons.length; i++) {
@@ -86,6 +135,10 @@ function highlightSidebarBtn(element) {
     element.classList.add('sidebarBtnActive');
 }
 
+/**
+ * go back to last page
+ * 
+ */
 function returnToLastActivePage() {
     let nextScreen = document.getElementById(`${lastActivePage}`);
     nextScreen.click();
