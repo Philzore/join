@@ -13,11 +13,14 @@ function popUpMessageEmail() {
  * 
  */
 function popUpMessagePw() {
-    document.getElementById('buttonAnimationPw').classList.remove('d-none');
+    if (!document.getElementById('forgotPwEmail').value == '') {
+        document.getElementById('buttonAnimationPw').classList.remove('d-none');
+    }
+    
 }
 
 /**
- * change ypur password and show a popup
+ * change your password and show a popup
  * 
  */
 function resetPassword() {
