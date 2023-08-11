@@ -443,7 +443,7 @@ button {
     transition: ease-in-out 125ms;
 }
 
-.add-category-btn {
+.category-btn {
     color: #FFFFFF;
     background: #2A3647;
     border: none;
@@ -452,7 +452,7 @@ button {
     transition: ease-in-out 125ms;
 }
 
-.add-category-btn:hover {
+.category-btn:hover {
     cursor: pointer;
     background-color: rgb(83, 168, 223);
     transform: scale(1.02);
@@ -475,6 +475,11 @@ button {
     margin-top: 5px;
     display: flex;
 }
+
+.select-category-box {
+    display: flex;
+}
+
 
 @keyframes slideUp {
     0% {
