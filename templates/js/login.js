@@ -1,9 +1,9 @@
-if (window.location.href == 'http://127.0.0.1:5500/templates/html/login.html') {
+if (window.location.href == 'https://join-604.developerakademie.net/join/templates/html/login.html') {
   let mailInput = document.getElementById('loginEmail');
   
   mailInput.addEventListener('input', renderPassword);
 }
-console.log(window.location.href);
+
 /**
  * check url parameter and if there is one , show popup 
  * 
