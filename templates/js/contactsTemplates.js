@@ -1,3 +1,8 @@
+/**
+ * generate html code for contact screen
+ * 
+ * @returns html code
+ */
 function generateContactsHTML() {
     return /*html*/ `
     <div class="contactsSection" id="contactsSection">
@@ -30,6 +35,11 @@ function generateContactsHTML() {
 `
 }
 
+/**
+ * generate html code for contact screen in mobile version
+ * 
+ * @returns html code
+ */
 function generateContactsListMobileButton() {
     return /*html*/ `
     <div class="contactsDetailBottomBtn btnMobile" onclick="addNewContact()">
@@ -38,6 +48,11 @@ function generateContactsListMobileButton() {
 </div>`;
 }
 
+/**
+ * generate html code for contact screen in when you click a single contact to show the details
+ * 
+ * @returns html code
+ */
 function generateContactsDetailContentHTML(name, email, phone, color, initials, i) {
     return /*html*/ `
         <div class="contactsDetailInfoHead">
@@ -68,6 +83,11 @@ function generateContactsDetailContentHTML(name, email, phone, color, initials, 
             </div>`
 }
 
+/**
+ * generate html code for contact screen to show a contact list
+ * 
+ * @returns html code
+ */
 function generateContactsListGroupHTML(groupLetter) {
     return /*html*/ `
     <div class="contactsListGroup" id="contactsListGroup${groupLetter}">
@@ -78,6 +98,11 @@ function generateContactsListGroupHTML(groupLetter) {
     `
 }
 
+/**
+ * generate html code for contact screen to show details of a single contacs
+ * 
+ * @returns html code
+ */
 function generateContactsListGroupContactHTML(name, email, color, initials, i) {
     return /*html*/ `
     <div onclick="showContactDetails(${i})" class="contactsListGroupContact contactsListGroupContactBgInactive" id="contactsListGroupContact${i}">
@@ -89,6 +114,11 @@ function generateContactsListGroupContactHTML(name, email, color, initials, i) {
         </div>`
 }
 
+/**
+ * generate html code for contact screen to add an new contact in a overlay
+ * 
+ * @returns html code
+ */
 function generateContactsOverlayAddHTML() {
     return /*html*/ `
 <div class="overlayAddContact" id="overlayAddContact" onclick="doNotClose(event)">
@@ -131,6 +161,11 @@ function generateContactsOverlayAddHTML() {
         </div>`
 }
 
+/**
+ * generate html code for contact screen to edit a contact in a overlay
+ * 
+ * @returns html code
+ */
 function generateContactsOverlayEditHTML(name, email, phone, color, initials, i) {
     return /*html*/ `
     <div class="overlayAddContact" id="overlayAddContact" onclick="doNotClose(event)">
@@ -159,8 +194,7 @@ function generateContactsOverlayEditHTML(name, email, phone, color, initials, i)
                         <input id="editContactPhone" class="contactOverlayPhoneIcon" required type="number" placeholder="Phone" title="Please enter a valid phone number e.g.: '+491724485536' " value="${phone}">
                         <div class="overlayAddContactRightButtonSection editBtn">
                             <button type="reset" class="contactsDetailBottomBtnAlt" onclick="deleteContact(${i})">
-                                <p>Delete</p>
-                                <img src="./img/cancelCheckmarkContacts.svg" alt="newContactIconBig">
+                                <p>Delete X</p>
                             </button >
                             <button type="submit" class="contactsDetailBottomBtn">
                                 <p>Save Contact</p>
@@ -174,6 +208,11 @@ function generateContactsOverlayEditHTML(name, email, phone, color, initials, i)
     `
 }
 
+/**
+ * generate html code for contact screen when a contact successfull created show img
+ * 
+ * @returns html code
+ */
 function generateContactSuccessHTML() {
     return /*html*/ `<img class="overlayAddContactSuccess" src="./img/newContactSuccess.svg">`;
 }

@@ -387,7 +387,6 @@ function activateEvent(Id){
     let currentTask = newTaskArray[Id]['assignedTo'];
     for (let i = 0; i < currentTask.length; i++) {
         const element = currentTask[i];
-        console.log(element)
         document.getElementById(`assignedCheckbox${i}`).checked = true;
     }
 }
@@ -422,15 +421,12 @@ function configDoneSubtask(i, Id) {
 
     if (currentStatus == true) {
         task['doneSubTasks']++;
-        console.log(task['doneSubTasks']);
     }
 
     if (currentStatus == false) {
         task['doneSubTasks']--;
-        console.log(task['doneSubTasks']);
     }
     task['isChecked'][i] = currentStatus;
-    console.log(task['isChecked'][i]);
 }
 /**
  * modifyer the Subtask Amount

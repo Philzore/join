@@ -1,3 +1,8 @@
+/**
+ * generate html code for help screen
+ * 
+ * @returns html code
+ */
 function generateHelpScreenHTML() {
     return /*html*/ `
     <div class="helpScreenSection">
@@ -28,6 +33,11 @@ function generateHelpScreenHTML() {
     </div>`;
 }
 
+/**
+ * generate html code for legal notice screen
+ * 
+ * @returns html code
+ */
 function generateLegalNoticeScreenHTML() {
     return /*html*/ `
     <div class="helpScreenSection">

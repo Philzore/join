@@ -1,3 +1,8 @@
+/**
+ * open overlay to create new task
+ * 
+ * @param {string} stat to add the task in the right position
+ */
 function openAddTaskOverlay(stat) {
     chosenStat = stat;
     document.getElementById('overlaySection').classList.remove('d-none');
@@ -11,6 +16,10 @@ function openAddTaskOverlay(stat) {
     renderHeadlineOverlay();
 }
 
+/**
+ * render headline
+ * 
+ */
 function renderHeadlineOverlay() {
     document.getElementById('headlineContainerOverlay').innerHTML = /*html*/ `
         <h1>Add Task</h1>
@@ -22,10 +31,18 @@ function renderHeadlineOverlay() {
     activatePrioButtonsOverlay();
 }
 
+/**
+ * close overlay
+ * 
+ */
 function closeOverlay() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
 
+/**
+ * render content for overlay to add a new task 
+ * 
+ */
 function renderContentLeftAndRightOverlay() {
     document.getElementById('contentLeftAndRightContainerOverlay').innerHTML = generateContentLeftAndRightContainerOverlay();
     renderNewCategorys();
@@ -33,6 +50,10 @@ function renderContentLeftAndRightOverlay() {
     setMinDate('dateOverlay');
 }
 
+/**
+ * render contacts to add them in a new task
+ * 
+ */
 function renderContactsAddTaskOverlay() {
 
     for (let i = 0; i < allContacts.length; i++) {
@@ -47,6 +68,10 @@ function renderContactsAddTaskOverlay() {
 
 }
 
+/**
+ * drop down for add task overlay to assigned the contacts
+ * 
+ */
 function showAllAssignedOverlay() {
     if (document.getElementById('selectContactoOverlay').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssignedOverlay, 100)
@@ -56,18 +81,29 @@ function showAllAssignedOverlay() {
     }
 }
 
+/**
+ * close drop down menu
+ * 
+ */
 function closeAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.add('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Select contacts to assign`;
 }
 
+/**
+ * open drop down menu
+ * 
+ */
 function openAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.remove('d-none');
     document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
 }
 
+/**
+ * render initials for from the contacts
+ * 
+ */
 function renderAssignedInitialOverlay() {
-
     for (let i = 0; i < allContacts.length; i++) {
         const initial = allContacts[i]['initials'];
         const color = allContacts[i]['color'];
@@ -82,13 +118,28 @@ function renderAssignedInitialOverlay() {
         }
     }
 }
+
+/**
+ * render the buttons at the end
+ * 
+ */
 function renderTwoButtonsContainerOverlay() {
     document.getElementById('twoButtonsContainerOverlay').innerHTML = generateTwoButtonsContainerOverlay();
 }
+
+/**
+ * 
+ * 
+ */
 function pushDateOverlay() {
     let dueDate = document.getElementById('dateOverlay').value;
     dateArray.splice(0, 1, dueDate);
 }
+
+/**
+ * create event listener for each priority button
+ * 
+ */
 function activatePrioButtonsOverlay() {
     low();
     let urgentBtn = document.getElementById('urgent');
@@ -103,14 +154,16 @@ function activatePrioButtonsOverlay() {
     let resetBtn = document.getElementById('reset');
     resetBtn.addEventListener("click", low);
 
-    /*  let assignBtn = document.getElementById('assignedToOverlay');
-     assignBtn.addEventListener("change", assignedToOverlay); */
-
     document.getElementById('addTaskForm').addEventListener('submit', function (event) {
         event.preventDefault();
         createTask();
     });
 }
+
+/**
+ * change backround for urgent button
+ * 
+ */
 function urgent() {
     let prioValue = document.getElementById('urgent').value;
     prio = prioValue;
@@ -124,6 +177,11 @@ function urgent() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
+
+/**
+ * change backround for medium button
+ * 
+ */
 function medium() {
     let prioValue = document.getElementById('medium').value;
     prio = prioValue;
@@ -137,6 +195,11 @@ function medium() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
+
+/**
+ * change backround for low button
+ * 
+ */
 function low() {
     let prioValue = document.getElementById('low').value;
     prio = prioValue;
@@ -150,33 +213,12 @@ function low() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
-/* function assignedToOverlay() {
-    let assignee = document.getElementById("assignedToOverlay");
-    let selectedAssignee = assignee.options[assignee.selectedIndex].value;
-    let color = assignee.options[assignee.selectedIndex].id;
-    let selectedAssignee2 = assignee.options[assignee.selectedIndex];
-    selectedAssignee2.disabled = true;
-    let i = (assignee.selectedIndex) - 1;
 
-    if (assignedToNames.indexOf(selectedAssignee) === -1) {
-        assignedToNames.push(selectedAssignee);
-        contactsColors.push(color);
-    }
-    showAssignedToList(i);
-}
-
-function showAssignedToList(i) {
-    debugger;
-    const allData = allContacts[i];
-    const { initials, color } = getJoinData(allData);
-    document.getElementById('assignedToList').innerHTML += /*html* `
-        <div class="assigneeContainer" style="background-color: ${color}">
-            ${initials}
-        </div>
-    `;
-} */
-
-//Add Task Overlay Templates
+/**
+ * generate html for add task overlay
+ * 
+ * @returns html code
+ */
 function generateContentLeftAndRightContainerOverlay() {
     return /*html*/ `
     <div class="contentLeftAndRight contentLeftAndRightOverlay">
@@ -267,6 +309,11 @@ function generateContentLeftAndRightContainerOverlay() {
 `;
 }
 
+/**
+ * generate html code for the two buttons at the end
+ * 
+ * @returns html code
+ */
 function generateTwoButtonsContainerOverlay() {
     return /*html*/ `
         <div class="twoButtons">
