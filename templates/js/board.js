@@ -434,7 +434,7 @@ function configDoneSubtask(i, Id) {
     task['isChecked'][i] = currentStatus;
 }
 /**
- * modifyer the Subtask Amount
+ *  calcuclate for the Done Bar Progress
  * 
  */
 function calculateProgress(subTaskAmount, doneAmount) {
