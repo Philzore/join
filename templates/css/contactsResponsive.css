@@ -216,6 +216,9 @@
 }
 
 @media (max-width: 768px) {
+    .legalHeadline {
+        font-size: 48px !important;
+    }
 
     .sidebarBtn {
         flex-direction: column;
