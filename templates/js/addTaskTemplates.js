@@ -33,18 +33,21 @@ function generateContentLeftAndRightContainer() {
 
                 <div class="categoryAndSelect">
                     <span>Category</span>
-                    <select id="category" onchange="showAddBox()" required>
-                        <option value="" disabled selected>Select task category</option>
-                        <option value="new">Create new category</option>
-                        <option value="design">Design</option>
-                        <option value="sales">Sales</option>
-                        <option value="backoffice">Backoffice</option>
-                        <option value="media">Media</option>
-                        <option value="marketing">Marketing</option>
-                    </select>
+                    <div class="select-category-box">
+                        <select id="category" onchange="showAddBox()" required>
+                            <option value="" disabled selected>Select task category</option>
+                            <option value="new">Create new category</option>
+                            <option value="design">Design</option>
+                            <option value="sales">Sales</option>
+                            <option value="backoffice">Backoffice</option>
+                            <option value="media">Media</option>
+                            <option value="marketing">Marketing</option>
+                        </select>
+                        <button type="button" id="delete-category-btn" class="category-btn d-none" onclick="deleteCategory()">Delete</button>
+                    </div>
                     <div id="new-category-box" class="d-none new-category-box">
                         <input id="new-category-input" class="" type="text" placeholder="Add new category" >
-                        <button type="button" class="add-category-btn" onclick="addNewCategory()">Add</button>
+                        <button type="button" class="category-btn" onclick="addNewCategory()">Add</button>
                     </div>
                 </div>
                 
