@@ -73,7 +73,7 @@ function renderContactsAddTaskOverlay() {
  * 
  */
 function showAllAssignedOverlay() {
-    if (document.getElementById('selectContactoOverlay').innerText == `Close Select contacts to assign`) {
+    if (document.getElementById('selectContactOverlay').innerText == `Close Select contacts to assign`) {
         setTimeout(closeAllAssignedOverlay, 100)
 
     } else {
@@ -87,7 +87,8 @@ function showAllAssignedOverlay() {
  */
 function closeAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.add('d-none');
-    document.getElementById('selectContactoOverlay').innerHTML = `Select contacts to assign`;
+    document.getElementById('selectContactOverlay').innerHTML = `Select contacts to assign`;
+    document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
 }
 
 /**
@@ -96,7 +97,8 @@ function closeAllAssignedOverlay() {
  */
 function openAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.remove('d-none');
-    document.getElementById('selectContactoOverlay').innerHTML = `Close Select contacts to assign`;
+    document.getElementById('selectContactOverlay').innerHTML = `Close Select contacts to assign`;
+    document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
 }
 
 /**
@@ -252,13 +254,16 @@ function generateContentLeftAndRightContainerOverlay() {
 
         <div class="assignedToAndSelect">
             <span>Assigned to <div  type="button" onclick="closewarnNoChoseAssigned()" class="ChoseAssigned d-none" id="ChoseAssigned" >Chose a Assigned !!!</div></span>
-            <div id="selectContactoOverlay" class="selectContact" type="button" onclick="showAllAssignedOverlay()">
-                Select contacts to assign
-                <img id="selectContactImg" src="./img/dropdownArrow.png" class="selectContactImg">
+            <div  class="selectContactOverlay" type="button" onclick="showAllAssignedOverlay()">
+            <div id="selectContactOverlay" class="" >Select contacts to assign</div>
+            <img id="selectContactImg" src="./img/dropdownArrow.png" class="selectContactImg">
             </div>
             <div class="assignedTo d-none" id="assignedToOverlay">
-            </div>
+            </div>   
         </div>
+
+
+
         <div class="assignedToList" id="assignedToListOverlay">
         </div>
     </div>

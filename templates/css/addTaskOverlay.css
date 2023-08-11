@@ -10,6 +10,28 @@
     animation: slideIn 0.8s ease-in-out;
 }
 
+.selectContactOverlay {
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 13px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 21px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    
+}
+
 .addTaskOverlay::-webkit-scrollbar {
     background-color: transparent;
     width: 8px;
@@ -74,24 +96,29 @@
         margin-top: 20px;
     }
 }
+
 @media(min-width: 571px) {
     .closeBtnArrow {
         display: none;
     }
 }
+
 @media (max-width: 570px) {
     .addTaskOverlay {
         height: 90vh;
         width: 90vw;
     }
+
     .closeBtnCross {
         display: none;
     }
+
     .headlineContainerOverlay img {
         width: 50px;
         height: 50px;
     }
 }
+
 @media (max-width: 570px) {
     .addTaskOverlay {
         height: 100%;
@@ -104,7 +131,7 @@
 }
 
 @media (max-width: 1000px) {
-    .addTaskOverlay{
+    .addTaskOverlay {
         padding: 20px;
     }
 }
