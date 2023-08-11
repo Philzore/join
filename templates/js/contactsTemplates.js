@@ -214,5 +214,5 @@ function generateContactsOverlayEditHTML(name, email, phone, color, initials, i)
  * @returns html code
  */
 function generateContactSuccessHTML() {
-    return /*html*/ `<img class="overlayAddContactSuccess" src="./img/newContactSuccess.svg">`;
+    return /*html*/ `<img class="overlayAddContactSuccess" src="./img/newContactIcon.svg">`;
 }
