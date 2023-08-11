@@ -85,14 +85,20 @@ function renderTodoTasksHTML(arrayName) {
 
     content.innerHTML = '';
 
-    for (let i = 0; i < todos.length; i++) {
-        const task = todos[i];
-        let subtasksAmount = task['subtasks'].length;
-        let doneSubtasks = task['doneSubTasks'];
-        let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
+    if (todos.length == 0) {
+        content.innerHTML += /*html*/`
+            Noch keine Tasks vorhanden
+        `
+    } else {
+        for (let i = 0; i < todos.length; i++) {
+            const task = todos[i];
+            let subtasksAmount = task['subtasks'].length;
+            let doneSubtasks = task['doneSubTasks'];
+            let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
 
-        content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
-        renderAssignedToHTML(task);
+            content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
+            renderAssignedToHTML(task);
+        }
     }
 }
 /**
@@ -105,14 +111,20 @@ function renderInProgressHTML(arrayName) {
 
     content.innerHTML = '';
 
-    for (let i = 0; i < inProgress.length; i++) {
-        const task = inProgress[i];
-        let subtasksAmount = task['subtasks'].length;
-        let doneSubtasks = task['doneSubTasks'];
-        let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
+    if (inProgress.length == 0) {
+        content.innerHTML += /*html*/`
+            Noch keine Tasks vorhanden
+        `
+    } else {
+        for (let i = 0; i < inProgress.length; i++) {
+            const task = inProgress[i];
+            let subtasksAmount = task['subtasks'].length;
+            let doneSubtasks = task['doneSubTasks'];
+            let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
 
-        content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
-        renderAssignedToHTML(task);
+            content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
+            renderAssignedToHTML(task);
+        }
     }
 }
 /**
@@ -151,14 +163,20 @@ function renderDoneHTML(arrayName) {
 
     content.innerHTML = '';
 
-    for (let i = 0; i < done.length; i++) {
-        const task = done[i];
-        let subtasksAmount = task['subtasks'].length;
-        let doneSubtasks = task['doneSubTasks'];
-        let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
+    if (done.length == 0) {
+        content.innerHTML += /*html*/`
+            Noch keine Tasks vorhanden
+        `
+    } else {
+        for (let i = 0; i < done.length; i++) {
+            const task = done[i];
+            let subtasksAmount = task['subtasks'].length;
+            let doneSubtasks = task['doneSubTasks'];
+            let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
 
-        content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
-        renderAssignedToHTML(task);
+            content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
+            renderAssignedToHTML(task);
+        }
     }
 }
 /**
