@@ -309,7 +309,7 @@ function generateContentLeftAndRightContainerOverlay() {
             </div>
         </div>
 
-        <div class="subtasksList" id="newSubtasksList">
+        <div class="subtasksList" id="subtasksList">
 
         </div>
     </div>

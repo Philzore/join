@@ -475,41 +475,17 @@ function confirmChangesOnTask(Id) {
         let newTitle = document.getElementById('modifyTitle').value;
         let newDescription = document.getElementById('modifyDescription').value;
         let newDate = document.getElementById('modifyDate').value;
-        let newSubtask = document.getElementById('editedSubtask').value;
 
         currentTask['title'] = newTitle;
         currentTask['description'] = newDescription;
         currentTask['date'] = newDate;
         currentTask['prio'] = newPrio;
-        currentTask['subtasks'] = newSubtask;
 
 
         closeTaskPopUp();
         saveTasks();
         updateBoardTasks();
     } else { warnNoChoseAssigned(); }
-}
-
-function editedSubtask() {
-    let newSubtask = document.getElementById('editedSubtask').value;
-    if (newSubtask == '') {
-        document.getElementById('editedSubtask').focus();
-    } else {
-        allSubtasks.push(newSubtask);
-        isChecked.push(false);
-        document.getElementById('subtasksList').innerHTML = '';
-        for (let i = 0; i < allSubtasks.length; i++) {
-            let subtask = allSubtasks[i];
-            document.getElementById('subtasksList').innerHTML += /*html*/ `
-                <div class="subtask">
-                    <input type="checkbox">
-                    <p>${subtask}</p>
-                </div>
-            `;
-        }
-    }
-
-    document.getElementById('subtasks').value = '';
 }
 /**
  * Deletet the Current chose Task

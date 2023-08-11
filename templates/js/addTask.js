@@ -253,10 +253,10 @@ function newSubtask() {
     } else {
         allSubtasks.push(newSubtask);
         isChecked.push(false);
-        document.getElementById('newSubtasksList').innerHTML = '';
+        document.getElementById('subtasksList').innerHTML = '';
         for (let i = 0; i < allSubtasks.length; i++) {
             let subtask = allSubtasks[i];
-            document.getElementById('newSubtasksList').innerHTML += /*html*/ `
+            document.getElementById('subtasksList').innerHTML += /*html*/ `
                 <div class="subtask">
                     <input type="checkbox">
                     <p>${subtask}</p>
