@@ -32,6 +32,10 @@
     
 }
 
+#dateOverlay:hover {
+    cursor: pointer;
+}
+
 .addTaskOverlay::-webkit-scrollbar {
     background-color: transparent;
     width: 8px;

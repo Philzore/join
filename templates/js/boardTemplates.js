@@ -63,12 +63,12 @@ function renderModifyTaskTemplateHTML(currentTask) {
             <div id="modifyPopUpAssignmentContainer${currentTask['id']}" class="d-flex mt"></div>
         </div>
         <div class="inputAndButton">
-            <input id="modifysubtasks" placeholder="Add new subtask">
-            <button type="button" onclick="newSubtask()">
+            <input id="editedSubtask" placeholder="Add new subtask">
+            <button type="button" onclick="editedSubtask()">
                 <img src="./img/subtaskIcon.png">
             </button>
         </div>
-        <div class="subtasksList modifySubtaskList" id="modifysubtasksList">
+        <div class="subtasksList modifySubtaskList" id="subtasksList">
 
         </div>
         <div class="addTaskBtn confirmBtn btn-bg" onclick="confirmChangesOnTask('${currentTask['id']}')">
