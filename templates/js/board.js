@@ -365,7 +365,7 @@ function changeImg() {
  * 
  */
 function renderContactsModifyAddTask(Id) {
-   
+
 
     for (let i = 0; i < allContacts.length; i++) {
         const allData = allContacts[i];
@@ -376,18 +376,23 @@ function renderContactsModifyAddTask(Id) {
         <input id="assignedCheckbox${i}" class="assignedCheckbox" type="checkbox">${name}
         </div>
         `;
-        
+
     }
-     activateEvent(Id);
+    activateEvent(Id);
 }/**
  * show which Checkbox is checked after loading the Pop up First time
  * 
  */
-function activateEvent(Id){
+function activateEvent(Id) {
     let currentTask = newTaskArray[Id]['assignedTo'];
-    for (let i = 0; i < currentTask.length; i++) {
-        const element = currentTask[i];
-        document.getElementById(`assignedCheckbox${i}`).checked = true;
+    for (let i = 0; i < allContacts.length; i++) {
+        const Contact = allContacts[i]['name'];
+        for (let j = 0; j < currentTask.length; j++) {
+            const name = currentTask[j];
+            if (Contact == name) {
+                document.getElementById(`assignedCheckbox${i}`).checked = true;
+            }
+        }
     }
 }
 
@@ -396,8 +401,8 @@ function activateEvent(Id){
  * 
  */
 function modifyAssignedTo(Id) {
-        newTaskArray[Id]['assignedTo'] = []
-        newTaskArray[Id]['color'] = []
+    newTaskArray[Id]['assignedTo'] = []
+    newTaskArray[Id]['color'] = []
 
     for (let i = 0; i < allContacts.length; i++) {
         const contact = allContacts[i]['name'];
@@ -446,23 +451,23 @@ function calculateProgress(subTaskAmount, doneAmount) {
  */
 function confirmChangesOnTask(Id) {
     modifyAssignedTo(Id);
-   
-    if(newTaskArray[Id]['assignedTo'].length > 0){
-    let currentTask = newTaskArray[Id];
-    let newTitle = document.getElementById('modifyTitle').value;
-    let newDescription = document.getElementById('modifyDescription').value;
-    let newDate = document.getElementById('modifyDate').value;
 
-    currentTask['title'] = newTitle;
-    currentTask['description'] = newDescription;
-    currentTask['date'] = newDate;
-    currentTask['prio'] = newPrio;
+    if (newTaskArray[Id]['assignedTo'].length > 0) {
+        let currentTask = newTaskArray[Id];
+        let newTitle = document.getElementById('modifyTitle').value;
+        let newDescription = document.getElementById('modifyDescription').value;
+        let newDate = document.getElementById('modifyDate').value;
+
+        currentTask['title'] = newTitle;
+        currentTask['description'] = newDescription;
+        currentTask['date'] = newDate;
+        currentTask['prio'] = newPrio;
 
 
-    closeTaskPopUp();
-    saveTasks();
-    updateBoardTasks();
-    }else{ warnNoChoseAssigned();}
+        closeTaskPopUp();
+        saveTasks();
+        updateBoardTasks();
+    } else { warnNoChoseAssigned(); }
 }
 /**
  * Deletet the Current chose Task
@@ -509,7 +514,7 @@ function highlight(stat) {
 
 function stopHighlight(stat) {
     document.getElementById(stat).classList.remove('dragAreaHighlight');
-} 
+}
 /**
  * searchTask
  * 
