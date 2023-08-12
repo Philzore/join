@@ -7,7 +7,7 @@ let assignedToInitials = [];
 let dateArray = [];
 let isChecked = [];
 let newCategorys = [];
-
+let currentOpenTask = 0;
 
 /**
  * This Function render Task
@@ -247,25 +247,48 @@ function low() {
  * Create a new SubTask
  */
 function newSubtask() {
-    let newSubtask = document.getElementById('subtasks').value;
-    if (newSubtask == '') {
-        document.getElementById('subtasks').focus();
-    } else {
-        allSubtasks.push(newSubtask);
-        isChecked.push(false);
-        document.getElementById('subtasksList').innerHTML = '';
-        for (let i = 0; i < allSubtasks.length; i++) {
-            let subtask = allSubtasks[i];
-            document.getElementById('subtasksList').innerHTML += /*html*/ `
+    if (document.getElementById('overlaySection').classList.contains('d-none')) {
+        let newSubtask = document.getElementById('subtasks').value;
+        if (newSubtask == '') {
+            document.getElementById('subtasks').focus();
+        } else {
+            allSubtasks.push(newSubtask);
+            isChecked.push(false);
+            document.getElementById('subtasksList').innerHTML = '';
+            for (let i = 0; i < allSubtasks.length; i++) {
+                let subtask = allSubtasks[i];
+                document.getElementById('subtasksList').innerHTML += /*html*/ `
                 <div class="subtask">
                     <input type="checkbox">
                     <p>${subtask}</p>
                 </div>
             `;
+            }
         }
+        document.getElementById('subtasks').value = '';
+    } else if (!document.getElementById('overlaySection').classList.contains('d-none')) {
+        newSubtaskEditOverlay();
     }
 
-    document.getElementById('subtasks').value = '';
+}
+
+/**
+ * create new subtask in edit overlay for a single task
+ * 
+ */
+function newSubtaskEditOverlay() {
+    let newModifedSubtask = document.getElementById('modifysubtasks').value;
+    let subtaskList = document.getElementById('modifysubtasksList');
+    subtaskList.innerHTML += `
+    <div class="subtask">
+        <input type="checkbox">
+        <p>${newModifedSubtask}</p>
+    </div>
+    ` ;
+    
+    newTaskArray[currentOpenTask]['subtasks'].push(newModifedSubtask);
+    newTaskArray[currentOpenTask]['isChecked'].push(false);
+    document.getElementById('modifysubtasks').value = '';
 }
 
 /**
@@ -473,5 +496,5 @@ function deleteCategory() {
         }
     }
     document.getElementById('delete-category-btn').classList.add('d-none');
-    
+
 }

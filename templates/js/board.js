@@ -237,6 +237,7 @@ function showProgressbar() {
 function openExistingTaskPopUp(Id) {
     renderClickedTaskPopUpHTML(Id);
     document.getElementById('overlaySection').classList.remove('d-none');
+    currentOpenTask = Id ;
 }
 /**
  * close the Popup to adding new Task 
@@ -368,7 +369,7 @@ function renderModifySubtaskList(Id) {
     for (let i = 0; i < task['subtasks'].length; i++) {
         const subtask = task['subtasks'][i];
         let isChecked = task['isChecked'][i];
-
+        
         if (isChecked == true) {
             content.innerHTML += renderCheckedBoxTemplateHTML(i, Id, subtask);
         }
