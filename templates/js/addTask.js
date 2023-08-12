@@ -70,10 +70,10 @@ function renderContactsAddTask(Id) {
  */
 function showAllAssigned() {
     if (document.getElementById('selectContact').innerText == `Close Select contacts to assign`) {
-        setTimeout(closeAllAssigned, 100)
+        setTimeout(closeAllAssigned, 100);
 
     } else {
-        setTimeout(openAllAssigned, 100)
+        setTimeout(openAllAssigned, 100);
     }
 }
 
@@ -296,14 +296,11 @@ function newSubtaskEditOverlay() {
  * Reset the AddTasks Field
  */
 function clearFields() {
-    for (let i = 0; i < allContacts.length; i++) {
-        document.getElementById(`renderVisibelAssigned${i}`).classList.add('d-none');
-        document.getElementById(`assignedCheckbox${i}`).checked = false;
-    }
     assignedToNames = [];
     allSubtasks = [];
     document.getElementById('assignedToList').innerHTML = '';
     document.getElementById('subtasksList').innerHTML = '';
+    closeAllAssigned();
 }
 
 /**

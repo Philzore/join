@@ -338,8 +338,7 @@ function generateTwoButtonsContainerOverlay() {
     return /*html*/ `
         <div class="twoButtons">
             <button id="reset" type="reset" class="clearButton" onclick="clearFieldsOverlay()">
-                Clear
-                <img src="./img/cancelIcon.png">
+                Clear X
             </button>
 
             <button type="submit" class="createTaskButton" id="createTask">
