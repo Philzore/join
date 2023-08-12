@@ -39,9 +39,7 @@ function renderHeadlineOverlay() {
  * 
  */
 function closeOverlay() {
-    clearFieldsOverlay();
     document.getElementById('overlaySection').classList.add('d-none');
-    renderBoard();
 }
 
 /**
