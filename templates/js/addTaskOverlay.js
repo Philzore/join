@@ -120,6 +120,16 @@ function renderAssignedInitialOverlay() {
         }
     }
 }
+function clearFieldsOverlay() {
+    for (let i = 0; i < allContacts.length; i++) {
+        document.getElementById(`renderVisibelAssignedOverlay${i}`).classList.add('d-none');
+        document.getElementById(`assignedCheckbox${i}`).checked = false;
+    }
+    assignedToNames = [];
+    allSubtasks = [];
+    document.getElementById('assignedToListOverlay').innerHTML = '';
+    document.getElementById('subtasksList').innerHTML = '';
+}
 
 /**
  * render the buttons at the end
@@ -215,6 +225,8 @@ function low() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
+
+
 
 /**
  * generate html for add task overlay
@@ -325,7 +337,7 @@ function generateContentLeftAndRightContainerOverlay() {
 function generateTwoButtonsContainerOverlay() {
     return /*html*/ `
         <div class="twoButtons">
-            <button id="reset" type="reset" class="clearButton" onclick="clearFields()">
+            <button id="reset" type="reset" class="clearButton" onclick="clearFieldsOverlay()">
                 Clear
                 <img src="./img/cancelIcon.png">
             </button>

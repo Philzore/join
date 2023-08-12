@@ -297,12 +297,12 @@ function newSubtaskEditOverlay() {
  */
 function clearFields() {
     for (let i = 0; i < allContacts.length; i++) {
-       /*  document.getElementById(`renderVisibelAssigned${i}`).classList.add('d-none'); */
+        document.getElementById(`renderVisibelAssigned${i}`).classList.add('d-none');
         document.getElementById(`assignedCheckbox${i}`).checked = false;
     }
     assignedToNames = [];
     allSubtasks = [];
-    /* document.getElementById('assignedToList').innerHTML = ''; */
+    document.getElementById('assignedToList').innerHTML = '';
     document.getElementById('subtasksList').innerHTML = '';
 }
 
