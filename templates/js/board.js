@@ -294,7 +294,8 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
  */
 function openModifyTaskPopUp(Id) {
     modifyCurrentTaskHTML(Id);
-    renderContactsModifyAddTask(Id)
+    renderContactsModifyAddTask(Id);
+    renderModifyAssignmentsHTML(Id);
 }
 /**
  * Use the Current Task the Popup to modifyer the Task
@@ -308,7 +309,7 @@ function modifyCurrentTaskHTML(Id) {
     content.innerHTML = '';
     content.innerHTML = renderModifyTaskTemplateHTML(currentTask);
 
-    renderModifyAssignmentsHTML(Id);
+   
     setMinDate('modifyDate');
     modifyPrio(prio);
     renderModifySubtaskList(Id);
@@ -318,19 +319,23 @@ function modifyCurrentTaskHTML(Id) {
  * 
  */
 function renderModifyAssignmentsHTML(Id) {
-    let currentTask = newTaskArray[Id];
-    let content = document.getElementById(`modifyPopUpAssignmentContainer${currentTask['id']}`);
+    let currentTask = document.getElementById(`modifyPopUpAssignmentContainer${Id}`);
 
-    content.innerHTML = '';
-
-    for (let i = 0; i < currentTask['assignedTo'].length; i++) {
-        const assignment = currentTask['assignedTo'][i];
-        let initials = getInitials(assignment);
-        let bgColor = currentTask['color'][i];
-
-        content.innerHTML += modifyAssignmentsTemplateHTML(bgColor, initials);
+    for (let i = 0; i < allContacts.length; i++) {
+        const initial = allContacts[i]['initials'];
+        const color = allContacts[i]['color'];
+        currentTask.innerHTML += /* html */ `
+        <div  id="modifyerRenderVisibelAssigned${i}"  style="background-color: ${color}" class=" assigneeContainer d-none">${initial}</div>`;
+     
+        let checkbox = document.getElementById(`assignedCheckbox${i}`);
+        if (checkbox.checked == true) {
+            document.getElementById(`modifyerRenderVisibelAssigned${i}`).classList.remove('d-none');
+        } else {
+            document.getElementById(`modifyerRenderVisibelAssigned${i}`).classList.add('d-none');
+        }
     }
 }
+
 /**
  * Modifyer the prio 
  * 
@@ -391,7 +396,7 @@ function renderContactsModifyAddTask(Id) {
 
         document.getElementById(`modifyAssignedTo`).innerHTML += /*html*/ `
         <div id="assignedName${i}" class="assignedFrame" >
-        <input id="assignedCheckbox${i}" class="assignedCheckbox" type="checkbox">${name}
+        <input id="assignedCheckbox${i}" onclick="renderModifyAssignmentsHTML(${Id})" class="assignedCheckbox" type="checkbox">${name}
         </div>
         `;
 
@@ -412,6 +417,7 @@ function activateEvent(Id) {
             }
         }
     }
+    
 }
 
 /**
