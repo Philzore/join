@@ -5,52 +5,41 @@
     padding: 0px 26px 0px 26px;
 }
 
-
 .design-bg {
     background-color: #FF7A00 !important;
 }
-
 
 .sales-bg {
     background-color: #FC71FF !important;
 }
 
-
 .backoffice-bg {
     background-color: #1fd7c1 !important;
 }
-
 
 .media-bg {
     background-color: #ffc701 !important;
 }
 
-
 .marketing-bg {
     background-color: #0038ff !important;
 }
-
-
 
 .red {
     background-color: red !important;
 }
 
-
 .green {
     background-color: green !important;
 }
-
 
 .blue {
     background-color: blue !important;
 }
 
-
 .mt {
     margin-top: 16px;
 }
-
 
 .v-hide {
     visibility: hidden;
@@ -59,7 +48,6 @@
 .showScrollBarY {
     overflow-y: scroll;
 }
-
 
 .boardHeadlineContainer {
     display: flex;
@@ -85,7 +73,6 @@
     line-height: 120%;
 }
 
-
 .boardHeadlineRightContainer {
     display: flex;
     flex-direction: row;
@@ -94,7 +81,6 @@
     padding: 0px;
     gap: 35px;
 }
-
 
 .searchContainer {
     box-sizing: border-box;
@@ -110,7 +96,6 @@
     border-radius: 10px;
 }
 
-
 .searchInput {
     width: 226px;
     height: 31px;
@@ -123,17 +108,14 @@
     cursor: pointer;
 }
 
-
 .searchInput:focus {
     outline: none;
 }
-
 
 .searchBtn,
 .addTaskBtn {
     height: 31px;
 }
-
 
 .searchBtn {
     display: flex;
@@ -143,7 +125,6 @@
     width: 43px;
     cursor: pointer;
 }
-
 
 .addTaskBtn {
     box-sizing: border-box;
@@ -165,16 +146,13 @@
 
 }
 
-
 .addTaskBtnText {
     width: 92px;
 }
 
-
 .btn-border:hover {
     border: 2px solid rgb(41, 171, 226);
 }
-
 
 .btn-bg:hover {
     background-color: rgb(41, 171, 226);
@@ -182,23 +160,19 @@
     cursor: pointer;
 }
 
-
 .btn-border-color:hover {
     border: 2px solid rgb(41, 171, 226);
     color: rgb(41, 171, 226);
     cursor: pointer;
 }
 
-
 .btn-border-color:hover .plusLine1 {
     background-color: rgb(41, 171, 226);
 }
 
-
 .btn-border-color:hover .plusLine2 {
     background-color: rgb(41, 171, 226);
 }
-
 
 .addTaskBtnText {
     font-family: 'Inter';
@@ -208,17 +182,14 @@
     line-height: 120%;
 }
 
-
 .bg-white {
     background-color: white !important;
 }
-
 
 .mobileAddTask {
     width: 40px;
     height: 40px;
 }
-
 
 .boardContentContainer {
     display: flex;
@@ -230,7 +201,6 @@
     gap: 10px;
 }
 
-
 .statContainer {
     display: flex;
     flex-direction: column;
@@ -241,7 +211,6 @@
     overflow-y: auto;
 }
 
-
 .boardStatusHeadContainer {
     display: flex;
     flex-direction: row;
@@ -250,7 +219,6 @@
     width: 100%;
     cursor: pointer;
 }
-
 
 .boardStatus {
     width: fit-content;
@@ -262,7 +230,6 @@
     font-size: 21px;
     line-height: 120%;
 }
-
 
 .plusBtnContainer {
     display: flex;
@@ -276,7 +243,6 @@
     position: relative;
 }
 
-
 .plusLine1 {
     position: absolute;
     left: 7.5;
@@ -285,7 +251,6 @@
     width: 2px;
     background-color: black;
 }
-
 
 .plusLine2 {
     position: absolute;
@@ -296,7 +261,6 @@
     background-color: black;
     transform: rotate(90deg);
 }
-
 
 .statusContent {
     display: flex;
@@ -309,7 +273,6 @@
     margin-top: 16px;
     overflow-x: hidden;
 }
-
 
 .pinnedTaskContainer {
     display: flex;
@@ -328,7 +291,6 @@
     z-index: 99;
 }
 
-
 .taskCategory {
     display: flex;
     align-items: center;
@@ -344,18 +306,15 @@
     line-height: 120%;
 }
 
-
 .pinnedTaskHeadline {
     margin-block-start: 16px;
     margin-block-end: 10px;
 }
 
-
 .pinnedTaskDiscription {
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
-
 
 .progressContainer {
     display: flex;
@@ -365,7 +324,6 @@
     margin-top: 16px;
 }
 
-
 .progressBar {
     width: 138px;
     height: 8px;
@@ -374,13 +332,11 @@
     border-radius: 4px;
 }
 
-
 .blueProgress {
     background-color: blue;
     height: 8px;
     border-radius: 4px;
 }
-
 
 .progressText {
     font-family: 'Inter';
@@ -390,7 +346,6 @@
     line-height: 120%;
 }
 
-
 .pinnedTaskContactsArrowContainer {
     display: flex;
     align-items: center;
@@ -399,14 +354,12 @@
     width: 100%;
 }
 
-
 .pinnedTaskContactsContainer {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     position: relative;
 }
-
 
 .contactContainer {
     display: flex;
@@ -417,16 +370,13 @@
     border-radius: 50%;
     border-radius: 1px solid #FFFFFF;
     color: white;
-
 }
-
 
 .dragAreaHighlight {
     border-radius: 28px;
     border: 5px solid grey;
     padding: 8px;
 }
-
 
 .taskOverviewPopUpContainer {
     height: 100vh;
@@ -440,7 +390,6 @@
     align-items: center;
     z-index: 99;
 }
-
 
 .taskOverviewPopUp,
 .taskModifyPopUp {
@@ -460,23 +409,19 @@
     {% comment %} max-height: 90vh; {% endcomment %}
 }
 
-
 .modifySubtaskList {
     margin-top: 8px !important;
 
     gap: 4px;
 }
 
-
 .modifySubtask {
     gap: 8px;
 }
 
-
 .modifySubtask input {
     width: 15px !important;
 }
-
 
 .modifySubtask p {
     display: flex !important;
@@ -485,17 +430,14 @@
     width: 200px;
 }
 
-
 .taskModifyPopUp {
     gap: 0;
     height: fit-content;
 }
 
-
 .m-0 {
     margin: 0 !important;
 }
-
 
 .prioContainer {
     display: flex;
@@ -510,7 +452,6 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
-
 .taskPopUpHeadline {
     margin-bottom: 25px;
     font-family: 'Inter';
@@ -522,7 +463,6 @@
     color: #2A3647;
 }
 
-
 .taskPopUpTable {
     display: flex;
     flex-direction: column;
@@ -530,27 +470,22 @@
     gap: 25px;
 }
 
-
 .taskPopUpRow {
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
-
 .taskPopUpLeftTd {
     gap: 1px
 }
-
 
 .taskPopUpRightTd {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 4px 18px;
-
 }
-
 
 .taskPopUpPrio {
     gap: 10px;
@@ -558,11 +493,9 @@
     background-color: #FF7A00;
 }
 
-
 .assignedToHeadline {
     margin-bottom: 25px;
 }
-
 
 .taskPopUpDiscription {
     height: 50px;
@@ -574,7 +507,6 @@
     line-height: 120%;
 }
 
-
 .taskPopUpAssignmentsList {
     display: flex;
     flex-direction: column;
@@ -583,13 +515,11 @@
     overflow-y: auto;
 }
 
-
 .taskPopUpSingleAssignmentContainer {
     display: flex;
     align-items: center;
     gap: 25px;
 }
-
 
 .popUpButtonsContainer {
     display: flex;
@@ -612,11 +542,9 @@
     border: 2px solid #2A3647;
 }
 
-
 .deleteButton {
     background-color: #2A3647;
 }
-
 
 .closeTaskPopUpButton {
     position: absolute;
@@ -624,7 +552,6 @@
     right: 20px;
     cursor: pointer;
 }
-
 
 .leftBtn {
     border-top-left-radius: 10px;
@@ -659,24 +586,19 @@
     transform: rotate(10deg);
 }
 
-
 .modifyTaskInputContainer {
     background-color: #FF7A00;
     width: 100%;
 }
-
-
 
 #modifyDescription {
     resize: none;
     height: 80px;
 }
 
-
 .modifyInput {
     width: 400px !important;
 }
-
 
 .confirmBtn {
     height: fit-content;
@@ -687,7 +609,6 @@
     bottom: 20px;
     cursor: pointer;
 }
-
 
 @media(max-width: 1550px) {
     .boardStatusHeadContainer {
@@ -837,7 +758,6 @@
     }
 }
 
-
 @media(max-width: 400px) {
     .boardBody {
         padding: 0px 8px;
@@ -854,6 +774,7 @@
         width: 280px !important;
     }
 }
+
 @media(max-width: 350px) {
 
     .taskOverviewPopUp, .taskModifyPopUp{
