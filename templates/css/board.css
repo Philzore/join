@@ -457,7 +457,7 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     overflow-y: auto;
-    max-height: 90vh;
+    {% comment %} max-height: 90vh; {% endcomment %}
 }
 
 
@@ -513,7 +513,6 @@
 
 .taskPopUpHeadline {
     margin-bottom: 25px;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -724,6 +723,14 @@
     .closeBtnCross {
         display: none;
     }
+
+    .assignedToAndSelect {
+        width: 300px;
+    }
+
+    .assignedFrame {
+        width: 300px !important;
+    }
 }
 
 @media(max-width: 830px) {
@@ -734,6 +741,7 @@
 
     .addTaskBtn {
         position: unset;
+        display: none;
     }
 
     .mobileAddTask {
@@ -767,6 +775,11 @@
     .taskPopUpHeadline {
         max-width: 350px;
         font-size: 39px;
+    }
+
+    .taskModifyPopUp {
+        width: 100vw;
+        height: 100vh;
     }
 
     .taskPopUpDiscription {
