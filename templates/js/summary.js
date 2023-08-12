@@ -15,7 +15,7 @@ async function initSummary() {
   loadTaskStat();
   searchDate();
   searchUrgentTasks();
- 
+
 }
 
 /**
@@ -56,15 +56,17 @@ function searchUrgentTasks() {
  * 
  */
 function searchDate() {
-  const minDate =
-    newTaskArray.map(element => {
-      return element.date;
+  if (newTaskArray.length > 0) {
+    const minDate =
+      newTaskArray.map(element => {
+        return element.date;
+      });
+    earliest = minDate.reduce(function (pre, cur) {
+      return Date.parse(pre) > Date.parse(cur) ? cur : pre;
     });
-  earliest = minDate.reduce(function (pre, cur) {
-    return Date.parse(pre) > Date.parse(cur) ? cur : pre;
-  });
- 
-  document.getElementById('insertDate').innerHTML = earliest ;
+
+    document.getElementById('insertDate').innerHTML = earliest;
+  }
 }
 
 /**
@@ -73,13 +75,13 @@ function searchDate() {
  * @param {string} currentUser user for greeting text
  */
 function renderGreeting(currentUser) {
-  let date = new Date() ;
+  let date = new Date();
   let currentHours = date.getHours();
   let greeting = '';
-  
-  if (currentHours >= 0 && currentHours <= 12){
+
+  if (currentHours >= 0 && currentHours <= 12) {
     greeting = 'Good Morning';
-  } else if (currentHours >= 12 && currentHours <= 17){
+  } else if (currentHours >= 12 && currentHours <= 17) {
     greeting = 'Good Afternoon';
   } else {
     greeting = 'Good Evening';
@@ -166,7 +168,7 @@ function getSummaryinnerContent() {
 }
 
 function getSummarySection() {
-    return /*html*/`
+  return /*html*/`
       <div id="summarySection" class="summarySection">
         
         <div id="headlineDiv" class="d-flex headlineDiv">
@@ -176,7 +178,7 @@ function getSummarySection() {
         </div>
       </div>
   `;
-  }
+}
 
 // function getSummaryGreeting(currentUser) {
 //     return /*html*/`
