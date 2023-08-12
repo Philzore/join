@@ -18,6 +18,7 @@ async function initAddTask() {
     renderHeadline();
     activatePrioButtons();
     allSubtasks = [];
+    generateNormalTask = true;
 }
 
 /**
@@ -247,7 +248,7 @@ function low() {
  * Create a new SubTask
  */
 function newSubtask() {
-    if (document.getElementById('overlaySection').classList.contains('d-none')) {
+    if (generateNormalTask) {
         let newSubtask = document.getElementById('subtasks').value;
         if (newSubtask == '') {
             document.getElementById('subtasks').focus();
@@ -266,7 +267,7 @@ function newSubtask() {
             }
         }
         document.getElementById('subtasks').value = '';
-    } else if (!document.getElementById('overlaySection').classList.contains('d-none')) {
+    } else if (!generateNormalTask) {
         newSubtaskEditOverlay();
     }
 

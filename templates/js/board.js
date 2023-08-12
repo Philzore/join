@@ -294,6 +294,7 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
  * 
  */
 function openModifyTaskPopUp(Id) {
+    generateNormalTask = false;
     modifyCurrentTaskHTML(Id);
     renderContactsModifyAddTask(Id);
     renderModifyAssignmentsHTML(Id);

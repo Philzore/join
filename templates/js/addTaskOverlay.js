@@ -1,3 +1,5 @@
+let generateNormalTask = false ;
+
 /**
  * open overlay to create new task
  * 
@@ -14,6 +16,7 @@ function openAddTaskOverlay(stat) {
         </form>
     `;
     renderHeadlineOverlay();
+    generateNormalTask = true;
 }
 
 /**
