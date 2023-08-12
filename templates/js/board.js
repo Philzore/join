@@ -328,7 +328,7 @@ function renderModifyAssignmentsHTML(Id) {
         currentTask.innerHTML += /* html */ `
         <div  id="modifyerRenderVisibelAssigned${i}"  style="background-color: ${color}" class=" assigneeContainer d-none">${initial}</div>`;
      
-        let checkbox = document.getElementById(`assignedCheckbox${i}`);
+        let checkbox = document.getElementById(`assignedCheckboxModidiyer${i}`);
         if (checkbox.checked == true) {
             document.getElementById(`modifyerRenderVisibelAssigned${i}`).classList.remove('d-none');
         } else {
@@ -397,7 +397,7 @@ function renderContactsModifyAddTask(Id) {
 
         document.getElementById(`modifyAssignedTo`).innerHTML += /*html*/ `
         <div id="assignedName${i}" class="assignedFrame" >
-        <input id="assignedCheckbox${i}" onclick="renderModifyAssignmentsHTML(${Id})" class="assignedCheckbox" type="checkbox">${name}
+        <input id="assignedCheckboxModidiyer${i}" onclick="renderModifyAssignmentsHTML(${Id})" class="assignedCheckbox" type="checkbox">${name}
         </div>
         `;
 
@@ -414,7 +414,7 @@ function activateEvent(Id) {
         for (let j = 0; j < currentTask.length; j++) {
             const name = currentTask[j];
             if (Contact == name) {
-                document.getElementById(`assignedCheckbox${i}`).checked = true;
+                document.getElementById(`assignedCheckboxModidiyer${i}`).checked = true;
             }
         }
     }
@@ -433,7 +433,7 @@ function modifyAssignedTo(Id) {
         const contact = allContacts[i]['name'];
         const initial = allContacts[i]['initials'];
         const color = allContacts[i]['color'];
-        let modifycheckbox = document.getElementById(`assignedCheckbox${i}`);
+        let modifycheckbox = document.getElementById(`assignedCheckboxModidiyer${i}`);
         if (modifycheckbox.checked) {
             newTaskArray[Id]['assignedTo'].push(contact);
             newTaskArray[Id]['color'].push(color);
