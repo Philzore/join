@@ -269,7 +269,8 @@
 @media (max-width: 576px) {
 
     .overlayAddContact {
-        width: 90%;
+        width: 100% !important;
+        height: 100% !important;
         animation: slideUpContacts 0.8s ease-in-out;
     }
 
