@@ -371,7 +371,6 @@ button {
     align-items: start;
     margin-top: -5px;
     max-height: 150px;
-    overflow-y: auto;
 }
 
 .subtask {
