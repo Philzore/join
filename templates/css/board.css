@@ -276,6 +276,7 @@
 
 .pinnedTaskContainer {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -284,7 +285,6 @@
     width: 250px;
     height: 239px;
     background: #FFFFFF;
-
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
     cursor: pointer;
@@ -607,6 +607,25 @@
     right: 20px;
     bottom: 20px;
     cursor: pointer;
+}
+
+.move-task-btns {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 10px;
+    right: 10px;
+}
+
+.direction-btn {
+    background-color: #2A3647;
+    border-radius: 30%;
+    padding: 5px;
+}
+
+.direction-btn:hover {
+    background-color: rgb(41, 171, 226);
 }
 
 @media(max-width: 1550px) {

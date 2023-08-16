@@ -237,7 +237,7 @@ function showProgressbar() {
 function openExistingTaskPopUp(Id) {
     renderClickedTaskPopUpHTML(Id);
     document.getElementById('overlaySection').classList.remove('d-none');
-    currentOpenTask = Id ;
+    currentOpenTask = Id;
 }
 /**
  * close the Popup to adding new Task 
@@ -311,7 +311,7 @@ function modifyCurrentTaskHTML(Id) {
     content.innerHTML = '';
     content.innerHTML = renderModifyTaskTemplateHTML(currentTask);
 
-   
+
     setMinDate('modifyDate');
     modifyPrio(prio);
     renderModifySubtaskList(Id);
@@ -328,7 +328,7 @@ function renderModifyAssignmentsHTML(Id) {
         const color = allContacts[i]['color'];
         currentTask.innerHTML += /* html */ `
         <div  id="modifyerRenderVisibelAssigned${i}"  style="background-color: ${color}" class=" assigneeContainer d-none">${initial}</div>`;
-     
+
         let checkbox = document.getElementById(`assignedCheckboxModidiyer${i}`);
         if (checkbox.checked == true) {
             document.getElementById(`modifyerRenderVisibelAssigned${i}`).classList.remove('d-none');
@@ -370,7 +370,7 @@ function renderModifySubtaskList(Id) {
     for (let i = 0; i < task['subtasks'].length; i++) {
         const subtask = task['subtasks'][i];
         let isChecked = task['isChecked'][i];
-        
+
         if (isChecked == true) {
             content.innerHTML += renderCheckedBoxTemplateHTML(i, Id, subtask);
         }
@@ -419,7 +419,7 @@ function activateEvent(Id) {
             }
         }
     }
-    
+
 }
 
 /**
@@ -579,4 +579,53 @@ function renderFilteredTasks() {
     renderDoneHTML(filteredTasks);
 
     filteredTasks = [];
+}
+
+/**
+ * for responsive to move the task up
+ * 
+ * @param {number} taskID to get the id from the clicked button
+ * @param {*} event to stop Propagation
+ */
+async function moveTaskUp(taskID, event) {
+    event.stopPropagation();
+    let currentTaskPosition = newTaskArray[taskID]['stat'];
+    let indexOfTaskPosition = taskStatusClasses.indexOf(currentTaskPosition);
+    indexOfTaskPosition-- ;
+    newTaskArray[taskID]['stat'] = taskStatusClasses[indexOfTaskPosition] ;
+    await saveTasks();
+    checkPositionTask();
+}
+
+/**
+ * for responsive to move the task down
+ * 
+ * @param {number} taskID to get the id from the clicked button
+ * @param {*} event to stop Propagation
+ */
+async function moveTaskDown(taskID,event) {
+    event.stopPropagation();
+    let currentTaskPosition = newTaskArray[taskID]['stat'];
+    let indexOfTaskPosition = taskStatusClasses.indexOf(currentTaskPosition);
+    indexOfTaskPosition++ ;
+    newTaskArray[taskID]['stat'] = taskStatusClasses[indexOfTaskPosition] ;
+    await saveTasks();
+    checkPositionTask();
+}
+
+/**
+ * check where the task is do display the arrow correct
+ * 
+ */
+function checkPositionTask() {
+    //if position todo or done don´t show up/down arrow
+    for (let i = 0; i < newTaskArray.length; i++) {
+        const task = newTaskArray[i];
+        if (task['stat'] == 'todo') {
+            document.getElementById(`move-up${i}`).classList.add('d-none');
+        }
+        if (task['stat'] == 'done') {
+            document.getElementById(`move-down${i}`).classList.add('d-none');
+        }
+    }
 }
