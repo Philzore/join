@@ -286,6 +286,11 @@
         display: none;
     }
 
+    .contactsDetailBottomMobileSection{
+        margin-bottom: 10px;
+        align-items: normal;
+    }
+
     .contactsDetailBottomMobile {
         display: block;
     }

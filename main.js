@@ -125,8 +125,8 @@ function showLogOut() {
 }
 
 /**
- * highlight sidebar buttons when active
  * 
+ * @param {id} element to hihglight an element at the sidebar
  */
 function highlightSidebarBtn(element) {
     const buttons = document.getElementsByClassName('sidebarBtn');

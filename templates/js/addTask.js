@@ -120,6 +120,7 @@ function addAssignedToTask() {
 
 /**
  * This Function show in a visiual design which Checkbox is checked.
+ * 
  */
 function renderAssignedInitial() {
     for (let i = 0; i < allContacts.length; i++) {
@@ -137,15 +138,25 @@ function renderAssignedInitial() {
     }
 }
 
+/**
+ * push the color to the array
+ * 
+ * @param {string} color color to push in an array
+ */
 function setColor(color) {
     contactsColors.push(color);
 }
 
+/**
+ * render a container for buttons
+ * 
+ */
 function renderTwoButtonsContainer() {
     document.getElementById('twoButtonsContainer').innerHTML = generateTwoButtonsContainer();
 }
 
 /**
+ * set minimum date
  * 
  * @param {string} id - The ID allows the use of today's date
  */
@@ -155,7 +166,7 @@ function setMinDate(id) {
 }
 
 /**
- * 
+ * delete date data from an array
  * 
  */
 function pushDate() {
@@ -165,21 +176,10 @@ function pushDate() {
 
 /**
  * Add the Button's of addTask a click function.
- * TODO
+ * 
  */
 function activatePrioButtons() {
-    low();
-    let urgentBtn = document.getElementById('urgent');
-    urgentBtn.addEventListener("click", urgent);
-
-    let mediumBtn = document.getElementById('medium');
-    mediumBtn.addEventListener("click", medium);
-
-    let lowBtn = document.getElementById('low');
-    lowBtn.addEventListener("click", low);
-
-    let resetBtn = document.getElementById('reset');
-    resetBtn.addEventListener("click", low);
+    priorityStatus('low');
 
     document.getElementById('addTaskForm').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -187,101 +187,61 @@ function activatePrioButtons() {
     });
 }
 
-/**
- * 
- * activate to Urgent Button
- * 
- */
-function urgent() {
-    let prioValue = document.getElementById('urgent').value;
-    prio = prioValue;
-
-    document.getElementById('urgent').classList.add('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentWhiteIcon.png';
-
-    document.getElementById('medium').classList.remove('medium');
-    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
-
-    document.getElementById('low').classList.remove('low');
-    document.getElementById('lowIcon').src = './img/lowIcon.png';
-}
 
 /**
+ * changes backround and set prio for choosen priority
  * 
- * activate to Medium Button
- * 
+ * @param {string} priority to choose the right priority
  */
-function medium() {
-    let prioValue = document.getElementById('medium').value;
-    prio = prioValue;
-
-    document.getElementById('medium').classList.add('medium');
-    document.getElementById('mediumIcon').src = './img/mediumWhiteIcon.png';
-
-    document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
-
-    document.getElementById('low').classList.remove('low');
-    document.getElementById('lowIcon').src = './img/lowIcon.png';
-}
-
-/**
- * 
- * activate to Low Button
- * 
- */
-function low() {
-    let prioValue = document.getElementById('low').value;
-    prio = prioValue;
-
-    document.getElementById('low').classList.add('low');
-    document.getElementById('lowIcon').src = './img/lowWhiteIcon.png';
-
-    document.getElementById('medium').classList.remove('medium');
-    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
-
-    document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
-}
-
-//TODO
 function priorityStatus(priority) {
     let prioValue = document.getElementById(priority).value;
-    prio = prioValue ;
-
+    prio = prioValue;
+    
     document.getElementById(priority).classList.add(priority);
     document.getElementById(`${priority}Icon`).src = `./img/${priority}WhiteIcon.png`;
 
     if (priority == 'low') {
         removeMedium();
         removeUrgent();
-    } else if(priority == 'medium') {
+    } else if (priority == 'medium') {
         removeLow();
         removeUrgent();
-    } else if(priority == 'urgent') {
+    } else if (priority == 'urgent') {
         removeLow();
         removeMedium();
     }
 }
 
+/**
+ * remove class list and change img
+ * 
+ */
 function removeLow() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('lowIcon').src = './img/lowIcon.png';
 }
 
+/**
+ * remove class list and change img
+ * 
+ */
 function removeMedium() {
     document.getElementById('medium').classList.remove('medium');
     document.getElementById('mediumIcon').src = './img/mediumIcon.png';
 }
 
+/**
+ * remove class list and change img
+ * 
+ */
 function removeUrgent() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
 
 /**
- * 
  * Create a new SubTask
+ * 
  */
 function newSubtask() {
     if (generateNormalTask) {
@@ -322,15 +282,15 @@ function newSubtaskEditOverlay() {
         <p>${newModifedSubtask}</p>
     </div>
     ` ;
-    
+
     newTaskArray[currentOpenTask]['subtasks'].push(newModifedSubtask);
     newTaskArray[currentOpenTask]['isChecked'].push(false);
     document.getElementById('modifysubtasks').value = '';
 }
 
 /**
- * 
  * Reset the AddTasks Field
+ * 
  */
 function clearFields() {
     assignedToNames = [];
@@ -341,8 +301,8 @@ function clearFields() {
 }
 
 /**
- * 
  * Create a new Task
+ * 
  */
 function createTask() {
     let title = document.getElementById('title').value;
@@ -377,26 +337,34 @@ function createTask() {
 }
 
 /**
- * 
  * If no Assigned is Chose this function stop to push a new Task
+ * 
  */
 function warnNoChoseAssigned() {
     document.getElementById('ChoseAssigned').classList.remove('d-none');
     setTimeout(closewarnNoChoseAssigned, 4000)
 }
 
+/**
+ * add display none to an element
+ * 
+ */
 function closewarnNoChoseAssigned() {
     document.getElementById('ChoseAssigned').classList.add('d-none');
 }
 
+/**
+ * save tasks in the backend
+ * 
+ */
 async function saveTasks() {
     await setItem('createdTask', JSON.stringify(newTaskArray));
     renderBoard();
 }
 
 /**
- * 
  * Open the OverlaySection for the Board to adding new Tasks
+ * 
  */
 function taskAddedToBoard() {
     document.getElementById('overlaySection').classList.remove('d-none');
@@ -410,125 +378,3 @@ function closePopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
 
-/**
- * 
- *  Open the field which allow to adding new Category
- */
-function showAddBox() {
-    let value = document.getElementById('category').value;
-    if (value == 'new') {
-        document.getElementById('new-category-box').classList.remove('d-none');
-    } else {
-        document.getElementById('new-category-box').classList.add('d-none');
-    }
-    //check if a new category is choosen
-    if (newCategorys.includes(value)) {
-        document.getElementById('delete-category-btn').classList.remove('d-none');
-    } else {
-        document.getElementById('delete-category-btn').classList.add('d-none');
-    }
-}
-
-/**
- * 
- *  adding new Category
- */
-function addNewCategory() {
-    let categoryInput = document.getElementById('new-category-input').value;
-    let search = categoryInput.toLowerCase();
-    let included = false;
-
-    if (categoryInput.length > 2) {
-        if (!newCategorys) {
-            setNewCategory(categoryInput);
-        } else {
-            for (let i = 0; i < newCategorys.length; i++) {
-                const category = newCategorys[i].toLowerCase();
-                if (category.includes(search)) {
-                    included = true;
-                }
-            }
-            if (!included) {
-                setNewCategory(categoryInput);
-            } else {
-                alert('Category already exist');
-            }
-        }
-    } else {
-        alert('Pleasse enter a plausible new category');
-    }
-    document.getElementById('new-category-input').value = '';
-}
-
-/**
- * 
- * Save the new Category
- */
-function setNewCategory(categoryInput) {
-    let selection = document.getElementById('category');
-    selection.innerHTML += `
-    <option class="delete-category" value="${categoryInput}">${categoryInput}
-
-    </option>`;
-    newCategorys.push(categoryInput);
-    localStorage.setItem('newCategorys', JSON.stringify(newCategorys));
-    selection.value = categoryInput;
-    document.getElementById('new-category-box').classList.add('d-none');
-    document.getElementById('delete-category-btn').classList.remove('d-none');
-}
-
-/**
- * 
- * render the new Category
- */
-function renderNewCategorys() {
-    let selection = document.getElementById('category');
-    let parsedCategorys = JSON.parse(localStorage.getItem('newCategorys'));
-    selection.innerHTML = '';
-    renderStandardOptions(selection);
-    if (parsedCategorys) {
-        newCategorys = parsedCategorys;
-        for (let i = 0; i < newCategorys.length; i++) {
-            const category = newCategorys[i];
-            selection.innerHTML += `<option value="${category}">${category}</option>`;
-        }
-    }
-}
-
-/**
- * render the standard options in the selection field
- * 
- * @param {html element} selection selection field getting by id
- */
-function renderStandardOptions(selection) {
-    selection.innerHTML += `
-    <option value="" disabled selected>Select task category</option>
-    <option value="new">Create new category</option>
-    <option value="design">Design</option>
-    <option value="sales">Sales</option>
-    <option value="backoffice">Backoffice</option>
-    <option value="media">Media</option>
-    <option value="marketing">Marketing</option>
-    `;
-}
-
-/**
- * delete the new created categorys
- * 
- */
-function deleteCategory() {
-    let currentCategory = document.getElementById('category').value;
-    let position = -1;
-    //check which position in array the category is 
-    for (let i = 0; i < newCategorys.length; i++) {
-        const place = newCategorys[i];
-        if (currentCategory == place) {
-            position = place;
-            newCategorys.splice(position, 1);
-            localStorage.setItem('newCategorys', JSON.stringify(newCategorys));
-            renderNewCategorys();
-        }
-    }
-    document.getElementById('delete-category-btn').classList.add('d-none');
-
-}

@@ -180,10 +180,3 @@ function getSummarySection() {
   `;
 }
 
-// function getSummaryGreeting(currentUser) {
-//     return /*html*/`
-//               <div id="greeting" class="d-flex center greeting">
-//               <p id="welcome-text">Good Morning <br><b class="current-user">${currentUser}</b></p>
-//             </div>
-//     `
-//  }

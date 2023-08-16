@@ -230,10 +230,19 @@ button {
     font-size: 21px;
 }
 
+.assignedFrame:hover{
+    background-color: #2A3647;
+    color: white;
+}
+
 .assignedCheckbox {
     height: 30px !important;
     width: 37px !important;
     margin-right: 30px;
+}
+
+.assignedCheckbox:hover{
+    cursor: pointer;
 }
 
 .selectContactImg {

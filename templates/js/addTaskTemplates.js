@@ -74,17 +74,17 @@ function generateContentLeftAndRightContainer() {
                 <div class="prio">
                     <span>Prio</span>
                     <div class="prioButtons">
-                        <button type="button" id="urgent" value="urgent">
+                        <button type="button" id="urgent" value="urgent" onclick="priorityStatus('urgent')">
                             Urgent
                             <img id="urgentIcon" src="./img/urgentIcon.png">
                         </button>
 
-                        <button type="button" id="medium" value="medium">
+                        <button type="button" id="medium" value="medium" onclick="priorityStatus('medium')">
                             Medium
                             <img id="mediumIcon" src="./img/mediumIcon.png">
                         </button>
 
-                        <button type="button" id="low" value="low">
+                        <button type="button" id="low" value="low" onclick="priorityStatus('low')">
                             Low
                             <img id="lowIcon" src="./img/lowIcon.png">
                         </button>
@@ -116,7 +116,7 @@ function generateContentLeftAndRightContainer() {
 function generateTwoButtonsContainer() {
     return /*html*/ `
         <div class="twoButtons">
-            <button id="reset" type="reset" class="clearButton" onclick="clearFields()">
+            <button id="reset" type="reset" class="clearButton" onclick="clearFields(), priorityStatus('low')">
                 Clear X
             </button>
 

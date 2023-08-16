@@ -196,7 +196,7 @@
 }
 
 .greeting p {
-    font-size: 32px;
+    font-size: 60px;
 }
 
 .insertDate {
@@ -211,7 +211,7 @@
     color: #29ABE2;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .greeting {
         position: absolute;
         left: 0;
@@ -361,5 +361,12 @@
         margin-top: 10px;
     }
     .headlineDiv {
-        width: 350px;}
+        width: 350px;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+    .contentAndGreeting {
+        margin-left: 32px;
+        margin-right: 32px;
+    }
 }
