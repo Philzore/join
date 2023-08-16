@@ -19,6 +19,7 @@ async function initAddTask() {
     activatePrioButtons();
     allSubtasks = [];
     generateNormalTask = true;
+    chosenStat = 'todo';
 }
 
 /**
