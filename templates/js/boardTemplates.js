@@ -158,8 +158,8 @@ function generatePinnedTaskHTML(task, progressInPercent) {
         </div>
 
         <div class="move-task-btns">
-            <img id="move-up${task['id']}" class="direction-btn" onclick="moveTaskUp(${task['id']},event)" src="../img/arrow-up.png">
-            <img id="move-down${task['id']}" class="direction-btn" onclick="moveTaskDown(${task['id']}, event)" src="../img/arrow-down.png">
+            <img id="move-up${task['id']}" class="direction-btn" onclick="moveTaskUp(${task['id']},event)" src="./img/arrow-up.png">
+            <img id="move-down${task['id']}" class="direction-btn" onclick="moveTaskDown(${task['id']}, event)" src="./img/arrow-down.png">
         </div>
 
         <h3 class="pinnedTaskHeadline">${task['title']}</h3>
