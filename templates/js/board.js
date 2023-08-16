@@ -47,6 +47,7 @@ function renderBoardHTML() {
     document.getElementById('boardBody').classList.add('showScrollBarY');
     renderBoardHeaderHTML();
     renderStatusFieldsHTML();
+    checkPositionTask();
 }
 /**
  * 

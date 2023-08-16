@@ -643,6 +643,12 @@
     }
 }
 
+@media (max-width : 1000px){
+    .statContainer{
+        height: auto;
+    }
+}
+
 @media(min-width: 571px) {
     .closeBtnArrow {
         display: none;
