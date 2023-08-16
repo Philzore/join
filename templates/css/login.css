@@ -457,27 +457,8 @@
         z-index: 1;
     }
 
-    .logoAnimationImg {
+ .logoAnimationImg {
         height: 70px;
-        transform: translate(-135px, -270px);
-    }
-
-    .logo img {
-        height: 70px;
-        top: 45%;
-        left: 45%;
-        transform: translate(-135px, -270px);
-    }   
-
-    @keyframes logoAnimation {
-        from {
-            transform: translate(0px);
-            scale: 200%;
-        }
-
-        to {
-            transform: translate(-135px, -270px);
-        }
     }
 
     @keyframes background-fade {
