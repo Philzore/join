@@ -165,7 +165,7 @@ function pushDate() {
 
 /**
  * Add the Button's of addTask a click function.
- * 
+ * TODO
  */
 function activatePrioButtons() {
     low();
@@ -240,6 +240,41 @@ function low() {
     document.getElementById('medium').classList.remove('medium');
     document.getElementById('mediumIcon').src = './img/mediumIcon.png';
 
+    document.getElementById('urgent').classList.remove('urgent');
+    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
+}
+
+//TODO
+function priorityStatus(priority) {
+    let prioValue = document.getElementById(priority).value;
+    prio = prioValue ;
+
+    document.getElementById(priority).classList.add(priority);
+    document.getElementById(`${priority}Icon`).src = `./img/${priority}WhiteIcon.png`;
+
+    if (priority == 'low') {
+        removeMedium();
+        removeUrgent();
+    } else if(priority == 'medium') {
+        removeLow();
+        removeUrgent();
+    } else if(priority == 'urgent') {
+        removeLow();
+        removeMedium();
+    }
+}
+
+function removeLow() {
+    document.getElementById('low').classList.remove('low');
+    document.getElementById('lowIcon').src = './img/lowIcon.png';
+}
+
+function removeMedium() {
+    document.getElementById('medium').classList.remove('medium');
+    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
+}
+
+function removeUrgent() {
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('urgentIcon').src = './img/urgentIcon.png';
 }
