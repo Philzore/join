@@ -11,7 +11,7 @@
     position: absolute;
     top: 18px;
     left: 18px;
-}   
+}
 
 .d-flex {
     display: flex;
@@ -82,6 +82,7 @@
 }
 
 .innerContentLogin {
+    position: relative;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -96,6 +97,7 @@
 }
 
 .innerContentForgotPw {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,8 +135,8 @@
 .arrowblue {
     position: absolute;
     width: 200px;
-    margin-right: 13%;
-    margin-top: 20px;
+    top: 15px;
+    left: 10px;
 }
 
 
@@ -353,10 +355,15 @@
     z-index: -5;
 }
 
+.forgotPwHeadline {
+    text-align: center;
+}
+
 @keyframes fadeIn {
     from {
         scale: 0;
     }
+
     to {
         scale: 1;
     }
@@ -404,7 +411,7 @@
 }
 
 @media (max-width: 1080px) {
-    .msgBoxContent{
+    .msgBoxContent {
         width: 250px;
     }
 
@@ -438,13 +445,8 @@
 }
 
 @media (max-width: 750px) {
-    .msgBoxContent{
+    .msgBoxContent {
         width: 220px;
-    }
-    
-    .arrowblue {
-        position: relative;
-        margin-right: 20%;
     }
 
     .logoAnimationDiv {
@@ -457,7 +459,11 @@
         z-index: 1;
     }
 
- .logoAnimationImg {
+    .logoAnimationImg {
+        height: 70px;
+    }
+
+    .logo-without-animation {
         height: 70px;
     }
 
@@ -499,11 +505,16 @@
 
     .guestbtn {
         height: 45px;
+        margin-bottom: 20px;
+    }
+
+    .sign-up-btn {
+        margin-bottom: 20px;
     }
 
     .innerContentLogin {
         width: 300px;
-        height: 435px;
+        height: auto;
         margin-top: 25px;
     }
 
@@ -526,7 +537,6 @@
     }
 
     .loginHeadlineDiv {
-
         margin-bottom: 25px;
     }
 
@@ -541,7 +551,11 @@
     }
 
     .innerContentForgotPw {
-        height: 50%;
+        height: auto;
+    }
+
+    .forgotPwBtn {
+        margin-bottom: 20px;
     }
 
     .textForgotPw {
@@ -590,10 +604,10 @@
     }
 }
 
-@media (max-width :350px){
-    .innerContentLogin{
+@media (max-width :350px) {
+    .innerContentLogin {
         min-width: 0 !important;
         width: 250px;
     }
-}
 
+}
