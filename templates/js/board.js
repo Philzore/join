@@ -111,10 +111,20 @@ function drop(stat) {
     updateBoardTasks();
 }
 
+/**
+ * highlight an element
+ * 
+ * @param {string} stat object
+ */
 function highlight(stat) {
     //document.getElementById(stat).classList.add('dragAreaHighlight');
 }
 
+/**
+ * stop highlight an element
+ * 
+ * @param {string} stat object 
+ */
 function stopHighlight(stat) {
     document.getElementById(stat).classList.remove('dragAreaHighlight');
 }

@@ -152,7 +152,7 @@ function setColor(color) {
  * 
  */
 function renderTwoButtonsContainer() {
-    document.getElementById('twoButtonsContainer').innerHTML = generateTwoButtonsContainer();
+    document.getElementById('contentLeftAndRightContainer').innerHTML += generateTwoButtonsContainer();
 }
 
 /**

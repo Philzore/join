@@ -131,12 +131,12 @@ function getSummaryinnerContent() {
         <div id="inProgress" class="tasknumber">0</div>
         <p class="tasktext">Tasks in Progress</p>
       </div>
-      <div id="awaitingFeedbackDiv" class="taskbox" onclick="renderBoard()">
+      <div id="awaitingFeedbackDiv" class="taskbox last-box" onclick="renderBoard()">
         <div id="awaitingFeedback" class="tasknumber">0</div>
         <p class="tasktext">Awaiting Feedback</p>
       </div>
     </div>
-    <div id="newsAndDateDiv" class="newsAndDate pointer" onclick="renderBoard()">
+    <div id="newsAndDateDiv" class="newsAndDate pointer last-box" onclick="renderBoard()">
       <div id="news" class="news">
         <img src="./img/urgent.png" alt="" />
         <div id="newsNumberAndText">
@@ -156,7 +156,7 @@ function getSummaryinnerContent() {
           To Do
         </div>
       </div>
-      <div id="doneDiv" class="personalTaskBox donebg pointer" onclick="renderBoard()">
+      <div id="doneDiv" class="personalTaskBox donebg pointer last-box" onclick="renderBoard()">
         <div id="doneNumberAndText" class="marginLeft25">
           <b id="done" class="doneNumber">0</b><br />
           Done

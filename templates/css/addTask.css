@@ -22,6 +22,15 @@
 .contentLeftAndRightContainer {
     padding-left: 125px;
     padding-right: 125px;
+    max-width: 890px;
+}
+
+.contentLeft {
+    margin-right: 20px;
+}
+
+.contentRight {
+    margin-left: 20px;
 }
 
 .twoButtonsContainer {
@@ -88,18 +97,14 @@ button {
     font-size: 21px;
 }
 
-
 .contentLeftAndRight {
     display: flex;
     width: 100%;
-    justify-content: space-between;
 }
 
 .borderline {
     border: 1px solid #D1D1D1;
 }
-
-
 
 .titleAndInput {
     display: flex;
