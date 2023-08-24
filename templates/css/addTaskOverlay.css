@@ -8,6 +8,7 @@
     transition: transform 800ms ease-in-out;
     transform: translate(0%);
     animation: slideIn 0.8s ease-in-out;
+    max-height: 700px;
 }
 
 .selectContactOverlay {
@@ -98,6 +99,10 @@
 
     .twoButtonsContainerOverlay {
         margin-top: 20px;
+    }
+
+    .contentRight {
+        margin-left: 0;
     }
 }
 

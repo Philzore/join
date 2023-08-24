@@ -1,6 +1,7 @@
-.pointer{
+.pointer {
     cursor: pointer;
 }
+
 .d-flex {
     display: flex;
 }
@@ -248,31 +249,30 @@
         bottom: 0;
         right: 0;
         z-index: -1;
-        
+
     }
-    .greeting p{
+
+    .greeting p {
         font-size: 45px !important;
     }
 
     .last-box {
         margin-right: 0px !important;
     }
-    
+
     @keyframes greeting-fade {
         from {
             background: #F6F7F8;
             z-index: 3;
             color: #000000;
         }
-    
+
         to {
             background: none;
             z-index: -1;
             color: #F6F7F8;
         }
     }
-
-
 }
 
 @media (max-width: 750px) {
@@ -348,30 +348,42 @@
         margin-top: 25px;
     }
 }
-@media (max-width: 500px){
-    .summarySection{
+
+@media (max-width: 500px) {
+    .summarySection {
         padding: 15px;
     }
 }
+
 @media (max-height: 700px) {
     .summaryHeadline {
         margin-top: 0px !important;
         margin-bottom: 0px !important;
     }
+
     .newsAndDate {
         margin-top: 10px;
         margin-right: 0px;
     }
+
     .personalTaskBox {
         margin-top: 10px;
     }
+
     .headlineDiv {
         width: 350px;
         margin-left: 32px;
         margin-right: 32px;
     }
+
     .contentAndGreeting {
         margin-left: 32px;
         margin-right: 32px;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 48px !important;
     }
 }

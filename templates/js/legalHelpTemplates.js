@@ -46,24 +46,12 @@ function generateLegalNoticeScreenHTML() {
     <img onclick="returnToLastActivePage()" class="contactsDetailHeadPic2" src="./img/returnArrowDark.svg" alt="returnToListBtn">
     </div>
     <h3>Angaben gemäß § 5 TMG</h3>
-    <p>Dominik Wiese<br>
-        Kuckuckshorn 2c<br>
-        21107 Hamburg<br>
-    </p>
-    <p>Philipp Mössl<br>
+    <h2>Kontakt</h2>
+        Philipp Mössl<br>
         Hauptstraße 69<br>
         02727 Ebersbach-Neugersdorf<br>
-    </p>
-    <p>Enrico Land<br>
-        Mauermannstraße 5<br>
-        76755 Wörth am Main<br>
-    </p>
-    <h2>Kontakt</h2>
-        Dominik Wiese<br>
-        Kuckuckshorn 2c<br>
-        21107 Hamburg<br>
-    <p>Telefon: 015901923897<br />
-        E-Mail: dominikwiese81@gmail.com</h3>
+    <p>Telefon: 016091286242<br />
+        E-Mail: pmoessl@outlook.de</h3>
     <h2>Quellen</h2>
     <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></h3>
     <br>

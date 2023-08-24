@@ -192,7 +192,7 @@ function renderDoneHTML(arrayName) {
  */
 function renderAssignedToHTML(task) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
-    
+
     let assignmentCount = task['assignedTo'].length - 3;
 
     content.innerHTML = '';
@@ -256,8 +256,8 @@ function closeTaskPopUp() {
 }
 /**
  * Render The Pop up Task 
- * @param {number} Id Id is the unique Id of each Tasknote
  * 
+ * @param {number} Id Id is the unique Id of each Tasknote
  */
 function renderClickedTaskPopUpHTML(Id) {
     let content = document.getElementById('overlaySection');
@@ -272,6 +272,7 @@ function renderClickedTaskPopUpHTML(Id) {
 /**
  *  Render more of The Pop up Task 
  * 
+ * @param {array} clickedTask current activate task
  */
 function renderTaskPopUpTableHTML(clickedTask) {
     let content = document.getElementById('taskPopUpTable');
@@ -283,10 +284,11 @@ function renderTaskPopUpTableHTML(clickedTask) {
 /**
  * Render the Initails and color 
  * 
+ * @param {array} clickedTask current activate task
  */
 function renderTaskPopUpAssignmentsHTML(clickedTask) {
     let content = document.getElementById('taskPopUpAssignmentsList');
-
+    
     content.innerHTML = '';
 
     for (let i = 0; i < clickedTask['assignedTo'].length; i++) {
@@ -296,7 +298,26 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
 
         content.innerHTML += renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor);
     }
+    renderSubtaskPopUp(clickedTask);
 }
+
+/**
+ * render subtasks in pop up window
+ * 
+ * @param {array} clickedTask current activate task
+ */
+function renderSubtaskPopUp(clickedTask) {
+    let content = document.getElementById('actual-subtasks');
+    content.innerHTML = '';
+    if (clickedTask['subtasks'].length > 0) {
+
+        for (let i = 0; i < clickedTask['subtasks'].length; i++) {
+            const singleSubtask = clickedTask['subtasks'][i];
+            content.innerHTML += `<span>${singleSubtask}</span>`; 
+        }
+    }
+}
+
 /**
  * Open the Popup to modifyer the Task
  * 

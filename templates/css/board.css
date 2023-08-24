@@ -494,6 +494,7 @@
 
 .assignedToHeadline {
     margin-bottom: 25px;
+    font-size: 21px;
 }
 
 .taskPopUpDiscription {
@@ -509,7 +510,7 @@
 .taskPopUpAssignmentsList {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: auto;
     gap: 25px;
     overflow-y: auto;
 }
@@ -611,7 +612,7 @@
 
 .move-task-btns {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 10px;
     top: 10px;
@@ -634,6 +635,17 @@
     border-radius: 8px;
     color: white;
     padding: 8px;
+}
+
+.special-info {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.actual-subtasks {
+    display: flex;
+    flex-direction: column;
 }
 
 @media(max-width: 1550px) {
@@ -685,6 +697,7 @@
     .assignedFrame {
         width: 300px !important;
     }
+
 }
 
 @media(max-width: 830px) {
@@ -790,6 +803,11 @@
     .modifyInput {
         width: 300px !important;
     }
+
+    .move-task-btns {
+        display: flex;
+    }
+
 }
 
 @media(max-width: 400px) {
@@ -802,10 +820,14 @@
         height: auto;
     }
 
-   
-
     .modifyInput {
         width: 280px !important;
+    }
+
+    .board {
+        font-size: 48px;
+        display: flex;
+        align-items: center;
     }
 }
 

@@ -125,6 +125,11 @@ function renderAssignedInitialOverlay() {
         }
     }
 }
+
+/**
+ * clear fields in overlay
+ * 
+ */
 function clearFieldsOverlay() {
     assignedToNames = [];
     allSubtasks = [];
@@ -154,80 +159,13 @@ function pushDateOverlay() {
  * 
  */
 function activatePrioButtonsOverlay() {
-    low();
-    let urgentBtn = document.getElementById('urgent');
-    urgentBtn.addEventListener("click", urgent);
-
-    let mediumBtn = document.getElementById('medium');
-    mediumBtn.addEventListener("click", medium);
-
-    let lowBtn = document.getElementById('low');
-    lowBtn.addEventListener("click", low);
-
-    let resetBtn = document.getElementById('reset');
-    resetBtn.addEventListener("click", low);
+    priorityStatus('low');
 
     document.getElementById('addTaskForm').addEventListener('submit', function (event) {
         event.preventDefault();
         createTask();
     });
 }
-
-/**
- * change backround for urgent button
- * 
- */
-function urgent() {
-    let prioValue = document.getElementById('urgent').value;
-    prio = prioValue;
-
-    document.getElementById('urgent').classList.add('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentWhiteIcon.png';
-
-    document.getElementById('medium').classList.remove('medium');
-    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
-
-    document.getElementById('low').classList.remove('low');
-    document.getElementById('lowIcon').src = './img/lowIcon.png';
-}
-
-/**
- * change backround for medium button
- * 
- */
-function medium() {
-    let prioValue = document.getElementById('medium').value;
-    prio = prioValue;
-
-    document.getElementById('medium').classList.add('medium');
-    document.getElementById('mediumIcon').src = './img/mediumWhiteIcon.png';
-
-    document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
-
-    document.getElementById('low').classList.remove('low');
-    document.getElementById('lowIcon').src = './img/lowIcon.png';
-}
-
-/**
- * change backround for low button
- * 
- */
-function low() {
-    let prioValue = document.getElementById('low').value;
-    prio = prioValue;
-
-    document.getElementById('low').classList.add('low');
-    document.getElementById('lowIcon').src = './img/lowWhiteIcon.png';
-
-    document.getElementById('medium').classList.remove('medium');
-    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
-
-    document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
-}
-
-
 
 /**
  * generate html for add task overlay

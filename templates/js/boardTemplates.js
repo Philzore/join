@@ -132,9 +132,15 @@ function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
 
         <div class="taskPopUpTable" id="taskPopUpTable"></div>
 
+        <div class="special-info">
         <div class="taskPopUpAssignments" id="taskPopUpAssignments">
             <div class="assignedToHeadline"><b>Assigned to:</b></div>
             <div id="taskPopUpAssignmentsList" class="taskPopUpAssignmentsList"></div>
+        </div>
+        <div class="subtask-container">
+            <span><b>Subtasks :</b></span>
+            <div class="actual-subtasks" id="actual-subtasks"></div>
+        </div>
         </div>
 
         <div class="popUpButtonsContainer">
