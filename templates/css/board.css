@@ -690,10 +690,6 @@
         display: none;
     }
 
-    .assignedToAndSelect {
-        width: 300px;
-    }
-
     .assignedFrame {
         width: 300px !important;
     }
@@ -708,7 +704,6 @@
 
     .addTaskBtn {
         position: unset;
-        display: none;
     }
 
     .mobileAddTask {

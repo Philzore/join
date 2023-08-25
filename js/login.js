@@ -1,4 +1,4 @@
-if (window.location.href == 'https://join-604.developerakademie.net/join/templates/html/login.html') {
+if (window.location.href == 'https://philipp-moessl.developerakademie.net/join/templates/html/login.html') {
   let mailInput = document.getElementById('loginEmail');
   
   mailInput.addEventListener('input', renderPassword);
@@ -38,7 +38,7 @@ function leadToSignUp() {
  * 
  */
 function guestLogIn() {
-  window.location.replace("https://join-604.developerakademie.net/join/index.html");
+  window.location.replace("https://philipp-moessl.developerakademie.net/join/index.html");
 }
 
 /**
@@ -57,7 +57,7 @@ async function login() {
 
   if (user) {
     rememberMe(email, password);
-    window.location.replace("https://join-604.developerakademie.net/join/index.html");
+    window.location.replace("https://philipp-moessl.developerakademie.net/join/index.html");
   } else {
     document.getElementById("msgBox").innerHTML = `Incorrect mail or password!`;
     document.getElementById("msgBoxDiv").classList.remove("d-none");

@@ -535,12 +535,16 @@ button {
         flex-direction: column;
     }
 
+    .contentLeft{
+        margin-right: 0;
+    }
+
     input {
         width: 100% !important;
     }
 
     .selectContactFrame {
-        width: 97%;
+        width: auto;
     }
 
     textarea {
