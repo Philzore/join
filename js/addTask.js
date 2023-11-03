@@ -9,6 +9,7 @@ let isChecked = [];
 let newCategorys = [];
 let currentOpenTask = 0;
 
+
 /**
  * This Function render Task
  */
@@ -87,7 +88,10 @@ function closeAllAssigned() {
     document.getElementById('selectContact').innerHTML = `Select contacts to assign`;
 
     document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
-
+    //delete event listener
+    document.removeEventListener('click', () => {});
+    let assignedContainer = document.getElementById('assignedTo');
+    assignedContainer.removeEventListener('click', () => {});
 }
 
 /**
@@ -97,7 +101,18 @@ function openAllAssigned() {
     document.getElementById('assignedTo').classList.remove('d-none');
     document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`;
     document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
+    //add event listener
+    document.addEventListener('click', () => {
+        let assignedMenu = document.getElementById('assignedTo');
+        if (!assignedMenu.classList.contains('d-none')) {
+            closeAllAssigned();
+        }
+    });
+    let assignedContainer = document.getElementById('assignedTo');
 
+    assignedContainer.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
 }
 
 /**
@@ -196,7 +211,7 @@ function activatePrioButtons() {
 function priorityStatus(priority) {
     let prioValue = document.getElementById(priority).value;
     prio = prioValue;
-    
+
     document.getElementById(priority).classList.add(priority);
     document.getElementById(`${priority}Icon`).src = `./img/${priority}WhiteIcon.png`;
 

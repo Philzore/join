@@ -159,22 +159,22 @@ function generatePinnedTaskHTML(task, progressInPercent) {
     return /*html*/`
     <div onclick="openExistingTaskPopUp(${task['id']})">
         <div draggable="true" ondragstart="startDragging(${task['id']})" class="pinnedTaskContainer" id="pinnedTaskContainer${task['id']}">
-        <div class="taskCategory ${task['category'].toLowerCase()}-bg">
-            ${task['category']}
-        </div>
-
-        <div class="move-task-btns">
-            <img id="move-up${task['id']}" class="direction-btn" onclick="moveTaskUp(${task['id']},event)" src="./img/arrow-up.png">
-            <img id="move-down${task['id']}" class="direction-btn" onclick="moveTaskDown(${task['id']}, event)" src="./img/arrow-down.png">
-        </div>
-
-        <h3 class="pinnedTaskHeadline">${task['title']}</h3>
-        <p class="pinnedTaskDiscription">${task['description']}</p>
-
-        <div id="progressContainer${task['id']}" class="progressContainer v-hide">
-            <div class="progressBar">
-                <div class="blueProgress" style="width:${progressInPercent}%"></div>
+            <div class="taskCategory ${task['category'].toLowerCase()}-bg">
+                ${task['category']}
             </div>
+
+            <div class="move-task-btns">
+                <img id="move-up${task['id']}" class="direction-btn" onclick="moveTaskUp(${task['id']},event)" src="./img/arrow-up.png">
+                <img id="move-down${task['id']}" class="direction-btn" onclick="moveTaskDown(${task['id']}, event)" src="./img/arrow-down.png">
+            </div>
+
+            <h3 class="pinnedTaskHeadline">${task['title']}</h3>
+            <p class="pinnedTaskDiscription">${task['description']}</p>
+
+            <div id="progressContainer${task['id']}" class="progressContainer v-hide">
+                <div class="progressBar">
+                    <div class="blueProgress" style="width:${progressInPercent}%"></div>
+                </div>
             
             <div class="progressText">${task['doneSubTasks']} / ${task['subtasks'].length} Done</div>
         </div>
@@ -190,6 +190,7 @@ function generatePinnedTaskHTML(task, progressInPercent) {
         </div>
         </div>
         </div>
+        
     </div>
 `;
 }

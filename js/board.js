@@ -1,5 +1,5 @@
 
-/**
+/** 
  * Modifyer the Assigned
  * 
  */
@@ -77,22 +77,37 @@ function confirmChangesOnTask(Id) {
  * 
  */
 function deleteTask(Id) {
-
     newTaskArray.splice(Id, 1);
     giveTaskId();
     closeTaskPopUp();
     saveTasks();
     updateBoardTasks();
 }
+
+/**
+ * show placeholder for dragging elements
+ * 
+ */
+function showPlaceholderDragging(currentStat){
+    document.getElementById('placeholder-todo').classList.remove('d-none');
+    document.getElementById('placeholder-inProgress').classList.remove('d-none');
+    document.getElementById('placeholder-awaitingFeedback').classList.remove('d-none');
+    document.getElementById('placeholder-done').classList.remove('d-none');
+
+    document.getElementById(`placeholder-${currentStat}`).classList.add('d-none');
+}
+
 /**
  * Drag and Drop
  * 
  */
-
 function startDragging(id) {
     currentDraggedTask = id;
+    let currentStat = newTaskArray[currentDraggedTask].stat ;
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.add('rotateDeg');
+    showPlaceholderDragging(currentStat);
 }
+
 /**
  * allowDrop
  * 
@@ -100,6 +115,7 @@ function startDragging(id) {
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
 /**
  * drop
  * 

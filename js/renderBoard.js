@@ -103,6 +103,7 @@ function renderTodoTasksHTML(arrayName) {
             renderAssignedToHTML(task);
         }
     }
+    content.innerHTML += `<div id="placeholder-todo" class="placeholder-container d-none"></div>`;
 }
 
 /**
@@ -130,6 +131,7 @@ function renderInProgressHTML(arrayName) {
             renderAssignedToHTML(task);
         }
     }
+    content.innerHTML += `<div id="placeholder-inProgress" class="placeholder-container d-none"></div>`;
 }
 
 /**
@@ -157,6 +159,7 @@ function renderAwaitingFeedbackHTML(arrayName) {
             renderAssignedToHTML(task);
         }
     }
+    content.innerHTML += `<div id="placeholder-awaitingFeedback" class="placeholder-container d-none"></div>`;
 }
 
 /**
@@ -184,6 +187,7 @@ function renderDoneHTML(arrayName) {
             renderAssignedToHTML(task);
         }
     }
+    content.innerHTML += `<div id="placeholder-done" class="placeholder-container d-none"></div>`;
 }
 
 /**

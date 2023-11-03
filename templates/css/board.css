@@ -291,6 +291,23 @@
     z-index: 99;
 }
 
+.placeholder-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 18px 19px;
+    gap: 10px;
+    width: 250px;
+    min-height: 239px ;
+    background: lightgray;
+    border-radius: 30px;
+    border: dotted lightgray;
+    cursor: pointer;
+    z-index: 99;
+}
+
 .taskCategory {
     display: flex;
     align-items: center;
