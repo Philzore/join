@@ -44,7 +44,7 @@ function closeOverlay() {
     document.removeEventListener('click', () => { });
     let assignedContainer = document.getElementById('assignedToOverlay');
     assignedContainer.removeEventListener('click', () => { });
-    
+
     document.getElementById('overlaySection').classList.add('d-none');
     document.getElementById('overlaySection').innerHTML = '';
 }
@@ -115,7 +115,8 @@ function openAllAssignedOverlay() {
     document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
     //add event listener
     let assignedContainer = document.getElementById('assignedToOverlay');
-    document.addEventListener('click', () => {
+    let addTaskFrom = document.getElementById('addTaskForm');
+    addTaskFrom.addEventListener('click', () => {
         if (!assignedContainer.classList.contains('d-none')) {
             closeAllAssignedOverlay();
         }
