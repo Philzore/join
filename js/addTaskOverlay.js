@@ -1,4 +1,4 @@
-let generateNormalTask = false ;
+let generateNormalTask = false;
 
 /**
  * open overlay to create new task
@@ -39,7 +39,12 @@ function renderHeadlineOverlay() {
  * 
  */
 function closeOverlay() {
-    clearFieldsOverlay;
+    clearFieldsOverlay();
+    //delete event listener
+    document.removeEventListener('click', () => { });
+    let assignedContainer = document.getElementById('assignedToOverlay');
+    assignedContainer.removeEventListener('click', () => { });
+    
     document.getElementById('overlaySection').classList.add('d-none');
     document.getElementById('overlaySection').innerHTML = '';
 }
@@ -94,6 +99,10 @@ function closeAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.add('d-none');
     document.getElementById('selectContactOverlay').innerHTML = `Select contacts to assign`;
     document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
+    //delete event listener
+    document.removeEventListener('click', () => { });
+    let assignedContainer = document.getElementById('assignedToOverlay');
+    assignedContainer.removeEventListener('click', () => { });
 }
 
 /**
@@ -104,6 +113,17 @@ function openAllAssignedOverlay() {
     document.getElementById('assignedToOverlay').classList.remove('d-none');
     document.getElementById('selectContactOverlay').innerHTML = `Close Select contacts to assign`;
     document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
+    //add event listener
+    let assignedContainer = document.getElementById('assignedToOverlay');
+    document.addEventListener('click', () => {
+        if (!assignedContainer.classList.contains('d-none')) {
+            closeAllAssignedOverlay();
+        }
+    });
+
+    assignedContainer.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
 }
 
 /**
@@ -120,7 +140,7 @@ function renderAssignedInitialOverlay() {
         let checkbox = document.getElementById(`assignedCheckbox${i}`);
         if (checkbox.checked == true) {
             document.getElementById(`renderVisibelAssignedOverlay${i}`).classList.remove('d-none');
-        }else{
+        } else {
             document.getElementById(`renderVisibelAssignedOverlay${i}`).classList.add('d-none');
         }
     }

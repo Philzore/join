@@ -82,6 +82,8 @@ function showAllAssigned() {
 
 /**
  *  It close the hidden field of Checkboxes and switch the Imagen Arrow.
+ *  then remove eventlistener for closing drop down
+ * 
  */
 function closeAllAssigned() {
     document.getElementById('assignedTo').classList.add('d-none');
@@ -89,26 +91,27 @@ function closeAllAssigned() {
 
     document.getElementById('selectContactImg').classList.remove('selectContactImgFlip');
     //delete event listener
-    document.removeEventListener('click', () => {});
+    document.removeEventListener('click', () => { });
     let assignedContainer = document.getElementById('assignedTo');
-    assignedContainer.removeEventListener('click', () => {});
+    assignedContainer.removeEventListener('click', () => { });
 }
 
 /**
  * It open the hidden field of Checkboxes and switch the Imagen Arrow.
+ * then add eventlistener when click outside to close the drop down
+ * 
  */
 function openAllAssigned() {
     document.getElementById('assignedTo').classList.remove('d-none');
     document.getElementById('selectContact').innerHTML = `Close Select contacts to assign`;
     document.getElementById('selectContactImg').classList.add('selectContactImgFlip');
     //add event listener
+    let assignedContainer = document.getElementById('assignedTo');
     document.addEventListener('click', () => {
-        let assignedMenu = document.getElementById('assignedTo');
-        if (!assignedMenu.classList.contains('d-none')) {
+        if (!assignedContainer.classList.contains('d-none')) {
             closeAllAssigned();
         }
     });
-    let assignedContainer = document.getElementById('assignedTo');
 
     assignedContainer.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -117,8 +120,8 @@ function openAllAssigned() {
 
 /**
  *  The Function reading the Checkbox and if the Checkbox is checked push it to the Array AssignedToNames and ContactsColors.
+ * 
  */
-
 function addAssignedToTask() {
 
     for (let i = 0; i < allContacts.length; i++) {
