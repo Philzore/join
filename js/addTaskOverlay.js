@@ -1,4 +1,5 @@
 let generateNormalTask = false;
+let overlay = '' ;
 
 /**
  * open overlay to create new task
@@ -17,6 +18,7 @@ function openAddTaskOverlay(stat) {
     `;
     renderHeadlineOverlay();
     generateNormalTask = true;
+    overlay = 'newTask';
 }
 
 /**
@@ -39,14 +41,18 @@ function renderHeadlineOverlay() {
  * 
  */
 function closeOverlay() {
-    clearFieldsOverlay();
-    //delete event listener
-    document.removeEventListener('click', () => { });
-    let assignedContainer = document.getElementById('assignedToOverlay');
-    assignedContainer.removeEventListener('click', () => { });
+    if (overlay == 'newTask') {
+        clearFieldsOverlay();
+        //delete event listener
+        document.removeEventListener('click', () => { });
+        let assignedContainer = document.getElementById('assignedToOverlay');
+        assignedContainer.removeEventListener('click', () => { });
+    }
 
     document.getElementById('overlaySection').classList.add('d-none');
     document.getElementById('overlaySection').innerHTML = '';
+
+    overlay = '' ;
 }
 
 /**
